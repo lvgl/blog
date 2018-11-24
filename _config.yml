@@ -26,8 +26,15 @@ github_username:  jekyll
 
 # Build settings
 markdown: kramdown
-theme: jekyll-theme-slate
+
+remote_theme: chesterhow/tale
+
+permalink:    /:year-:month-:day/:title
+paginate:     5
+
 plugins:
+  - jekyll-paginate
+  - jekyll-remote-theme
   - jekyll-feed
 
 # Exclude from processing.
