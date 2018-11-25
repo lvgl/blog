@@ -6,11 +6,6 @@ image:
   path: /assets/png_converter/cover.png
   height: 300
   width: 300
-  
-image:
-  path: /assets/png_converter/banner.png
-  height: 1200
-  width: 627
 ---
 
 If you already used images in LittlevGL probably you used the [Online image converter](https://littlevgl.com/image-to-c-array) to convert an image to a C array and you compiled the C array into your code. However, since v5.2 LittlevGL has an image decoder interface which allows adding your own decoder functions to open and read any type of images. In this post, I will show you how to add and use the [lodepng](https://github.com/lvandeve/lodepng) library to display PNG images in real time. 
