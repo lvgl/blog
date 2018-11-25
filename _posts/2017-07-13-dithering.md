@@ -9,10 +9,10 @@ I'm sure that you have already faced with the problem when you have only 16-bit 
 ## What is dithering?
 Dithering is an image (and audio) processing method. It gives the effect that your image has greater color depth by manipulating pixels by a smart algorithm. Both of the images below are using only 256 colors but the right one is dithered. The difference in the quality is clear. Working form the same color palette (same number of colors) the dithered image looks much better. 
 
-![8 bit (256 colors) image without dithering](assets/dithering/dither_example_1.jpg)
+![8 bit (256 colors) image without dithering](/assets/dithering/dither_example_1.jpg)
 _8 bit (256 colors) image without dithering_
 
-![8 bit (256 colors) image with dithering](assets/dithering/dither_example_2.jpg)
+![8 bit (256 colors) image with dithering](/assets/dithering/dither_example_2.jpg)
 _8 bit (256 colors) image with dithering_
 
 ## Why use dithering?
