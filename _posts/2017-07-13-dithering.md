@@ -55,7 +55,7 @@ The most simple way to dither your high color depth image to 16 bit is using a p
 
 ### GIMP
 [GIMP](https://www.gimp.org/) is a free and cross platform software to manipulate images.   
-GIMP needs a plugin to make this kind of dithering. I used this one: http://registry.gimp.org/node/25275. I just followed the steps in the description to add the plugin to GIMP.  If because of any reason the link above become broken you can also download the plugin from [here]('/assets/dithering/dither.zip'). And the steps to add the plugin:
+GIMP needs a plugin to make this kind of dithering. I used this one: http://registry.gimp.org/node/25275. I just followed the steps in the description to add the plugin to GIMP.  If because of any reason the link above become broken you can also download the plugin from [here](/assets/dithering/dither.zip). And the steps to add the plugin:
 
 1. Copy the *dither16bit.scm* file to the script directory of GIMP (On Linux: /home/user/.gimp-*/scripts)
 2. Copy the the 4 Grayscale palette files (*.gpl) file to the palette directory of GIMP (On Linux: /home/user/.gimp-*/palettes)
@@ -78,7 +78,7 @@ Here is an example to see the difference between the original, non-dithered and 
 ![Dithered black and white image](/assets/dithering/bw_dithered.png)
 
 ## How to use dithered image in LittlevGL?
-Once you have a dithered image you can use it [LittlevGL](/) as other images. Just upload it to the  [Online Image Converter](https://littlevgl.com/image-to-c-array) tool which creates a  C array from a BMP, JPG or PNG image. Then you need to copy the result C file to you project and use it with an [Image obejct](https://littlevgl.com/object-types/image-lv_img).
+Once you have a dithered image you can use it [LittlevGL](https://littlevgl.com) as other images. Just upload it to the  [Online Image Converter](https://littlevgl.com/image-to-c-array) tool which creates a  C array from a BMP, JPG or PNG image. Then you need to copy the result C file to you project and use it with an [Image obejct](https://littlevgl.com/object-types/image-lv_img).
 
 ## Conclusion
 Now you know how to improve the quality of your 16-bit images using dithering. I hope you found this article useful!  
