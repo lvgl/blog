@@ -5,6 +5,8 @@ author: "kisvegabor"
 permalink: /about/
 ---
 
+![LittelvGL embedded GUI banner](https://littlevgl.com/docs/themes/lv_theme_intro.png)
+
 LittlevGL is a free and open-source graphics library providing everything you need to create embedded GUI with easy-to-use graphical elements, beautiful visual effects and low memory footprint.
 
 Webpage: https://littlevgl.com/
