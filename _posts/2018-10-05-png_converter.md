@@ -255,8 +255,7 @@ const uint8_t * decoder_open(const void * src, const lv_style_t * style)
 </code></pre>
 
 ## Decoder close
-<pre class="line-numbers">
-<code class="language-clike">/**
+/**
  * Free the allocated resources
  */
 void decoder_close(void)
