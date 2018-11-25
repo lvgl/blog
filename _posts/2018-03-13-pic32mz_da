@@ -48,7 +48,7 @@ Just a fast calculation: a display with  800 × 600 resolution 24 bit color dept
 
 Look a real-life example. In today's GUI designs blurring is very popular but in real time it needs a lot of computation power as well. But if you have enough space to store (or calculate when the MCU is idle) the blurred version of the current screen you can simply and quickly display it as an image. 
 
-<img src='blog/pic32mz_da/blur.png' class='img-responsive' alt='Partial blur effect on an image'>
+![Partial blur effect on an image](/assets/pic32mz_da/blur.png)
 
 ### Connection with Littlev Graphics Library
 As you maybe already know the Littlev Graphics Library is free, open source and hardware independent therefore it is a good choice not only for test this awesome MCU but to use in your graphical application. 
