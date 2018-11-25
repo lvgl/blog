@@ -1,7 +1,6 @@
 ---
 layout: post
-title: "About"
-author: "kisvegabor"
+title: "About LittlevGL"
 permalink: /about/
 ---
 
