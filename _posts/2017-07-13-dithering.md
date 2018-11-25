@@ -26,7 +26,7 @@ To learn more about the dithering algorithms I suggest this article: [Image Dith
 
 
 ### Original 24 bit (RGB888) image
-![24 bit image without dithering](/assets/dithering/dither1.jpg)
+![24 bit image without dithering](/assets/dithering/dither_1.jpg)
 _The original image with 24 bit color depth has got smooth color gradients._
 
 ### Original enlarged
