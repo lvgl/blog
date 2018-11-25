@@ -1,17 +1,14 @@
 # Site settings
-title:          Tale
-description:    "Minimal Jekyll theme for storytellers"
-#baseurl:        "/tale"
-#url:            "https://chesterhow.github.io"
+title:          LittlevGL Blog - News and Tutorials for Embedded GUI Enthusiasts
+description:    "Release notes of LittlevGL, Tutorials, Poring guides, Development board and microcontroller test, ideas, tips and tricks and more."
 
 # Google Analytics
-google_analytics: UA—XXXXXXXX-X
+google_analytics: UA—78811084-3
 
 # Author
 author:
-  name:         Chester How
-  url:          https://chester.how
-  email:        chesterhow@gmail.com
+  name:         Gabor Kiss-Vamosi
+  email:        kisvegabor@gmail.com
 
 # Build settings
 markdown:       kramdown
