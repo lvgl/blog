@@ -55,7 +55,7 @@ The most simple way to dither your high color depth image to 16 bit is using a p
 
 ### GIMP
 [GIMP](https://www.gimp.org/) is a free and cross platform software to manipulate images.   
-GIMP needs a plugin to make this kind of dithering. I used this one: http://registry.gimp.org/node/25275. I just followed the steps in the description to add the plugin to GIMP.  If because of any reason the link above become broken you can also download the plugin from [here](/assets/dithering/dither.zip). And the steps to add the plugin:
+GIMP needs a plugin to make this kind of dithering. I used this one: http://registry.gimp.org/node/25275. I just followed the steps in the description to add the plugin to GIMP.  If because of any reason the link above become broken you can also download the plugin from [here](https://github.com/littlevgl/blog/raw/master/assets/dithering/dither.zip). And the steps to add the plugin:
 
 1. Copy the *dither16bit.scm* file to the script directory of GIMP (On Linux: /home/user/.gimp-*/scripts)
 2. Copy the the 4 Grayscale palette files (*.gpl) file to the palette directory of GIMP (On Linux: /home/user/.gimp-*/palettes)
