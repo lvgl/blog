@@ -2,6 +2,10 @@
 layout: post
 title: "How to Use Smooth Images with 16 Bit Color Depth Applying Dithering"
 author: "kisvegabor"
+image:
+  path: /assets/linux_fb/cover.png
+  height: 300
+  width: 300
 ---
 
 I'm sure that you have already faced with the problem when you have only 16-bit color depth and an image with smooth color fades. The 65k colors might be not enough to show the similar colors properly, but ugly stripes will appear. Fortunately, there is a solution which is called dithering. In this post, I will show you how to apply dithering on higher color depth images to get a better result at 16-bit color depth. 
