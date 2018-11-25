@@ -3,7 +3,7 @@ layout: post
 title: "How to Use Smooth Images with 16 Bit Color Depth Applying Dithering"
 author: "kisvegabor"
 image:
-  path: /assets/linux_fb/cover.png
+  path: /assets/dithering/cover.png
   height: 300
   width: 300
 ---
