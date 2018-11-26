@@ -7,7 +7,7 @@
 
   span {
     color: $default-shade;
-    font-size: 1.1rem;
+    font-size: 1.5rem;
   }
 
   .top {
@@ -35,10 +35,16 @@
   }
 
   .left {
-    left: 0;
+    font-size:2rem;
+    border: 1px solid #555;
+    border-radius:4px;
+    left: 40%;
   }
 
   .right {
-    right: 0;
+    font-size: 2rem;
+    border: 1px solid #555;
+    border-radius:4px;
+    right: 40%;
   }
 }
