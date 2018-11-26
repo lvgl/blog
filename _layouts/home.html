@@ -4,7 +4,7 @@ layout: default
 
 <div class="catalogue">
   {% for post in paginator.posts %}
-    <div style="margin-top:24px; margin-bottom:24px">
+    <div style="margin-top:24px; margin-bottom:24px; border-bottom: 1px solid #eee;">
         <img class="post_cover_img" src="{{ post.cover }}" height="200px" width="200px" border="1px" style="border: 0px solid #ddd; padding-right:12px;padding-top:12px">
         
        <div class="catalogue-item post_box"> 
@@ -13,7 +13,7 @@ layout: default
         <div class="catalogue-line"></div>
         <p> {{ post.content | strip_html | truncatewords: 30 }} </p>
         <time datetime="{{ post.date }}" class="catalogue-time">{{ post.date | date: "%B %d, %Y" }}</time>
-      </div>
+    </div></div>
         
   {% endfor %}
 </div>
