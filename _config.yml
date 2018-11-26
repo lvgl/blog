@@ -5,6 +5,10 @@ description:    "News and Tutorials for Embedded GUI Enthusiasts: Release notes 
 # Google Analytics
 google_analytics: UA—78811084-3
 
+
+# Site settings
+cover: /assets/def_post_cover.png
+
 # Author
 author:
   name:         Gabor Kiss-Vamosi
