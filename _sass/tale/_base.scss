@@ -64,3 +64,25 @@ img {
 td {
   vertical-align: top;
 }
+
+.post_cover_img {
+       display:block;
+       vertical-align: top;
+}
+
+.post_box {
+       display:block;
+       vertical-align: top;
+}
+
+@media only screen and (min-width: 600px) {
+    .post_cover_img {
+       display:inline;
+    }
+    
+.post_box {
+       display:inline;
+       max-width:500px;
+}
+}
+
