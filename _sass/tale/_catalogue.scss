@@ -17,7 +17,8 @@
 
   &-time {
     color: $default-tint;
-    font-family: $serif-secondary;
+    __font-family: $serif-secondary;
+    font-family: 'Open Sans', sans-serif; 
     letter-spacing: .5px;
   }
 

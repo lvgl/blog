@@ -4,6 +4,7 @@ layout: default
 
 <div class="catalogue">
   {% for post in paginator.posts %}
+   <a href="{{ post.url | prepend: site.baseurl }}" class="catalogue-item">
     <div style="margin-top:24px; margin-bottom:24px; border-bottom: 1px solid #eee;">
         <img class="post_cover_img" src="{{ post.cover }}" height="200px" width="200px" border="1px" style="border: 0px solid #ddd; padding-right:12px;padding-top:12px">
         
@@ -14,6 +15,7 @@ layout: default
         <p> {{ post.content | strip_html | truncatewords: 30 }} </p>
         <time datetime="{{ post.date }}" class="catalogue-time">{{ post.date | date: "%B %d, %Y" }}</time>
     </div></div>
+    </a>
         
   {% endfor %}
 </div>
