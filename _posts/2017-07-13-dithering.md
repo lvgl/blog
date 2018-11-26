@@ -2,6 +2,7 @@
 layout: post
 title: "How to Use Smooth Images with 16 Bit Color Depth Applying Dithering"
 author: "kisvegabor"
+cover: /assets/dithering/cover.png
 image:
   path: /assets/dithering/cover.png
   height: 300

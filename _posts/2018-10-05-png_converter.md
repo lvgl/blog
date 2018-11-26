@@ -2,6 +2,7 @@
 layout: post
 title: "Use PNG images in LittlevGL"
 author: "kisvegabor"
+cover: /assets/png_converter/cover.png
 image:
   path: /assets/png_converter/cover.png
   height: 300
