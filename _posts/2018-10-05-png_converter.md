@@ -275,7 +275,7 @@ And finally the created functions should be regitered in LittlevGL:
 lv_img_decoder_set_custom(decoder_info, decoder_open, NULL, decoder_close);
 ```
 
-After this, if you can set PNG images from file or C array as the source of [image object's](https://littlevgl.com/object-types/image-lv_img) of LittlevGL 
+After this, if you can set PNG images from file or C array as the source of [image object's](https://doc.littlevgl.com/#Image) of LittlevGL 
 
 ## Conclusion
 You just learned how to use the image decoder interface of LittlevGL to add a custom image format. It's a powerful feature which enables you to use any type of images according to your needs. You can even convert your images to a unique format which exactly meet your needs. 
