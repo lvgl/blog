@@ -51,13 +51,13 @@ Some advice:
 
 ### Where is the documentation?
 
-You can read the documentation here: https://doc.littlevgl.com/  
-You can edit the documentation here: https://github.com/littlevgl/doc  
+You can read the documentation here: <https://doc.littlevgl.com/>  
+You can edit the documentation here: <https://github.com/littlevgl/doc>  
 
 ### Where is the blog?
 
-You can read the blog here: https://blog.littlevgl.com/  
-You can edit the blog here: https://github.com/littlevgl/blog  
+You can read the blog here: <https://blog.littlevgl.com/>  
+You can edit the blog here: <https://github.com/littlevgl/blog>  
 
 
 ## So how and where can I contribute?
