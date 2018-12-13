@@ -141,7 +141,7 @@ bool example_design(lv_obj_t * obj,
 
 It might look a little bit complicated. But usually you don't have to write a totally new design function, just extend the existing one. 
 
-Let's continue the previous button + temperature example and display the stored temperature data on the button using a custom design function.
+Let's continue the previous "button + temperature" example and display the stored temperature data on the button using a custom design function. For simplicity the text is not aligned vertically.
 
 ![Extended design function adds custom text to a LittlevGL button](/assets/extend_lvgl_objects/design1.png)
 _Extended design function adds custom text to a LittlevGL button_
