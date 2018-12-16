@@ -9,7 +9,7 @@ image:
   width: 300
 ---
 
-**Although the [Objects in LittlevGL](https://doc.littlevgl.com/#Object-types) have a lot of built-in features sometimes you might need something special. For example, draw something unique on an object or change its behavior. 
+**Although the [Objects in LittlevGL](https://docs.littlevgl.com/#Object-types) have a lot of built-in features sometimes you might need something special. For example, draw something unique on an object or change its behavior. 
 In this post, I will show you how to add extra functionality to the objects in LittlevGL. You will also learn how LittlevGL works under to hood**
 
 ## Inheritance
@@ -17,7 +17,7 @@ Maybe you already know about the inheritance among object types in LittlevGL. Do
 
 Although C doesn't support classes and inheritance as C++ does with a few tricks and limitations something similar can be achieved. In LittlevGL inheritance means that a derived object knows all the features of its ancestor.
 
-For example, a [Button](https://doc.littlevgl.com/#Button) is inherited from the [Container](https://doc.littlevgl.com/#Container). The _Container_ has the _Layout_ feature so the _Button_ also has this feature. The _Container_ is inherited from the [Base object](https://doc.littlevgl.com/#Base-object). 
+For example, a [Button](https://docs.littlevgl.com/#Button) is inherited from the [Container](https://docs.littlevgl.com/#Container). The _Container_ has the _Layout_ feature so the _Button_ also has this feature. The _Container_ is inherited from the [Base object](https://docs.littlevgl.com/#Base-object). 
 The _Base object_ knows all the basic things like position and size. So the _Container_ and the _Button_ also have position and size attributes. 
 
 ![Inheritance example in LittlevGL](/assets/extend_lvgl_objects/inheritance.jpg)
@@ -285,7 +285,7 @@ The signal function is responsible for the behavior of the objects. When somethi
 
 For example, when an object is released `LV_SIGNAL_RELEASED` is sent. In this case, a button calls the user-defined release action. 
 
-An other signal is `LV_SIGNAL_CORD_CHG`. For example, the [Page](https://doc.littlevgl.com/#Page) object uses it to limit the scrolling of the scrollable area. 
+An other signal is `LV_SIGNAL_CORD_CHG`. For example, the [Page](https://docs.littlevgl.com/#Page) object uses it to limit the scrolling of the scrollable area. 
 
 ![The scrolling on a Page is limited](/assets/extend_lvgl_objects/page_limit.gif)
 _The scrolling on a Page is limited_
