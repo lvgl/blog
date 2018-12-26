@@ -34,3 +34,20 @@ layout: default
 
   <a href="#" class="top">Top</a>
 </div>
+
+<script>
+ console.log('alma');
+var tags = [ "h1","h2","h3", "h4", "h5", "h6" ];
+var h;
+
+for(var i = 0; i < tags.length; i++) {
+    h = document.getElementsByTagName(tags[i]);
+        
+    for(j = 0; j < h.length; j++) {
+        console.log("id " + h[j].id);
+        var x = "<a href='#" + h[j].id + "' style='color:#353535'>" + h[j].innerHTML + "</a>";
+        h[j].innerHTML = x; 
+    }
+}
+    
+</script>
