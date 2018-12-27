@@ -33,3 +33,8 @@ _Uploading projects are in progress_
 
 | ![RGB LED Light Controller GUI](/assets/references/c_light.jpg) | RGB LED controller GUI with STM32F4 on a 800x480 TFT with Capacitve touch panel. <br> From [Teguh Sobirin](http://sobir.in/) |
 
+
+## Christmas Lights Controller
+
+| ![Christmas Lights Controller GUI](https://harizanov.com/wp-content/uploads/2018/12/20181225_111359-e1545751524126-600x399.jpg) | MQTT Christmas lights controller GUI with ESP32 on a 320x240 TFT with resistive touch panel. <br> From [Martin Harizanov](https://harizanov.com/wiki/wiki-home/tft32/) |
+
