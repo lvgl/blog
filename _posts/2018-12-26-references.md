@@ -9,13 +9,15 @@ image:
   width: 300
 ---
 
+**Here you can find some projects where LittlevGL was used as GUI library.**
+
+Please, write a few lines about your LittlevGL based project by hitting the Edit button [here](https://github.com/littlevgl/blog/blob/master/_posts/2018-12-26-references.md).
+
+
 <style type="text/css" scoped>
     td { width: 50%; } 
 </style>
 
-**Here you can find some projects where LittlevGL was used as GUI library.**
-
-Please, write a few lines about your LittlevGL based project by hitting the Edit button [here](https://github.com/littlevgl/blog/blob/master/_posts/2018-12-26-references.md).
 
 _Uploading projects are in progress_
 
