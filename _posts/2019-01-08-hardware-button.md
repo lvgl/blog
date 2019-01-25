@@ -10,7 +10,7 @@ image:
 
 ---
 
-We use the STM32F429I-DISC1 Discovery kit to test for the LittlevGL hardware button capability. The board have two push-buttons: USER and RESET [1]. We use USER push-button. User button connected to the I/O PA0 of STM32F429ZIT6 [2].  The board have six LEDs. We use LD3 (green LED). The green LED is a user LED connected to the I/O PG13 of the STM32F429ZIT6 [2].
+**We use the STM32F429I-DISC1 Discovery kit to test for the LittlevGL hardware button capability. The board have two push-buttons: USER and RESET [1]. We use USER push-button. User button connected to the I/O PA0 of STM32F429ZIT6 [2].  The board have six LEDs. We use LD3 (green LED). The green LED is a user LED connected to the I/O PG13 of the STM32F429ZIT6 [2].**
 
 We aim to toggle LD3 LED when both harware button (USER push-pull) and UI button click.
 
