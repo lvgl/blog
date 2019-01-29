@@ -1,4 +1,4 @@
-This blog tells you something about ***Using the iPodNano6 LCD for LittlevGL.***<br>
+This blog tells you something about **Using the iPodNano6 LCD for LittlevGL.**<br>
 ![](https://github.com/techtoys/blog/blob/master/assets/iPodNano6/Running_littlevGL.JPG)
 LCD for iPod Nano6 uses MIPI Display Serial Interface (MIPI DSI) which is a high-speed serial interface between a host processor and a display module. LCDs belong to this category are very common for smartphones, tablets, and smartwatches. Reference is available from MIPI alliance page at https://www.mipi.org/specifications/dsi. Some MIPI LCDs are shown here.
 ![](https://github.com/techtoys/blog/blob/master/assets/iPodNano6/Some_mipi_displays.jpg)
