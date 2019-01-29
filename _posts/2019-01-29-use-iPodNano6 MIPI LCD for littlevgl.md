@@ -1,4 +1,4 @@
-This blog tells you something about **How to use the iPodNano6 LCD for LittlevGL.** In this article I am going to hack the LCD that is supposed to display on an Apple's iPodNano6 for LittlevGL with Espressif ESP32 Wifi/BLE SoC.<br>
+This blog tells you something about **How to use the iPodNano6 LCD for LittlevGL.** I am going to hack the LCD that is supposed to display on an Apple's iPodNano6 for LittlevGL with Espressif ESP32 Wifi/BLE SoC.<br>
 ![](https://github.com/techtoys/blog/blob/master/assets/iPodNano6/Running_littlevGL.JPG)
 LCD for iPod Nano6 uses MIPI Display Serial Interface (MIPI DSI) which is a high-speed serial interface between a host processor and a display module. LCDs belong to this category are very common for smartphones, tablets, and smartwatches. Reference is available from MIPI alliance page at https://www.mipi.org/specifications/dsi. Some MIPI LCDs on hands are displayed here.<br>
 ![](https://github.com/techtoys/blog/blob/master/assets/iPodNano6/Some_mipi_displays.jpg)
