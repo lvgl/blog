@@ -27,3 +27,15 @@ Because there is no standard evaluation kit for ESP32 + SSD2805 + MIPI Display c
 ![](https://github.com/techtoys/blog/blob/master/assets/iPodNano6/messy_wireup.JPG)<br>
 Interface pin out is illustrated below.<br>
 ![](https://github.com/techtoys/blog/blob/master/assets/iPodNano6/pinout_eps32_LCD.jpg)
+The main theme of this article is about LittlevGL and its porting. But we need to be able to drive the LCD standalone beforehand. 
+A program with 5 source files was created. 
+List of source files:<br>
+```
+(1) i2s_8080_hello_world.c
+(2) SSD2805_8080_drv.c and .h
+(3) i2s_lcd.c and .h
+```
+Low level driver files i2s_lcd.c and .h are modified from github from this page:
+https://github.com/espressif/esp-iot-solution/tree/master/components/i2s_devices/lcd_common
+To compile this project, just copy the whole folder containing relevant configuration files including Makefile, sdkconfig, etc to a convenient path at D:\esp32\i2s_8080_lcd<br>
+
