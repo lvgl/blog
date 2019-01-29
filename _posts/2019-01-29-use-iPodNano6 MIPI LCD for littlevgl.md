@@ -12,6 +12,9 @@ Table below summaries the difference.<br>
 Interface of a MIPI LCD needs much less pins and lower voltage than its MCU/RGB counterpart. 
 ![](https://github.com/techtoys/blog/blob/master/assets/iPodNano6/Pinout_compare.jpg)<br>
 
-The problem is, how are we going to drive a MIPI display when there is no DSI output from our MCU (like ESP32) and how to port it to LittlevGL? Here comes the MIPI bridge IC - SSD2805, which is an interface chip to convert between RGB/8080 video signal to MIPI signal.
+The problem is, how are we going to drive a MIPI display when there is no DSI output from our MCU (like ESP32) and how to port it to LittlevGL? Here comes the MIPI bridge IC - SSD2805, which is an interface chip to convert between RGB/8080 video signal to MIPI signal.<br> ![](https://github.com/techtoys/blog/blob/master/assets/iPodNano6/SSD2805_top.jpg)<br>
+This is a very tiny chip of 5*5mm with 0.5mm pitch BGA!<br>
+![](https://github.com/techtoys/blog/blob/master/assets/iPodNano6/SSD2805_bottom.jpg)
 
-In this article I am going to hack the 1.54" 240*240 iPod Nano6 LCD with an ESP32. Its block diagram is shown below.
+In this article I am going to hack the 1.54" 240*240 iPod Nano6 LCD with an ESP32 with a port to LittlevGL. Its block diagram is shown below.<br>
+![](https://github.com/techtoys/blog/blob/master/assets/iPodNano6/block_diagram.jpg?raw=true)<br>
