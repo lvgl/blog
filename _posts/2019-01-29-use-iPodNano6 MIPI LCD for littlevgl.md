@@ -35,7 +35,7 @@ List of source files are:<br>
 (3) i2s_lcd.c and .h
 ```
 Low level driver files i2s_lcd.c and .h have been modified from github source:<br>
-https://github.com/espressif/esp-iot-solution/tree/master/components/i2s_devices/lcd_common
+https://github.com/espressif/esp-iot-solution/tree/master/components/i2s_devices/lcd_common.
 Full source code of the first project can be downloaded from this link:<br>
 To compile this project, just copy the whole folder containing relevant configuration files including Makefile, sdkconfig, etc to a convenient path at D:\esp32\i2s_8080_lcd<br>
 
