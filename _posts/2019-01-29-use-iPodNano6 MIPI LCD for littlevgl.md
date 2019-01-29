@@ -7,4 +7,6 @@ If a 100-pages specification takes too much time, this is all you need to know a
 https://www.edn.com/Pdf/ViewPdf?contentItemId=4440302
 There are several versions of MIPI DSI from DSI 1.0 to DSI-2 1.0, 5 versions.  Transmission speed ranges from 1.0Gbps/lane to 4.5Gbps/lane with 1-4 data lane plus 1 clock signal, all in differential buses. Voltage swing driven by the difference buses is also different from RGB/MCU-typed MCU. For MIPI DSI there are high-speed (HS) and low-speed (LS) modes driving 200mV peak-to-peak and 1.2V respectively. For RGB/MCU-typed LCDs data is carried with single-ended signals matching VDDIO to its MCU host. 
 Table below summaries the difference.
+![](https://github.com/techtoys/blog/blob/master/assets/iPodNano6/mipi_vs_conventional-LCD.jpg)
 
+Interface of a MIPI LCD needs much less pins and lower voltage than its MCU/RGB counterpart. 
