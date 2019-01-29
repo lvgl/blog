@@ -24,3 +24,4 @@ At first I was not comfortable with command line tool like mingw32.exe. So I hav
 Because there is no standard evaluation kit for ESP32 + SSD2805 + MIPI Display combo, I was forced to use jumper cables to wire up things on hands with mess like this :(<br>
 ![](https://github.com/techtoys/blog/blob/master/assets/iPodNano6/messy_wireup.JPG)<br>
 Interface pin out is illustrated below.<br>
+![](https://github.com/techtoys/blog/blob/master/assets/iPodNano6/pinout_eps32_LCD.jpg)
