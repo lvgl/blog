@@ -10,3 +10,6 @@ Table below summaries the difference.<br>
 ![](https://github.com/techtoys/blog/blob/master/assets/iPodNano6/mipi_vs_conventional-LCD.jpg)<br>
 
 Interface of a MIPI LCD needs much less pins and lower voltage than its MCU/RGB counterpart. 
+![](https://github.com/techtoys/blog/blob/master/assets/iPodNano6/Pinout_compare.jpg)<br>
+
+The problem is, how are we going to drive a MIPI display when there is no DSI output from our MCU (like ESP32) and how to port it to LittlevGL? Here comes the MIPI bridge IC - SSD2805, which is an interface chip to convert between RGB/8080 video signal to MIPI signal (http://www.solomon-systech.com/en/product/main-display/mipi-bridge-ic/ssd2805/).<br>
