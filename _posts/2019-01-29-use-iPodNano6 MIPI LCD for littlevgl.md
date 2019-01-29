@@ -18,3 +18,4 @@ This is a very tiny chip of 5*5mm with 0.5mm pitch BGA!<br>
 
 In this article I am going to hack the 1.54" 240*240 iPod Nano6 LCD with an ESP32 with a port to LittlevGL. Its block diagram is shown below.<br>
 ![](https://github.com/techtoys/blog/blob/master/assets/iPodNano6/block_diagram.jpg?raw=true)<br>
+ESP32 is programmed with ESP-IDF (Espressif IoT Development Framework). Its installation procedure is described in full details at https://docs.espressif.com/projects/esp-idf/en/latest/get-started/index.html. My host computer is a Windows 7 Pro SP1 64-bit Operating System. Hardware is an old Intel Core i5 with 8GB RAM. I have followed the default installation path described in ESP-IDF's Getting Started Guide. It gives me back a mingw32.exe application under C:\msys32\.<br>
