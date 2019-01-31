@@ -28,7 +28,7 @@ void my_button_init(void)
   indev_drv.type = LV_INDEV_TYPE_BUTTON;
   indev = lv_indev_drv_register(&indev_drv);
 
-  static lv_point_t points_array[] = {{20, 20}};
+  static lv_point_t points_array[] = { { 20, 20 } };
   lv_indev_set_button_points(indev, points_array);
 }
 ```
