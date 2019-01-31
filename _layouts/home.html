@@ -2,6 +2,42 @@
 layout: default
 ---
 
+<p style="color:#666;"> <span style="font-weight:bold; font-size:18px;  color:#333">Subscribe for interesting News and useful Tutorials</span></p>
+   
+<form id="subscribe_form" method="post">	
+        <div>
+            <label for="form_name">Name</label>
+            <input id="form_name" type="text" name="name" placeholder="Your name" required="required" data-error="Name is required.">
+        </div>
+        <div>
+            <label for="form_email">Email</label>
+            <input id="form_email" type="email" name="email" placeholder="Your email address" required="required" data-error="Valid email is required.">
+            <div class="help-block with-errors"></div>
+        </div>
+    <div style="padding-top:10px">
+        <input type="submit" class="subscr_btn" value="Subscribe">
+    </div>
+</form>
+<div>
+    <p id="subscribe_result"></p>
+</div>
+
+<script>
+$("#subscribe_form").submit(function(event){
+
+    event.preventDefault();
+    var $form = $(this);
+
+    var name = $("#form_name).val();
+    var email = $("#form_email").val(); 
+    request = $.post("https://littlevgl.com/webgalamb/subscriber.php?g=3&f=bc65kkeabc",
+    			{f_12: name, subscr: email, sub: "Feliratkozás"});		
+    			
+    var p_res = $("#subscribe_result");
+    p_res.html("You have subscribed with " + email + " address.<br>Check your mailbox for a welcome e-mail!");
+});
+</script>
+
 <div class="catalogue">
   {% for post in paginator.posts %}
    <a href="{{ post.url | prepend: site.baseurl }}" class="catalogue-item">
