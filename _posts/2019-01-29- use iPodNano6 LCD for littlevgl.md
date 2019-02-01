@@ -60,5 +60,9 @@ Screen capture below shows all public functions of SSD2805. No text print, no sh
 ![](https://github.com/techtoys/blog/blob/master/assets/iPodNano6/SSD2805_8080_drv_h.jpg)<br>
 
 Similarly the driver for CTP was developed and tested with basic program that prints coordinates of finger with pressure via serial port. Screen capture of SSD2541.h showing public functions below:<br>
+![](https://github.com/techtoys/blog/blob/master/assets/iPodNano6/SSD2541_h.jpg)<br>
+In mingw32 console type `cd D:/esp32/SSd2541_drv_test`, repeat the same procedure as SSD2805 by `make menuconfig`, set Serial flasher config ---> to COM2 (in my case). Save changes and finally `make flash`. This time we need a terminal program like Serial Monitor of Arduino.
 
+
+API function `SSD2541_getPoint(args)` is the only interface required by LittlevGL. 
 
