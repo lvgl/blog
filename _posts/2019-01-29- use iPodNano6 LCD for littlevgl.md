@@ -65,6 +65,7 @@ In mingw32 console type `cd D:/esp32/SSd2541_drv_test`, repeat the same procedur
 ![](https://github.com/techtoys/blog/blob/master/assets/iPodNano6/SSD2541_finger_event.jpg)<br>
 
 Everthing seems ready for porting LittlevGL. The last program `littlevgl_port` is the final example of this blog to demonstrate several LittlevGL features (not all) including label, button, and image display. Browse to the components folder you will see exactly the same driver for SSD2805 and SSD2541. lvgl (version 5.1) has been pulled directly from github. 
+![](https://github.com/techtoys/blog/blob/master/assets/iPodNano6/littlevgl_port_components.jpg)<br>
 
 
  
