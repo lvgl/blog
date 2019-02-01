@@ -67,6 +67,59 @@ In mingw32 console type `cd D:/esp32/SSd2541_drv_test`, repeat the same procedur
 Everthing seems ready for porting LittlevGL. The last program `littlevgl_port` is the final example of this blog to demonstrate several LittlevGL features (not all) including label, button, and image display. Browse to the components folder you will see exactly the same driver for SSD2805 and SSD2541. lvgl (version 5.1) has been pulled directly from github. 
 ![](https://github.com/techtoys/blog/blob/master/assets/iPodNano6/littlevgl_port_components.jpg)<br>
 
+There are few somethings to do before LittlevGL can be used:<br>
+(1) modify `lv_conf.h` from its template for our screen resolution. This header is located in the same root as Makefile, the project directory. <br>
+```
+/* Horizontal and vertical resolution of the library.*/
+#define LV_HOR_RES          (240)
+#define LV_VER_RES          (240)
+#define LV_DPI              100
+```
+(2) In the main file `littlevgl_example.c`, define a local function to call `SSD2805_dispFlush(args)` and then inform LittlevGL that screen flush is ready with `lv_flush_ready()`.<br>
+```
+/**
+ * @brief   API for LittlevGL with LV_VDB_SIZE!=0 in lv_conf.h
+ */ 
+static void ex_disp_flush(int32_t x1, int32_t y1, int32_t x2, int32_t y2, const lv_color_t * color_p)
+{
+    SSD2805_dispFlush(x1, y1, x2, y2, (const uint16_t*)color_p);
+    lv_flush_ready();
+}
+```
+(3) In the main file `littlevgl_example.c`, define a local function to call `SSD2541_getPoint(args)` to store the last valid finger position to data->point.x and point.y. Pressure is not required for LittelvGL so a NULL is passed.<br>
+```
+/**
+ * @brief   API for touch screen
+ */  
+static bool ex_tp_read(lv_indev_data_t * data)
+{
+    int16_t ctp_x, ctp_y;
+    bool sta = SSD2541_getPoint(&ctp_x, &ctp_y, NULL);
 
- 
+    (sta==true)? (data->state = LV_INDEV_STATE_PR):(data->state = LV_INDEV_STATE_REL);
+    
+    data->point.x = ctp_x;
+    data->point.y = ctp_y;
+
+    return false;
+}
+```
+(4) Define a tick function as heart-beat for LittlevGL and register this function for ESP32.<br>
+```
+/**
+ * @brief   Heart beat for LittlevGL
+ */ 
+static void lv_tick_task(void)
+{
+    lv_tick_inc(portTICK_RATE_MS);
+}
+//...
+esp_register_freertos_tick_hook(lv_tick_task); //this is specific to ESP32
+```
+(5) The last step is to initialize SSD2805, SSD2541, and lv_init().<br>
+```
+    SSD2805_begin();
+    SSD2541_begin();
+    lv_init();
+```
 
