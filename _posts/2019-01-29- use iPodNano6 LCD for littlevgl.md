@@ -133,5 +133,8 @@ esp_register_freertos_tick_hook(lv_tick_task); //this is specific to ESP32
     indev_drv.read = ex_tp_read;                    /*Library ready your touchpad via this function*/
     lv_indev_drv_register(&indev_drv);              /*Finally register the driver*/
 ```
+The result is a fully operational CTP with button, image display, and text printing!<br>
+![](https://github.com/techtoys/blog/blob/master/assets/iPodNano6/Running_littlevGL.JPG)
+
 
 
