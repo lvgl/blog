@@ -116,10 +116,22 @@ static void lv_tick_task(void)
 //...
 esp_register_freertos_tick_hook(lv_tick_task); //this is specific to ESP32
 ```
-(5) The last step is to initialize SSD2805, SSD2541, and lv_init().<br>
+(5) The last step is to initialize SSD2805, SSD2541, lv_init(), and register the API functions.<br>
 ```
     SSD2805_begin();
     SSD2541_begin();
     lv_init();
+    
+    lv_disp_drv_t disp_drv;
+    lv_disp_drv_init(&disp_drv);
+    disp_drv.disp_flush = ex_disp_flush;
+    lv_disp_drv_register(&disp_drv);
+
+    lv_indev_drv_t indev_drv;                       /*Descriptor of an input device driver*/
+    lv_indev_drv_init(&indev_drv);                  /*Basic initialization*/
+    indev_drv.type = LV_INDEV_TYPE_POINTER;         /*The touchpad is pointer type device*/
+    indev_drv.read = ex_tp_read;                    /*Library ready your touchpad via this function*/
+    lv_indev_drv_register(&indev_drv);              /*Finally register the driver*/
 ```
+
 
