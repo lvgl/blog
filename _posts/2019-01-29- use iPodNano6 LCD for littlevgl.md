@@ -48,7 +48,7 @@ Launch mingw32.exe from C:/msys32<br>
 It is D:/esp32/i2s_8080_lcd where Makefile is located, so I just type cd D:/esp32/i2s_8080_lcd with screen shot like this<br>
 
 To invoke serial programmer for ESP32-pico-kit, I needed to type `make menuconfig`<br>
-
+![](https://github.com/techtoys/blog/blob/master/assets/iPodNano6/make_menuconfig.jpg)<br>
 Browse to Serial flasher config ---> set it to COM2 for my particular COM port enumerated. <br> Click EXIT several times, and finally click <Yes> to save new configuration.<br>
 Finaly, make flash<br>
   
