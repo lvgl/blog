@@ -64,7 +64,7 @@ Similarly the driver for CTP was developed and tested with basic program that pr
 In mingw32 console type `cd D:/esp32/SSd2541_drv_test`, repeat the same procedure as SSD2805 by `make menuconfig`, set Serial flasher config ---> to COM2 (in my case). Save changes and finally `make flash`. This time we need a terminal program like Serial Monitor of Arduino. Screen capture below shows a stream from Serial Monitor with finger released from (96,113), touched at (88,117) with varying pressure and then released again. LittlevGL requires that touch coordinates shoud be the last valid point when the figner is released. <br>
 ![](https://github.com/techtoys/blog/blob/master/assets/iPodNano6/SSD2541_finger_event.jpg)<br>
 
-Everthing seems ready for porting LittlevGL. The last program `littlevgl_port` is the final example of this blog to demonstrate several LittlevGL features (not all) including label, button, and image display. Browse to the components folder you will see exactly the same driver for SSD2805 and SSD2541. lvgl (version 5.3 commit 17c19fc) has been pulled directly from github. 
+Everthing seems ready for porting LittlevGL. The last program `littlevgl_port` is the final example of this blog to demonstrate several LittlevGL features (not all) including label, button, and image display. Browse to the components folder you will see exactly the same driver for SSD2805 and SSD2541. lvgl (version 5.3 commit [17c19fc](https://github.com/littlevgl/lvgl/commit/17c19fc35a6edcf3be80aac62baef75eb63c703d)) has been pulled directly from github. 
 ![](https://github.com/techtoys/blog/blob/master/assets/iPodNano6/littlevgl_port_components.jpg)<br>
 
 There are few somethings to do before LittlevGL can be used:<br>
