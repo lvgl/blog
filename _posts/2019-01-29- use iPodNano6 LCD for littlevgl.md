@@ -45,4 +45,4 @@ Full source code of this project `i2s_8080_lcd`can be downloaded at the end of t
 To compile this project, just copy the complete folder to any place you find it convenient, in my case it is D:\esp32\i2s_8080_lcd. 
 Launch mingw32.exe from C:/msys32<br>
 ![](https://github.com/techtoys/blog/blob/master/assets/iPodNano6/Launch_mingw32.jpg)<br>
-
+It is D:/esp32/i2s_8080_lcd where Makefile is located, so I just type cd D:/esp32/i2s_8080_lcd with screen shot like this<br>
