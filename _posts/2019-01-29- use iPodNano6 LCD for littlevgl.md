@@ -25,6 +25,11 @@ ESP32 is programmed with ESP-IDF (Espressif IoT Development Framework). Its inst
 At first I was not comfortable with command line tool like mingw32.exe. So I have spent almost two days to install Eclipse IDE with innumerable Google searches trying to make it work. Unfortunately all hours in Eclipse became futile. At the end I found the time spent on configuring Eclipse was even more than programming itself so I just gave it up. Don't mean Eclipse is bad. It is just me not able to get it work.<br>
 Because there is no standard evaluation kit for ESP32 + SSD2805 + MIPI Display combo, I was forced to use jumper cables to wire up things with mess like this :(<br>
 ![](https://github.com/techtoys/blog/blob/master/assets/iPodNano6/messy_wireup.JPG)<br>
+Boards employed include:<br>
+(1) ESP32-Pico-Kit v4<br>
+(2) SSD2805 breakout board Release 3 <br>
+(3) 1.54 inch LH154Q01 MIPI display with CTP on PCB. SSD2541 CTP driver is soldered on this board.<br>
+(4) Plus a lot jumper cables!<br>
 The pinout diagram is illustrated below.<br>
 ![](https://github.com/techtoys/blog/blob/master/assets/iPodNano6/pinout_eps32_LCD.jpg)
 To work with LittlevGL, the prerequisite is a fully working LCD and touch screen drivers outside it. I started with a program of 5 source files to drive the LCD listed below :<br>
