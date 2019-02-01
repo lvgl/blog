@@ -24,7 +24,7 @@ ESP32 is programmed with ESP-IDF (Espressif IoT Development Framework). Its inst
 ![](https://github.com/techtoys/blog/blob/master/assets/iPodNano6/mingw32_folders.jpg)<br>
 At first I was not comfortable with command line tool like mingw32.exe. So I have spent almost two days to install Eclipse IDE with innumerable Google searches trying to make it work. Unfortunately all hours in Eclipse became futile. At the end I found the time spent on configuring Eclipse was even more than programming itself so I just gave it up. Don't mean Eclipse is bad. It is just me not able to get it work.<br>
 Because there is no standard evaluation kit for ESP32 + SSD2805 + MIPI Display combo, I was forced to use jumper cables to wire up things with mess like this :(<br>
-![](https://github.com/techtoys/blog/blob/master/assets/iPodNano6/messy_wireup.JPG)<br>
+![]()<br>
 Boards employed include:<br>
 (1) ESP32-Pico-Kit v4<br>
 (2) SSD2805 breakout board Release 3 <br>
