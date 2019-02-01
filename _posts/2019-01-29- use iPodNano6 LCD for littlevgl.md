@@ -57,5 +57,5 @@ The last step is to `make flash`<br>
 Now a fake AppleWatch is visible.<br>
 ![](https://github.com/techtoys/blog/blob/master/assets/iPodNano6/AppleWatch.JPG)<br>
 There is not a lot of public functions defined. Function prototype `SSD2805_dispFlush(args)` has been designed to match the blueprint required not more or less by LittlevGL. This is also the only function get called when screen refresh or update is required.<br>
-
+![](https://github.com/techtoys/blog/blob/master/assets/iPodNano6/SSD2805_8080_drv_h.jpg)<br>
 
