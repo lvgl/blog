@@ -54,5 +54,8 @@ Browse to Serial flasher config ---> set it to COM2 for my particular COM port e
 Click EXIT several times, and finally click `<Yes>` to save new configuration.<br>
 The last step is to `make flash`<br>
 ![](https://github.com/techtoys/blog/blob/master/assets/iPodNano6/make_flash.jpg)<br>
-Now a fake AppleWatch is ready.<br>
-![](https://github.com/techtoys/blog/blob/master/assets/iPodNano6/AppleWatch.jpg)<br>
+Now a fake AppleWatch is visible.<br>
+![](https://github.com/techtoys/blog/blob/master/assets/iPodNano6/AppleWatch.JPG)<br>
+There is not a lot of public functions defined. Function prototype `SSD2805_dispFlush(args)` has been designed to match the blueprint required not more or less by LittlevGL. This is also the only function get called when screen refresh or update is required.<br>
+
+
