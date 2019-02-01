@@ -134,7 +134,9 @@ esp_register_freertos_tick_hook(lv_tick_task); //this is specific to ESP32
     lv_indev_drv_register(&indev_drv);              /*Finally register the driver*/
 ```
 The result is a fully operational CTP with button, image display, and text printing!<br>
-![](https://github.com/techtoys/blog/blob/master/assets/iPodNano6/Running_littlevGL.JPG)
+![](https://github.com/techtoys/blog/blob/master/assets/iPodNano6/Running_littlevGL.JPG)<br>
+![](https://github.com/techtoys/blog/blob/master/assets/iPodNano6/child.JPG)<br>
+![](https://github.com/techtoys/blog/blob/master/assets/iPodNano6/polynesia.JPG)<br>
 
 
 
