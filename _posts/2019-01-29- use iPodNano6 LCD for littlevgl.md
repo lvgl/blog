@@ -1,6 +1,6 @@
-This blog tells you something about **How to use the iPodNano6 LCD for LittlevGL.** I am going to hack the LCD that is supposed to display on an Apple's iPodNano6 for LittlevGL with Espressif ESP32 Wifi/BLE SoC.<br>
+This blog tells you something about **How to use the iPodNano6 LCD for LittlevGL.** I am going to hack the screen that is supposed to display on an Apple's iPodNano6 for LittlevGL with an Espressif ESP32 Wifi/BLE SoC.<br>
 ![](https://github.com/techtoys/blog/blob/master/assets/iPodNano6/Running_littlevGL.JPG)
-LCD for iPod Nano6 uses MIPI Display Serial Interface (MIPI DSI) which is a high-speed serial interface between a host processor and a display module. LCDs belong to this category are very common for smartphones, tablets, and smartwatches. Reference is available from MIPI alliance page at https://www.mipi.org/specifications/dsi. Some MIPI LCDs on hands are displayed here.<br>
+LCD for iPod Nano6 uses MIPI Display Serial Interface (MIPI DSI) which is a high-speed serial interface between a host processor and a display module. LCDs belong to this category are very common for smartphones, tablets, and smartwatches. Reference is available from MIPI alliance page at https://www.mipi.org/specifications/dsi. Some MIPI LCDs on hands are shown here.<br>
 ![](https://github.com/techtoys/blog/blob/master/assets/iPodNano6/Some_mipi_displays.jpg)
 *Googling* the keyword MIPI brings up several pdf documents of hundred pages. It is always fun to learn from specifications like this - http://bfiles.chinaaet.com/justlxy/blog/20171114/1000019445-6364627609238902374892404.pdf.
 It states *"MIPI DSI specifies the interface between a host processor and a display..."* and finally a picture like this shows up that I can barely understand.
@@ -27,15 +27,15 @@ Because there is no standard evaluation kit for ESP32 + SSD2805 + MIPI Display c
 ![](https://github.com/techtoys/blog/blob/master/assets/iPodNano6/messy_wireup.JPG)<br>
 The pinout diagram is illustrated below.<br>
 ![](https://github.com/techtoys/blog/blob/master/assets/iPodNano6/pinout_eps32_LCD.jpg)
-Although the main theme of this article is about LittlevGL, the prerequisite is a fully working LCD and touch screen drivers outside LittlevGL. I started with a program with 5 source files to drive the LCD. 
-List of source files are:<br>
+To work with LittlevGL, the prerequisite is a fully working LCD and touch screen drivers outside it. I started with a program of 5 source files to drive the LCD listed below :<br>
 ```
 (1) i2s_8080_hello_world.c
 (2) SSD2805_8080_drv.c and .h
 (3) i2s_lcd.c and .h
 ```
-Low level driver files i2s_lcd.c and .h have been modified from github source:<br>
-https://github.com/espressif/esp-iot-solution/tree/master/components/i2s_devices/lcd_common.
-Full source code of the first project can be downloaded from this link:<br>
-To compile this project, just copy the whole folder containing relevant configuration files including Makefile, sdkconfig, etc to a convenient path at D:\esp32\i2s_8080_lcd<br>
+Source files i2s_lcd.c and .h were modified from their github source at :<br>
+https://github.com/espressif/esp-iot-solution/tree/master/components/i2s_devices/lcd_common.<br>
+ESP32 uses I2S module to write in 8080 8-bit parallel mode. DMA is used to queue command and data.<br>
+Full source code of this project `i2s_8080_lcd`can be downloaded at the end of this page:<br>
+To compile this project, just copy the complete folder to any place you find it convenient, in my case it is D:\esp32\i2s_8080_lcd<br>
 
