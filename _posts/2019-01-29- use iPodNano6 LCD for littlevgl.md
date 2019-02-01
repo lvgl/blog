@@ -148,8 +148,8 @@ The result is a fully operational CTP with button, image display, and text print
 ![](https://github.com/techtoys/blog/blob/master/assets/iPodNano6/polynesia.JPG)<br>
 
 ## Download
-i2s_8080_lcd
-SSD2541_drv_test
-littlevgl_port
+i2s_8080_lcd <br>
+SSD2541_drv_test <br>
+littlevgl_port <br>
 
 
