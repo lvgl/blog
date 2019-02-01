@@ -45,10 +45,14 @@ Full source code of this project `i2s_8080_lcd`can be downloaded at the end of t
 To compile this project, just copy the complete folder to any place you find it convenient, in my case it is D:\esp32\i2s_8080_lcd. 
 Launch mingw32.exe from C:/msys32<br>
 ![](https://github.com/techtoys/blog/blob/master/assets/iPodNano6/Launch_mingw32.jpg)<br>
-It is D:/esp32/i2s_8080_lcd where Makefile is located, so I just type cd D:/esp32/i2s_8080_lcd with screen shot like this<br>
-
-To invoke serial programmer for ESP32-pico-kit, I needed to type `make menuconfig`<br>
+Change directory to root of Makefile with `cd D:/esp32/i2s_8080_lcd`<br>
+![](https://github.com/techtoys/blog/blob/master/assets/iPodNano6/cd_i2s_8080_lcd_dir.jpg)<br>
+Set the right serial port with `make menuconfig`<br>
 ![](https://github.com/techtoys/blog/blob/master/assets/iPodNano6/make_menuconfig.jpg)<br>
-Browse to Serial flasher config ---> set it to COM2 for my particular COM port enumerated. <br> Click EXIT several times, and finally click <Yes> to save new configuration.<br>
-Finaly, make flash<br>
-  
+Browse to Serial flasher config ---> set it to COM2 for my particular COM port enumerated. <br> 
+![](https://github.com/techtoys/blog/blob/master/assets/iPodNano6/COM2_to_use.jpg)<br>
+Click EXIT several times, and finally click `<Yes>` to save new configuration.<br>
+The last step is to `make flash`<br>
+![](https://github.com/techtoys/blog/blob/master/assets/iPodNano6/make_flash.jpg)<br>
+Now a fake AppleWatch is ready.<br>
+![](https://github.com/techtoys/blog/blob/master/assets/iPodNano6/AppleWatch.jpg)<br>
