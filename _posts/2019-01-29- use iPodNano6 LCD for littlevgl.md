@@ -43,4 +43,6 @@ https://github.com/espressif/esp-iot-solution/tree/master/components/i2s_devices
 ESP32 uses I2S module to write in 8080 8-bit parallel mode. DMA is used to queue command and data.<br>
 Full source code of this project `i2s_8080_lcd`can be downloaded at the end of this page:<br>
 To compile this project, just copy the complete folder to any place you find it convenient, in my case it is D:\esp32\i2s_8080_lcd<br>
+Launch mingw32.exe from C:/msys32<br>
+![]()<br>
 
