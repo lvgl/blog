@@ -59,4 +59,6 @@ Now a fake AppleWatch is visible.<br>
 Screen capture below shows all public functions of SSD2805. No text print, no shape draw or framebuffer operation. All GUI-related features are left to LittlevGL with a single API function `SSD2805_dispFlush(args)`, which has been designed to match the blueprint required not more or less. This is also the only function get called when screen refresh or update is required.<br>
 ![](https://github.com/techtoys/blog/blob/master/assets/iPodNano6/SSD2805_8080_drv_h.jpg)<br>
 
+Similarly the driver for CTP was developed and tested with basic program that prints coordinates of finger with pressure via serial port. Screen capture of SSD2541.h showing public functions below:<br>
+
 
