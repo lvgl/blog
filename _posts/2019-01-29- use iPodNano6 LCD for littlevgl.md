@@ -1,4 +1,6 @@
-This blog tells you something about **How to use the iPodNano6 LCD for LittlevGL.** I am going to hack the screen that is supposed to display on an Apple's iPodNano6 for LittlevGL with an Espressif ESP32 Wifi/BLE SoC.<br>
+## How to use the iPodNano6 LCD for LittlevGL
+
+This blog tells you how to hack the screen that is supposed to display in an Apple's iPodNano6 for LittlevGL with an Espressif ESP32 Wifi/BLE SoC.<br>
 ![](https://github.com/techtoys/blog/blob/master/assets/iPodNano6/Running_littlevGL.JPG)
 LCD for iPod Nano6 uses MIPI Display Serial Interface (MIPI DSI) which is a high-speed serial interface between a host processor and a display module. LCDs belong to this category are very common for smartphones, tablets, and smartwatches. Reference is available from MIPI alliance page at https://www.mipi.org/specifications/dsi. Some MIPI LCDs on hands are shown here.<br>
 ![](https://github.com/techtoys/blog/blob/master/assets/iPodNano6/Some_mipi_displays.jpg)
@@ -25,6 +27,7 @@ ESP32 is programmed with ESP-IDF (Espressif IoT Development Framework). Its inst
 At first I was not comfortable with command line tool like mingw32.exe. With innumerable Google searches I tried to install Eclipse IDE. Unfortunately all hours in Eclipse became futile. At the end I found the time spent on configuring Eclipse was even more than programming itself so I just gave it up. Don't mean Eclipse is bad. It is just me not able to get it work.<br>
 Because there is no standard evaluation kit for ESP32 + SSD2805 + MIPI Display combo, I was forced to use jumper cables to wire up things with mess like this :(<br>
 ![](https://github.com/techtoys/blog/blob/master/assets/iPodNano6/messy_wireup.JPG)<br>
+## Hardware 
 Boards employed include:<br>
 (1) ESP32-Pico-Kit v4<br>
 (2) SSD2805 breakout board Release 3 <br>
@@ -32,6 +35,8 @@ Boards employed include:<br>
 (4) Plus a lot jumper cables!<br>
 The pinout diagram is illustrated below.<br>
 ![](https://github.com/techtoys/blog/blob/master/assets/iPodNano6/pinout_eps32_LCD.jpg)
+
+## Software
 To work with LittlevGL, the prerequisite is a fully working LCD and touch screen drivers outside it. I started with a program of 5 source files to drive the LCD listed below :<br>
 ```
 (1) i2s_8080_hello_world.c
@@ -138,5 +143,6 @@ The result is a fully operational CTP with button, image display, and text print
 ![](https://github.com/techtoys/blog/blob/master/assets/iPodNano6/child.JPG)<br>
 ![](https://github.com/techtoys/blog/blob/master/assets/iPodNano6/polynesia.JPG)<br>
 
+## Download
 
 
