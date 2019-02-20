@@ -2,13 +2,15 @@
 layout: post
 title: "LittlevGL as a Micropython library"
 author: "amirgon"
-cover: /assets/def_post_cover.png
+cover: /assets/micropython/mp_lvgl.png
 image:
-  path: /assets/def_post_cover.png
-  height: 300
-  width: 300
+  path: /assets/micropython/mp_lvgl.png
+  height: 960
+  width: 723
 
 ---
+
+![LittlevGL + Micropython](/assets/micropython/mp_lvgl.png)
 
 # What is Micropython?
 
