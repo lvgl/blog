@@ -9,7 +9,7 @@ You can share your knowledge on LittlevGL's blog! It's super easy to add your ow
 - Store the images and other resources in a dedicated folder in `assets`
 - Create a Pull Request
 
-## Installig and Running Jekyll
+## Installing and Running Jekyll
 
 The blog uses [Jekyll](https://jekyllrb.com/) to convert the `.md` files to a webpage. You can easily [run Jekyll offline](https://jekyllrb.com/docs/) to check your post before creating the Pull request.  
 A specific version of Bundle is needed for running Jekyll (1.12).
