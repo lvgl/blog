@@ -36,7 +36,6 @@ Here are some advantages of using LittlevGL in Micropython:
 - GUI development requires multiple iterations to get things right. With C, each iteration consists of **`Change code` -> `Build` -> `Flash` -> `Run`**.  
 In micropython it's just **`Change code` -> `Run`**. You can even run commands interactively using the [REPL](https://en.wikipedia.org/wiki/Read%E2%80%93eval%E2%80%93print_loop) (the interactive prompt)
 
-
 Micropython + LittlevGL could be used for 
 - Fast prototyping GUI, 
 - Shorten the cycle of changing and fine-tuning the GUI.
@@ -44,6 +43,9 @@ Micropython + LittlevGL could be used for
 - Make LittlevGL accessible to larger audiance. No need to know C in order to create a nice GUI on an embedded system. This goes well with [CircuitPython vision](https://learn.adafruit.com/welcome-to-circuitpython/what-is-circuitpython) which was designed with education in mind, to make it easier for new or unexperienced users to get started with embedded development.
 
 # So how does it look like?
+
+> TL;DR:
+> It's very much like the C API, but Object Oriented for LittlevGL componets.
 
 Let's dive right into an example.
 In this example I'll assume you already have some basic knowledge of LittlevGL. If you not - please have a look at [LittlevGL tutorial](https://github.com/littlevgl/lv_examples/tree/master/lv_tutorial)
@@ -137,6 +139,9 @@ Currently the binding is limited to one callback per object.
 
 # How does it work?
 
+> TL;DR:
+> A script parses LittlevGL headers and creates a Micropython module.
+
 To use LittlevGL in Micropython, you need [Micropython Binding for LittlevGL](https://github.com/littlevgl/lv_binding_micropython).
 This binding is a generator for LittlevGL Micropython module.  
 It's essentialy a python script that reads and parses LittlevGL C headers and generates Micropython module from them. This module can be used in Micropython to access most of LittlevGL API.
@@ -147,6 +152,9 @@ Micropython Binding for LittlevGL tries to take advantage of this design, and mo
 For more details, please refer to the [README of Micropython Binding for LittlevGL](https://github.com/littlevgl/lv_binding_micropython/blob/master/README.md).
 
 # How can I use it?
+
+> TL;DR:
+> The quickest way to start: Fork [`lv_micropython`](https://github.com/littlevgl/lv_micropython). It has working unix and ESP32 ports of Micropython + LittlevGL.
 
 [Micropython Binding for LittlevGL](https://github.com/littlevgl/lv_binding_micropython) (`lv_binding_micropython`) was designed to make it simple to use LittlevGL with Micropython. In principle it can support any micropython fork.  
 To add it to some Micropython fork you need to add `lv_binding_micropython` under Micropython lib as a git submodule. `lv_binding_micropython` itself contains LittlevGL as a git submodule.
@@ -163,3 +171,38 @@ The Micropython bindings contains some example drivers that are registered and u
 - Raw Resistive Touch for ESP32 (ADC connected to screen directly, no touch IC)
 
 It is easy to create new drives for other displays and input devices. If you add some new driver, we would be happy to add it to Micropython Binding, so please send us a PR!
+
+# FAQ
+
+## How can I know which LittlevGL objects and functions are available on Micropython?
+
+- Run Micropython with LittlevGL module enabled (for example, [`lv_micropython`](https://github.com/littlevgl/lv_micropython))
+- Open the REPL (interactive console)
+- `import lvgl as lv`
+- Type `lv.` and <btn>TAB</btn> for completion. All supported classes and functions of LittlevGL will be displayed.
+- Another option: `help(lv)`
+- Another option: `print('\n'.join(dir(lvgl)))`
+- You can also do that recursively. For example `lv.bt.` + <btn>TAB</btn>, or `print('\n'.join(dir(lvgl.btn)))`
+
+You can also have a look at the LittlevGL bindings module itself. It is generated after build, and ususally called `lv_mpy.c`.
+
+## That's a huge API! There are more than 25K lines of code on the LittlevGL binding module!
+
+It depends on LittlevGL configuration. It can be small or large.
+Remember that LittlevGL binding module is generated when you build Micropython, based on LittlevGL headers **and configuration file** - `lv_conf.h`.  
+If you enabled everything on `lv_conf.h` - the module will be large. You can disable features and remove unneeded components by changing definitions in `lv_conf.h`, and the module will become much smaller.  
+
+Anyway, remember that the module is on *Progam Memory*. It does not consume RAM by itself, only ROM.  
+From RAM perpective, every **instance** of LittlevGL object will usually consume only a few bytes extra, to represent a Micropython wrapper object around LittlevGL object.
+
+## I would like to try it out! What is the quickest way to start?
+
+The quickest way to start: Fork [`lv_micropython`](https://github.com/littlevgl/lv_micropython). It has working unix and ESP32 ports of Micropython + LittlevGL.
+
+## LittlevGL on Python? Isn't it kinda.. slow?
+
+No.  
+All LittlevGL functionality (such as rendering the graphics) is still in C.  
+The Micropython binding only provides wrappers for LittlevGL API, such as creating componenets, setting their properties, layout, styles etc. Very few cycles are spent over there compared to other LittlevGL functionality.
+
+
