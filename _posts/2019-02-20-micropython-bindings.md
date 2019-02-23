@@ -28,17 +28,18 @@ With Micropython you can write Python3 code and run it on bare metal architectur
 - **Compact** - fit and run within just 256k of code space and 16k of RAM. No OS is needed, although you can also run it with OS, if you want.
 - **Compatible** - strives to be as compatible as possible with normal Python (known as CPython)
 - **Verstile** - Supports many architectures (x86, x86-64, ARM, ARM Thumb, Xtensa)
-- **Iteractive** - No need for the compile-flash-boot cycle. With the REPL (interactive prompt) you can type commands and execute them immediately, run scripts etc.
+- **Interactive** - No need for the compile-flash-boot cycle. With the REPL (interactive prompt) you can type commands and execute them immediately, run scripts etc.
 - **Popular** - Many platforms are supported. User base is growing bigger.  
 Notable forks: [MicroPython](https://github.com/micropython/micropython), [CircuitPython](https://github.com/adafruit/circuitpython), [MicroPython_ESP32_psRAM_LoBo](https://github.com/loboris/MicroPython_ESP32_psRAM_LoBo)
-- **Embedded Oriented** - Comes with modules specifically for embedded systsems, such as `machine` module for accessing low-level hardware (I/O pins, ADC, UART, SPI, I2C, RTC, Timers etc.)
+- **Embedded Oriented** - Comes with modules specifically for embedded systsems, such as the [machine module](https://docs.micropython.org/en/latest/library/machine.html#classes) for accessing low-level hardware (I/O pins, ADC, UART, SPI, I2C, RTC, Timers etc.)
 
 ---
 
 # Why Micropython + LittlevGL?
 
-Micropython today does not have a good GUI library.  
-LittlevGL is a good GUI library, but it's implemented in C and its API is in C.  
+Micropython today [does not have a good high-level GUI library](https://forum.micropython.org/viewtopic.php?f=18&t=5543).  
+LittlevGL is a good high-level GUI library, it's implemented in C and its API is in C.  
+LittlevGL is an [Object Oriented Compenent Based](https://blog.littlevgl.com/2018-12-13/extend-lvgl-objects) library, which seems a natural candidate to map into a higher level language, such as Python.
 
 ### Here are some advantages of using LittlevGL in Micropython:
 
@@ -62,7 +63,7 @@ This goes well with [CircuitPython vision](https://learn.adafruit.com/welcome-to
 > TL;DR:
 > It's very much like the C API, but Object Oriented for LittlevGL componets.
 
-Let's dive right into an example.  
+Let's dive right into an example!  
 In this example I'll assume you already have some basic knowledge of LittlevGL. If you not - please have a quick look at [LittlevGL tutorial](https://github.com/littlevgl/lv_examples/tree/master/lv_tutorial).
 
 ```python
@@ -83,8 +84,8 @@ class SymbolButton(lv.btn):
 In this example we create a **reusable composite component** called `SymbolButton`.  
 It's a class, so we can create object instances from it. It's composite, because it consists of several native LittlevGL objects:
 
-- **A Button** - `SymbolButton` inherits from `lv.btn`
-- **A Symbol label** - a label with a symbol style (symbol font) as a child of `self`, ie. child of the parent button that SymbolButton inherits from.
+- **A Button** - `SymbolButton` inherits from `lv.btn`. `lv.btn` is a native LittlevGL Button component.
+- **A Symbol label** - a label with a symbol style (symbol font) as a child of `self`, ie. child of the parent button that SymbolButton inherits from. `lv.label` is a native LittlevGL label component that represents some text inside another component.
 - **A Text label** - a label with some text as another child of `self`.
 
 `SymbolButton` constructor (`__init__` function) does nothing more than create the two labels, set their contents and align them.  
@@ -223,7 +224,7 @@ From RAM perpective, every **instance** of LittlevGL object will usually consume
 
 ## I would like to try it out! What is the quickest way to start?
 
-The quickest way to start: Fork [`lv_micropython`](https://github.com/littlevgl/lv_micropython). It has working unix and ESP32 ports of Micropython + LittlevGL.
+The quickest way to start: Fork [`lv_micropython`](https://github.com/littlevgl/lv_micropython). It has working unix (Linux) and ESP32 ports of Micropython + LittlevGL.
 
 ## LittlevGL on Python? Isn't it kinda.. slow?
 
