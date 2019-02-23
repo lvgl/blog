@@ -64,7 +64,7 @@ This goes well with [CircuitPython vision](https://learn.adafruit.com/welcome-to
 > It's very much like the C API, but Object Oriented for LittlevGL componets.
 
 Let's dive right into an example!  
-In this example I'll assume you already have some basic knowledge of LittlevGL. If you not - please have a quick look at [LittlevGL tutorial](https://github.com/littlevgl/lv_examples/tree/master/lv_tutorial).
+In this example I'll assume you already have some basic knowledge of LittlevGL. If you don't - please have a quick look at [LittlevGL tutorial](https://github.com/littlevgl/lv_examples/tree/master/lv_tutorial).
 
 ```python
 class SymbolButton(lv.btn):
@@ -105,7 +105,7 @@ For a more complete example, which includes other object types as well as action
 
 Here are some more examples of how to use LittlevGL in Micropython:
 
-### Creating a screen with a button and a label
+#### Creating a screen with a button and a label
 ```python
 scr = lv.obj()
 btn = lv.btn(scr)
