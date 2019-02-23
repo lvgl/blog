@@ -181,12 +181,12 @@ For more details, please refer to the [README of Micropython Binding for Littlev
 To add it to some Micropython fork you need to add `lv_binding_micropython` under Micropython lib as a git submodule. `lv_binding_micropython` itself contains LittlevGL as a git submodule.  
 In the Micropython code itself, very few changes are needed. You need to add some lines to Micropython Makefile in order to create LittlevGL Binding module and in order to compile LittlevGL, and you also need to add the new `lvgl` module to Micropython by editing `mpconfigport.h`.  
 
-As an example, I've created [`lv_micropython`](https://github.com/littlevgl/lv_micropython) - a Micropython fork with LittlevGL bindings.  
-You can use it as is, or as an example of how to intergate LittlevGL with Micropython.  
+As an example, I've created [`lv_micropython`](https://github.com/littlevgl/lv_micropython) - a Micropython fork with LittlevGL binding.  
+You can use it as is, or as an example of how to integrate LittlevGL with Micropython.  
 [`lv_micropython`](https://github.com/littlevgl/lv_micropython) can currently be used with LittlevGL on the unix port and on the ESP32 port.
 
 LittlevGL needs drivers for the display and for the input device.
-The Micropython bindings contains some example drivers that are registered and used on [`lv_micropython`](https://github.com/littlevgl/lv_micropython):
+The Micropython binding contains some example drivers that are registered and used on [`lv_micropython`](https://github.com/littlevgl/lv_micropython):
 
 - SDL unix drivers (display and mouse)
 - ILI9341 driver for ESP32.  
@@ -211,7 +211,7 @@ If some are missing and you need them, please open an issue on [Micopython Bindi
 - Another option: `print('\n'.join(dir(lv)))`
 - You can also do that recursively. For example `lv.bt.` + <kbd>TAB</kbd>, or `print('\n'.join(dir(lv.btn)))`
 
-You can also have a look at the LittlevGL bindings module itself. It is generated during Micropython build, and is ususally called `lv_mpy.c`.
+You can also have a look at the LittlevGL binding module itself. It is generated during Micropython build, and is ususally called `lv_mpy.c`.
 
 ## That's a huge API! There are more than 25K lines of code on the LittlevGL binding module only! Before counting LittlevGL code itself!
 
@@ -232,13 +232,13 @@ No.
 All LittlevGL functionality (such as rendering the graphics) is still in C.  
 The Micropython binding only provides wrappers for LittlevGL API, such as creating components, setting their properties, layout, styles etc. Very few cycles are spent over there compared to other LittlevGL functionality.
 
-## Can I use LittlevGL bindings on XXXX Micropython fork?
+## Can I use LittlevGL binding on XXXX Micropython fork?
 
 Probably yes!  
 You would need to add [Micropython Binding for LittlevGL](https://github.com/littlevgl/lv_binding_micropython) as a submodule in your fork, and make some small changes to the Makefile and `mpconfigport.h` in your port, but that's about it.  
 For more details please have a look at the [README](https://github.com/littlevgl/lv_binding_micropython/blob/master/README.md).
 
-## Can I use LittlevGL bindings with XXXX display/input-device hardware?
+## Can I use LittlevGL binding with XXXX display/input-device hardware?
 Yes, but [you need a driver](https://docs.littlevgl.com/#Porting).  
 LittlevGL requires a driver for Display and Input device.  
 Once you have a C driver for your hardware, it's very simple to wrap it as a module in Micropython and use it with LittlevGL Binding for Micropython.  
@@ -253,14 +253,14 @@ You can create them as any other object:
 
 ```python
 import lvgl as lv
-s = lv.lv.style_t()
+s = lv.style_t()
 ```
 
 You can also create a struct which is a copy of another struct:
 
 ```python
 import lvgl as lv
-s = lv.lv.style_t(lv.style_plain)
+s = lv.style_t(lv.style_plain)
 ```
 
 You can access them much like C structs, using Python attributes:
