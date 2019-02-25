@@ -15,7 +15,7 @@
   &-title {
     color: $default-shade;
     font-family: $sans-serif;
-    font-size: 4rem;
+    font-size: 3rem;
     margin: 1rem 0;
     text-align: center;
   }
@@ -60,4 +60,17 @@
     padding: 0;
     margin: 0;
   }
+
+  kbd {
+      border-style: outset;
+      border-width: 2px;
+      border-color: #999999;
+      border-radius: 6px;
+      padding: 3px;
+      font-size: 75%;
+      font-weight: 475;
+      background-color: #f8f8f8;
+      margin: 2px;
+      white-space: nowrap;
+    }
 }
