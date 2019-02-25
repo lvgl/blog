@@ -101,7 +101,7 @@ self.btn2.align(self.btn1, lv.ALIGN.OUT_RIGHT_TOP, 10, 0)
 ```
 
 Here, we set the size of each button, align `btn1` to the page and align `btn2` relative to `btn1`.  
-We call `set_size` and `align` methods of our composite component `SymbolButton` - these methods were inherited from `SymbolButton` parent, `lb.btn` which is a LittlevGL native object.
+We call `set_size` and `align` methods of our composite component `SymbolButton` - these methods were inherited from `SymbolButton` parent, `lb.btn`, which is a LittlevGL native object.
 
 The result would look something like this:
 
@@ -164,8 +164,8 @@ The action of `btn1` is to set `label` text to "Play click", and the action of `
 
 How does this work?  
 There are two Python features you first need to understand: [lambda](https://www.w3schools.com/python/python_lambda.asp) and [Closure](https://www.programiz.com/python-programming/closure).  
-`set_action` function expects two parameters: an action enum (`CLICK` in this case) and a function. In Python a [functions are "first class"](https://stackoverflow.com/a/23037588/619493), this means they can be treated as a values, and can be passed to another function, like in this case.  
-The function we are passing is a `lambda`, which is an anonymous function. Its first parameter is the action, and its second parameter is the `name` variable from the for loop. The function does not use the `action` parameter, but it uses the `name` for setting the label's text.  
+`set_action` function expects two parameters: an action enum (`CLICK` in this case) and a function. In Python a [functions are "first class"](https://stackoverflow.com/a/23037588/619493), this means they can be treated as values, and can be passed to another function, like in this case.  
+The function we are passing is a `lambda`, which is an anonymous function. Its first parameter is the action, and its second parameter is the `name` variable from the `for` loop. The function does not use the `action` parameter, but it uses the `name` for setting the label's text.  
 
 You might ask yourself - why do we need to pass `name` as a parameter? Why not use it directly in the lambda like this: `lambda action: self.label.set_text('%s click' % name)`?  
 Well, **this will not work correctly!** Using `name` like this would create a *Closure*, which is a function object that remembers values in enclosing scopes, `name` in this case. The problem is, that in Python the resolution of `name` is done when `name` is executed. If we put `name` in the lambda function, it's too late, name was already set to `Pause` so both buttons will set "Pause click" text. We need `name` to be set when the for loop iteration is executed, not when the lambda function is executed, therefore we pass `name` as a parameter and this is the moment it is resolved. Here is a [short SO post](https://stackoverflow.com/a/28494140/619493) that explains this.
