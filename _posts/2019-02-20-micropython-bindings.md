@@ -2,7 +2,7 @@
 layout: post
 title: "Micropython + LittlevGL"
 author: "amirgon"
-cover: /assets/micropython/mp_lvgl.png
+cover: /assets/micropython/cover.png
 image:
   path: /assets/micropython/mp_lvgl.png
   height: 960
