@@ -100,7 +100,7 @@ self.btn2.set_size(140,100)
 self.btn2.align(self.btn1, lv.ALIGN.OUT_RIGHT_TOP, 10, 0)
 ```
 
-Here, we set the size of each button, align `btn1` on the page and align `btn2` related to `btn1`.  
+Here, we set the size of each button, align `btn1` to the page and align `btn2` relative to `btn1`.  
 We call `set_size` and `align` methods of our composite component `SymbolButton` - these methods were inherited from `SymbolButton` parent, `lb.btn` which is a LittlevGL native object.
 
 The result would look something like this:
