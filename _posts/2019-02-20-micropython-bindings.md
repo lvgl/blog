@@ -73,11 +73,9 @@ class SymbolButton(lv.btn):
         self.symbol = lv.label(self)
         self.symbol.set_text(symbol)
         self.symbol.set_style(symbolstyle)
-        self.symbol.align(self, lv.ALIGN.CENTER,0,0)
         
         self.label = lv.label(self)
         self.label.set_text(text)
-        self.label.align(self, lv.ALIGN.CENTER,20,0)
 
 ```
 
@@ -88,16 +86,24 @@ It's a class, so we can create object instances from it. It's composite, because
 - **A Symbol label** - a label with a symbol style (symbol font) as a child of `self`, ie. child of the parent button that SymbolButton inherits from. `lv.label` is a native LittlevGL label component that represents some text inside another component.
 - **A Text label** - a label with some text as another child of `self`.
 
-`SymbolButton` constructor (`__init__` function) does nothing more than create the two labels, set their contents and align them.  
+`SymbolButton` constructor (`__init__` function) does nothing more than create the two labels and set their contents and style.  
 
-Here is an example of how to use our SymbolButton:
+Here is an example of how to use our `SymbolButton`:
 
 ```python
-play_btn = SymbolButton(page, lv.SYMBOL.PLAY, "Play")
-pause_btn = SymbolButton(page, lv.SYMBOL.PAUSE, "Pause")
+self.btn1 = SymbolButton(page, lv.SYMBOL.PLAY, "Play")
+self.btn1.set_size(140,100)
+self.btn1.align(None, lv.ALIGN.IN_TOP_LEFT, 10, 0)
+
+self.btn2 = SymbolButton(page, lv.SYMBOL.PAUSE, "Pause")
+self.btn2.set_size(140,100)
+self.btn2.align(self.btn1, lv.ALIGN.OUT_RIGHT_TOP, 10, 0)
 ```
 
-and the result would look something like this:
+Here, we set the size of each button, align `btn1` on the page and align `btn2` related to `btn1`.  
+We call `set_size` and `align` methods of our composite component `SymbolButton` - these methods were inherited from `SymbolButton` parent, `lb.btn` which is a LittlevGL native object.
+
+The result would look something like this:
 
 ![Play and Pause buttons](/assets/micropython/play_pause_btns.png)
 
@@ -150,9 +156,24 @@ In this example `lv.ALIGN` is an enum and `lv.ALIGN.CENTER` is an enum member (a
 
 #### Using callbacks
 ```python
-btn.set_action(lv.btn.ACTION.CLICK, lambda action,name=name: self.label.set_text('%s click' % name))
+for btn, name in [(self.btn1, 'Play'), (self.btn2, 'Pause')]:
+            btn.set_action(lv.btn.ACTION.CLICK, lambda action,name=name: self.label.set_text('%s click' % name))
 ```
-Currently the binding is limited to one callback per object.
+Here, we have a loop that sets an action for buttons `btn1` and `btn2`.  
+The action of `btn1` is to set `label` text to "Play click", and the action of `btn2` click is to set `label` text to "Pause click".  
+
+How does this work?  
+There are two Python features you first need to understand: [lambda](https://www.w3schools.com/python/python_lambda.asp) and [Closure](https://www.programiz.com/python-programming/closure).  
+`set_action` function expects two parameters: an action enum (`CLICK` in this case) and a function. In Python a [functions are "first class"](https://stackoverflow.com/a/23037588/619493), this means they can be treated as a values, and can be passed to another function, like in this case.  
+The function we are passing is a `lambda`, which is an anonymous function. Its first parameter is the action, and its second parameter is the `name` variable from the for loop. The function does not use the `action` parameter, but it uses the `name` for setting the label's text.  
+
+You might ask yourself - why do we need to pass `name` as a parameter? Why not use it directly in the lambda like this: `lambda action: self.label.set_text('%s click' % name)`?  
+Well, **this will not work correctly!** Using `name` like this would create a *Closure*, which is a function object that remembers values in enclosing scopes, `name` in this case. The problem is, that in Python the resolution of `name` is done when `name` is executed. If we put `name` in the lambda function, it's too late, name was already set to `Pause` so both buttons will set "Pause click" text. We need `name` to be set when the for loop iteration is executed, not when the lambda function is executed, therefore we pass `name` as a parameter and this is the moment it is resolved. Here is a [short SO post](https://stackoverflow.com/a/28494140/619493) that explains this.
+
+
+[The complete script](https://github.com/littlevgl/lv_binding_micropython/blob/master/gen/advanced_demo.py).
+
+Currently the binding is limited to only one callback per object.
 
 ---
 
@@ -209,7 +230,7 @@ If some are missing and you need them, please open an issue on [Micopython Bindi
 - Type `lv.` + <kbd>TAB</kbd> for completion. All supported classes and functions of LittlevGL will be displayed.
 - Another option: `help(lv)`
 - Another option: `print('\n'.join(dir(lv)))`
-- You can also do that recursively. For example `lv.bt.` + <kbd>TAB</kbd>, or `print('\n'.join(dir(lv.btn)))`
+- You can also do that recursively. For example `lv.btn.` + <kbd>TAB</kbd>, or `print('\n'.join(dir(lv.btn)))`
 
 You can also have a look at the LittlevGL binding module itself. It is generated during Micropython build, and is ususally called `lv_mpy.c`.
 
