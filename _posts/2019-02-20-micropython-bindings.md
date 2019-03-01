@@ -157,7 +157,7 @@ In this example `lv.ALIGN` is an enum and `lv.ALIGN.CENTER` is an enum member (a
 #### Using callbacks
 ```python
 for btn, name in [(self.btn1, 'Play'), (self.btn2, 'Pause')]:
-            btn.set_action(lv.btn.ACTION.CLICK, lambda action,name=name: self.label.set_text('%s click' % name))
+            btn.set_action(lv.btn.ACTION.CLICK, lambda action,name=name: self.label.set_text('%s click' % name) or lv.RES.OK)
 ```
 Here, we have a loop that sets an action for buttons `btn1` and `btn2`.  
 The action of `btn1` is to set `label` text to "Play click", and the action of `btn2` click is to set `label` text to "Pause click".  
@@ -166,6 +166,7 @@ How does this work?
 There are two Python features you first need to understand: [lambda](https://www.w3schools.com/python/python_lambda.asp) and [Closure](https://www.programiz.com/python-programming/closure).  
 `set_action` function expects two parameters: an action enum (`CLICK` in this case) and a function. In Python a [functions are "first class"](https://stackoverflow.com/a/23037588/619493), this means they can be treated as values, and can be passed to another function, like in this case.  
 The function we are passing is a `lambda`, which is an anonymous function. Its first parameter is the action, and its second parameter is the `name` variable from the `for` loop. The function does not use the `action` parameter, but it uses the `name` for setting the label's text.  
+After setting the label's text, the lambda function finishes and returns lv.RES.OK value. A lambda cannot have a `return` statement since it must be an expression. `set_text` is evaluated to None, so `set_text(...) or lv.RES.OK` is evaluated to `lv.RES.OK` and is treated as the lambda's function return value.  
 
 You might ask yourself - why do we need to pass `name` as a parameter? Why not use it directly in the lambda like this: `lambda action: self.label.set_text('%s click' % name)`?  
 Well, **this will not work correctly!** Using `name` like this would create a *Closure*, which is a function object that remembers values in enclosing scopes, `name` in this case. The problem is, that in Python the resolution of `name` is done when `name` is executed. If we put `name` in the lambda function, it's too late, name was already set to `Pause` so both buttons will set "Pause click" text. We need `name` to be set when the for loop iteration is executed, not when the lambda function is executed, therefore we pass `name` as a parameter and this is the moment it is resolved. Here is a [short SO post](https://stackoverflow.com/a/28494140/619493) that explains this.
