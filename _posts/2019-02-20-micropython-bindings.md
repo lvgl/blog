@@ -64,6 +64,25 @@ This goes well with [CircuitPython vision](https://learn.adafruit.com/welcome-to
 > It's very much like the C API, but Object Oriented for LittlevGL componets.
 
 Let's dive right into an example!  
+
+### A simple example
+
+```python
+import lvgl as lv
+lv.init()
+scr = lv.obj()
+btn = lv.btn(scr)
+btn.align(lv.scr_act(), lv.ALIGN.CENTER, 0, 0)
+label = lv.label(btn)
+label.set_text("Button")
+lv.scr_load(scr)
+```
+
+In this example we create a button, align it to center and add a text label on it, "Button".  
+Finally, we load the screen with the button, in order to display it.
+
+### A little more advanced example
+
 In this example I'll assume you already have some basic knowledge of LittlevGL. If you don't - please have a quick look at [LittlevGL tutorial](https://github.com/littlevgl/lv_examples/tree/master/lv_tutorial).
 
 ```python
