@@ -11,10 +11,10 @@ body {
 }
 
 html {
-  __font-family: $serif-primary;
   font-family: 'Open Sans', sans-serif; 
   font-size: 14px;
   overflow-y: scroll;
+  overflow-x: hidden;
 
   @media (min-width: 600px) {
     font-size: 16px;
@@ -67,6 +67,30 @@ h6 {
   font-family: 'Open Sans', sans-serif; 
   __font-family: $sans-serif;
   line-height: normal;
+}
+
+h1 {
+    margin-top:48px;
+    margin-bottom:16px;
+    font-size: 1.8rem;
+}
+
+h2 {
+    margin-top:32px;
+    margin-bottom:16px;
+    font-size: 1.5rem;
+}
+
+h3 {
+    margin-top:24px;
+    margin-bottom:16px;
+    font-size: 1.3rem;
+}
+
+h4 {
+    margin-top:16px;
+    margin-bottom:16px;
+    font-size: 1.1rem;
 }
 
 a {

@@ -107,7 +107,7 @@ TODO: Share the complete project
 
 Acknowledgment: We preapare this tutorial with [Orhan Gunduz](https://github.com/ogunduz).
 
-### Reference
+## Reference
 1. [STM32F429I-DISC1 website](http://www.st.com/en/evaluation-tools/32f429idiscovery.html)
 2. [UM1670 User manual Discovery kit with STM32F429ZI MCU](https://www.st.com/content/ccc/resource/technical/document/user_manual/6b/25/05/23/a9/45/4d/6a/DM00093903.pdf/files/DM00093903.pdf/jcr:content/translations/en.DM00093903.pdf)
 3. [LittlevGL issue](https://github.com/littlevgl/lvgl/issues/567#issuecomment-446586421)

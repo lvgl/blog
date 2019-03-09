@@ -2,8 +2,7 @@
   &-item {
     color: $default-color;
     display: inline-block;
-    padding-top: 8px;
-    padding-bottom: 32px;
+    padding-top: 0px;
 
     &:hover .catalogue-line,
     &:focus .catalogue-line {
@@ -26,7 +25,7 @@
     color: $default-shade;
     display: block;
     font-family: $sans-serif;
-    font-size: 2rem;
+    font-size: 1.5rem;
     font-weight: 700;
     margin: .5rem 0;
   }
@@ -37,4 +36,19 @@
     display: block;
     width: 2rem;
   }
+  &-banner {
+      background-color:#383838;  
+      _width: 100vw;
+      _position: relative;
+      _left: 50%;
+      _right: 50%;
+      _margin-left: -50vw;
+      _margin-right: -50vw;
+      margin: 0 calc(50% - 50vw);
+      color:white;
+      margin-top: -7px;
+      padding: 48px 0px;
+  }
 }
+
+

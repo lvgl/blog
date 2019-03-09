@@ -9,7 +9,7 @@ image:
   width: 300
 ---
 
-## What is this post about?
+# What is this post about?
 This post rises to explain a new method to run PC Simulator within Windows 10. So far, there are many ways of launching simulation:
 
 * [PC-Simulator](https://docs.littlevgl.com/#PC-simulator)
@@ -18,18 +18,18 @@ This post rises to explain a new method to run PC Simulator within Windows 10. S
 
 Nevertheless, I have seen some people and myself having some troubles when executing simulation on Windows 10. That's way I post the simplest and working method for me.
 
-## Which programs do we need to install?
+# Which programs do we need to install?
 
 * [Windows Subsystem for Linux](https://docs.microsoft.com/en-us/windows/wsl/install-win10): allows Linux programs to run natively on Windows.
 * [VcXsrv](https://sourceforge.net/projects/vcxsrv): allows unix system to use xServer as their standard GUI environment.
 
-## Which dependencies de we need to install?
+# Which dependencies de we need to install?
 
 * [SDL2](https://docs.littlevgl.com/#PC-simulator): install dependencies from WSL terminar as it is explained for Linux.
 * Dependencies indicated within [Dockerfile](https://github.com/littlevgl/pc_simulator_sdl_eclipse/blob/master/Dockerfile).
 * If you want to use a full ubuntu desktop, you can install [xfce desktop](https://github.com/QMonkey/wsl-tutorial) to run Eclipse on Linux Environment from Windows (WSL). On this post it is not explained more about this but it is easy to follow link instructions.
 
-## Once everything is installed, what comes next?
+# Once everything is installed, what comes next?
 
 * Build project from WSL using:
 

@@ -21,9 +21,9 @@ There are many different possibilities to join the community. If you have some t
 
 But first, start with the most Frequently Asked Questions.
 
-## FAQ about contributing
+# FAQ about contributing
 
-### Where can I write my question and remarks?
+## Where can I write my question and remarks?
 
 We use [GitHub's issue tracker](https://github.com/littlevgl/lvgl/issues) to ask questions., report bugs and suggest features. But there are some simple rules:
 - Be kind and friendly.
@@ -34,7 +34,7 @@ We use [GitHub's issue tracker](https://github.com/littlevgl/lvgl/issues) to ask
 - Use [Markdown](https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet) to format your post.
 - If you don't get any answer in a week write a comment like "Can somebody help?". Maybe your issue wasn't noticed.
 
-### How can I send fixes and improvements?
+## How can I send fixes and improvements?
 Merging new code happens via Pull Requests. If you are still not familiar with the Pull Requests (PR for short) here is a quick guide about them:
 1. **Fork** the [lvgl repository](https://github.com/littlevgl/lvgl). To do this click the "Fork" button in the top right corner. It will "copy" the `lvgl` repository to your GitHub account (`https://github.com/your_name?tab=repositories`)
 2. **Clone**  the forked repository and add your updates
@@ -49,32 +49,32 @@ Some advice:
 - Please read and follow this [guide about the coding style](https://docs.littlevgl.com/#Coding-Style-Guide)
 
 
-### Where is the documentation?
+## Where is the documentation?
 
 You can read the documentation here: <https://docs.littlevgl.com/>  
 You can edit the documentation here: <https://github.com/littlevgl/doc>  
 
-### Where is the blog?
+## Where is the blog?
 
 You can read the blog here: <https://blog.littlevgl.com/>  
 You can edit the blog here: <https://github.com/littlevgl/blog>  
 
 
-## So how and where can I contribute?
+# So how and where can I contribute?
 
-### Answering other's questions
+## Answering other's questions
 
 It's a great way to contribute to the library if you already use it. Just go the [issue tracker](https://github.com/littlevgl/lvgl/issues), read the titles and if you are already familiar with a topic, don't be shy, and write your suggestion.
 
-### Reporting and/or fixing bugs
+## Reporting and/or fixing bugs
 For simple bugfixes (typos, missing error handling, fixing a warning) is fine to send a Pull request directly. However, for more complex bugs it's better to open an issue first. In the issue, you should describe how to reproduce the bug and even add the minimal code snippet.
 
-### Suggesting and/or implementing new features
+## Suggesting and/or implementing new features
 If you have a good idea don't hesitate to share with us. It's even better if you have time to deal with its implementation. Don't be afraid if you still don't know LittlevGL well enough. We will help you to get started. 
 
 During the implementation don't forget the [Code style guide](https://docs.littlevgl.com/#Coding-Style-Guide).
 
-### Improving and/or translating the documentation
+## Improving and/or translating the documentation
 
 The documentation of LittlevGL is written in Markdown and available [here](https://github.com/littlevgl/doc) for editing. If you find some parts of the documentation obscure or insufficient just search the related `.md` file, hit the edit icon and add your updates. This way a  new Pull request will be generated automatically.
 
@@ -85,7 +85,7 @@ If you can devote more time to improve the documentation you can translate it!
 4. Translate the page(s) you want
 5. Create a Pull request
 
-### Writing a blog post about your experiences
+## Writing a blog post about your experiences
 
 Have you ported LittlevGL to a new platform? Have you created a fancy GUI? Do you know a great trick? 
 You can share your knowledge on LittlevGL's blog! It's super easy to add your own post:
@@ -96,7 +96,7 @@ You can share your knowledge on LittlevGL's blog! It's super easy to add your ow
 
 The blog uses [Jekyll](https://jekyllrb.com/) to convert the `.md` files to a webpage. You can easily [run Jekyll offline](https://jekyllrb.com/docs/) to check your post before creating the Pull request
 
-## Summary
+# Summary
 
 I hope you have taken a liking to contribute to LittlevGL. A helpful and friendly community is waiting for you! :) 
 

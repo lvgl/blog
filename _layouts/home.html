@@ -2,21 +2,23 @@
 layout: default
 ---
 
-<h3 style="text-align:center; margin-top:32px;margin-bottom:10px;font-size:22px;"> LittlevGL's blog is open for everyone </h3>
+<div class="catalogue-banner">
+<h1 class="catalogue-title" style="text-align:center; color:white;"> LittlevGL's Blog is Open for Everyone </h3>
 </p>
-<p style="text-align:center; font-size:18px; line-height: 28px; padding: 0 40px;">
+<p style="text-align:center; font-size:18px; line-height: 28px; max-width:800px; margin:auto">
 Do you have an interesting project? Ported LittlevGL to a new hardware? Do you know a great trick? 
 You can add your post here to share your knowledge with others. Learn more <a href="https://github.com/littlevgl/blog">here</a>.
 </p>
+</div>
 
 <div class="catalogue">
   {% for post in paginator.posts %}
    <a href="{{ post.url | prepend: site.baseurl }}" class="catalogue-item">
-     <div style="margin-top:24px; margin-bottom:24px; border-bottom: 1px solid #eee;">
+     <div style=" border-bottom: 1px solid #eee; padding: 64px 0px;">
          {% if post.cover %}
-           <img class="post_cover_img" src="{{ post.cover }}" height="200px" width="200px" border="1px" style="border: 0px solid #ddd; padding-right:12px;padding-top:12px">
+           <img class="post_cover_img" src="{{ post.cover }}" height="200px" width="200px" border="1px" style="border: 0px solid #ddd; margin:0 12px 0 0;">
          {% else %}
-           <img class="post_cover_img" src="{{ site.cover }}" height="200px" width="200px" border="1px" style="border: 0px solid #ddd; padding-right:12px;padding-top:12px">
+           <img class="post_cover_img" src="{{ site.cover }}" height="200px" width="200px" border="1px" style="border: 0px solid #ddd; margin:0 12px 0 0;">
          {% endif %}
         
          <div class="catalogue-item post_box"> 

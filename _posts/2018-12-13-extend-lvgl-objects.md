@@ -12,7 +12,7 @@ image:
 **Although the [Objects in LittlevGL](https://docs.littlevgl.com/#Object-types) have a lot of built-in features sometimes you might need something special. For example, draw something unique on an object or change its behavior. 
 In this post, I will show you how to add extra functionality to the objects in LittlevGL. You will also learn how LittlevGL works under to hood**
 
-## Inheritance
+# Inheritance
 Maybe you already know about the inheritance among object types in LittlevGL. Don't panic if don't you can learn it now. 
 
 Although C doesn't support classes and inheritance as C++ does with a few tricks and limitations something similar can be achieved. In LittlevGL inheritance means that a derived object knows all the features of its ancestor.
@@ -25,7 +25,7 @@ _Inheritance example in LittlevGL_
 
 Because the _Base object_ is the ancestor of every object type (sometimes indirectly through other objects types) every object type has size, position, and similar basic attributes. 
 
-## Extended data
+# Extended data
 In LittlevGL every object type has a data structure (`struct`) which holds data for the objects. It is called **extended data**.
 
 For example, in case, of a _Button_ this structure stores the current state (pressed, released etc.) and the styles for each state. 
@@ -53,7 +53,7 @@ typedef struct {
 So the key is to add the ancestors extended data first. This way if the ancestor reads the extended data as `ancestor_t` is will see the correct type and if the derived reads it, it will see the _ancesor_ + _derived data_.
 
 
-### Add custom extended data to an object type
+## Add custom extended data to an object type
 
 Let's see a silly but real life example. Store an integer temperature value in a button's extended data:
 ```c
@@ -94,13 +94,13 @@ void test(void)
 
 That's it. Now you know how to add any custom data an object.
 
-## Custom functions
+# Custom functions
 
 In LittlevGL every object has two special functions:
 - **Design function** defines how the object should look like
 - **Signal function** defines how the object should behave
 
-### Design function
+## Design function
 The design function of the objects are called automatically by the library when the object needs to be redrawn. A simple design function to draw a rectangle looks like this:
 ```c
 /**
@@ -183,7 +183,7 @@ void test_btn(void)
 
 ```
 
-#### Animation example
+## Animation example
 
 Now create a custom animation using some additional extended data and a new design function. The animation will change the button's appearance to the pressed style and back when it is released.
 
@@ -279,7 +279,7 @@ void test_btn(void)
 
 ```
 
-### Signal function
+## Signal function
 
 The signal function is responsible for the behavior of the objects. When something happens with an object the library automatically sends a signal to the object to notify it. The signal is processed in the _signal function_  and the object can do something according to the event.
 
@@ -301,7 +301,7 @@ So let's see what happens:
 
 So by inheriting the _Button_ from the _Container_, all the _Container_ functionalities can be used by the _Button_.
 
-#### Position limitation with a custom signal function
+## Position limitation with a custom signal function
 
 I will show you an example, how to create a signal function which:
 - Doesn't let a button to be dragged out of its parent
@@ -423,7 +423,7 @@ void test_knob(void)
 }
 ```
 
-## Summary
+# Summary
 You have just learnt the three most important internal mechanisms of LittlevGL:
 - Extended data
 - Design function
