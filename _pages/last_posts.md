@@ -1,5 +1,6 @@
 ---
 permalink: last_posts
+layout: empty
 ---
 
 {% for post in site.posts limit:4 %}
