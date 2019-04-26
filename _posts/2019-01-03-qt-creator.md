@@ -18,17 +18,17 @@ This is a step by step tutorial
 - from Qt-Creator 4.8.0
 - with Mingw 64 bit compiler.
 
-### Requirements
+# Requirements
 * Qt-Creator and Mingw-64bit environment. Refer to https://www.qt.io/ to install the open source version of Qt environment.
 * SDL2 developement libraries for mingw: https://www.libsdl.org/download-2.0.php
 * LittlevGL PC Simulator: https://littlevgl.com/pc-simulator
 
-### Copy SDL2 libraries
+# Copy SDL2 libraries
 * In *pc_simulator* folder create a subfolder named *SDL2*. 
 * Copy sdl header files there.
 * Create *SDL2/lib* subfolder and copy libraries for i686-w64 from SDL2 package.
 
-### Settin up Qt-Creator project
+# Settin up Qt-Creator project
 * Open Qt-Creator
 * from **file** menu select **new file or project**.
   * in the form select **non-Qt-project** and **plain C application**. Press **choose** button.
@@ -74,7 +74,7 @@ All sources files and includes should be already selected by default.
 ![Qt-Creator add libraries path](/assets/qt_creator/add_SDL_path.PNG)
 * Save project.
 
-### Build and Run the project
+# Build and Run the project
 
 * Select **release** build from left panel icon.
 

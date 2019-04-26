@@ -16,7 +16,7 @@ All the source code can be downloaded at the bottom of the page.
 
 ![Running_littlevGL with i Pod Nano6's display](/assets/iPodNano6/Running_littlevGL.JPG)
 
-## Something about MIPI DSI
+# Something about MIPI DSI
 LCD for iPod Nano6 uses MIPI Display Serial Interface (MIPI DSI) which is a high-speed serial interface between a host processor and a display module. LCDs belong to this category are very common for smartphones, tablets, and smartwatches. Reference is available from [MIPI alliance page](https://www.mipi.org/specifications/dsi). Some MIPI LCDs on hands are shown here.
 ![Some mipi displays](/assets/iPodNano6/Some_mipi_displays.jpg)
 
@@ -36,13 +36,13 @@ Table below summaries the difference.
 Usually interface of a MIPI LCD needs much less pins and lower voltage than its MCU/RGB counterpart. 
 ![MIPI-vs-conventional-LCD piiout compare](/assets/iPodNano6/Pinout_compare.jpg)
 
-## MIPI bridge Chip
+# MIPI bridge Chip
 The problem is, how do we drive a MIPI display when there is no DSI output from our MCU (like ESP32) and how to port it to LittlevGL? Here comes the MIPI bridge IC - SSD2805, which is an interface chip to convert between RGB/8080 video signal to MIPI signal. 
 ![](/assets/iPodNano6/SSD2805_top.jpg)
 This is a very tiny chip of 5*5mm with 0.5mm pitch BGA!
 ![SSD2805 bottom](/assets/iPodNano6/SSD2805_bottom.jpg)
 
-## Block diagram of my setup
+# Block diagram of my setup
 ![LittlevGL - iPod Nano 6 system architecture](/assets/iPodNano6/block_diagram.jpg?raw=true)
 ESP32 is programmed with ESP-IDF (Espressif IoT Development Framework). Its installation procedure is described in full details at [Espressif's documentation site](https://docs.espressif.com/projects/esp-idf/en/latest/get-started/index.html). My host computer is a Windows 7 Pro SP1 64-bit Operating System. Hardware is an old Intel Core i5 with 8GB RAM. I have followed the default installation path described in ESP-IDF's Getting Started Guide. It gave me back a mingw32.exe application under C:\msys32\.
 
@@ -52,7 +52,7 @@ At first I was not comfortable with command line tool like mingw32.exe. With inn
 Because there is no standard evaluation kit for ESP32 + SSD2805 + MIPI Display combo, I was forced to use jumper cables to wire up things with mess like this :(
 ![LittlevGL - iPod Nano 6 messy wire up](/assets/iPodNano6/messy_wireup.JPG)
 
-## Hardware 
+# Hardware 
 Boards employed include:
 1. ESP32-Pico-Kit v4
 2. SSD2805 breakout board Release 3 
@@ -61,7 +61,7 @@ Boards employed include:
 The pinout diagram is illustrated below.
 ![ESP32 LCD Pinout](/assets/iPodNano6/pinout_eps32_LCD.jpg)
 
-## Software
+# Software
 To work with LittlevGL, the prerequisite is a fully working LCD and touch screen drivers outside it. I started with a program of 5 source files to drive the LCD listed below:
 ```
 1. i2s_8080_hello_world.c
@@ -188,7 +188,7 @@ The result is a fully operational CTP with button, image display, and text print
 ![LittlevGL ESP32 Ipod Nano 6 display example 2](/assets/iPodNano6/child.JPG)
 ![LittlevGL ESP32 Ipod Nano 6 display example 3](/assets/iPodNano6/polynesia.JPG)
 
-## Download
+# Download
 - [I2S 8080 LCD driver](/assets/iPodNano6/i2s_8080_lcd.zip)
 - [SSD2541 driver test](/assets/iPodNano6/SSD2541_drv_test.zip)
 - [Project](/assets/iPodNano6/littlevgl_port.zip)

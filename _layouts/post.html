@@ -2,7 +2,8 @@
 layout: default
 ---
 
-<div class="post">
+<div class="post" style="overflow-x: auto;">
+  <h1 class="post-title">{{ page.title }}</h1>
   <div class="post-info">
     <span>Written by</span>
     {% if page.author %}
@@ -12,14 +13,11 @@ layout: default
     {% endif %}
 
     {% if page.date %}
-      <br>
+      
       <span>on&nbsp;</span><time datetime="{{ page.date }}">{{ page.date | date: "%B %d, %Y" }}</time>
     {% endif %}
   </div>
-
-  <h1 class="post-title">{{ page.title }}</h1>
-  <div class="post-line"></div>
-
+  
   {{ content }}
 
 </div>
@@ -43,10 +41,11 @@ window.onload = function () {
 
     for(var i = 0; i < tags.length; i++) {
         h = document.getElementsByTagName(tags[i]);
-            
         for(j = 0; j < h.length; j++) {
-            var x = "<a href='#" + h[j].id + "' style='color:#353535'>" + h[j].innerHTML + "</a>";
-            h[j].innerHTML = x; 
+            if(h[j].id) {
+                var x = "<a href='#" + h[j].id + "' style='color:#353535'>" + h[j].innerHTML + "</a>";
+                h[j].innerHTML = x; 
+            }
         }
     }
 }

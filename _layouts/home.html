@@ -1,52 +1,24 @@
 ---
 layout: default
 ---
-<!--
-<p style="color:#666;"> <span style="font-weight:bold; font-size:18px;  color:#333">Subscribe for interesting News and useful Tutorials</span></p>
-   
-<form id="subscribe_form" method="post">	
-        <div>
-            <label for="form_name">Name</label>
-            <input id="form_name" type="text" name="name" placeholder="Your name" required="required" data-error="Name is required.">
-        </div>
-        <div>
-            <label for="form_email">Email</label>
-            <input id="form_email" type="email" name="email" placeholder="Your email address" required="required" data-error="Valid email is required.">
-            <div class="help-block with-errors"></div>
-        </div>
-    <div style="padding-top:10px">
-        <input type="submit" class="subscr_btn" value="Subscribe">
-    </div>
-</form>
-<div>
-    <p id="subscribe_result"></p>
+
+<div class="catalogue-banner">
+<h1 class="catalogue-title" style="text-align:center; color:white;"> LittlevGL's Blog is Open for Everyone </h3>
+</p>
+<p style="text-align:center; font-size:18px; line-height: 28px; max-width:800px; margin:auto">
+Do you have an interesting project? Ported LittlevGL to a new hardware? Do you know a great trick? 
+You can add your post here to share your knowledge with others. Learn more <a href="https://github.com/littlevgl/blog">here</a>.
+</p>
 </div>
-
-<script>
-$("#subscribe_form").submit(function(event){
-
-    event.preventDefault();
-    var $form = $(this);
-
-    var name = $("#form_name).val();
-    var email = $("#form_email").val(); 
-    request = $.post("https://littlevgl.com/webgalamb/subscriber.php?g=3&f=bc65kkeabc",
-    			{f_12: name, subscr: email, sub: "Feliratkozás"});		
-    			
-    var p_res = $("#subscribe_result");
-    p_res.html("You have subscribed with " + email + " address.<br>Check your mailbox for a welcome e-mail!");
-});
-</script>
--->
 
 <div class="catalogue">
   {% for post in paginator.posts %}
    <a href="{{ post.url | prepend: site.baseurl }}" class="catalogue-item">
-     <div style="margin-top:24px; margin-bottom:24px; border-bottom: 1px solid #eee;">
+     <div style=" border-bottom: 1px solid #eee; padding: 64px 0px;">
          {% if post.cover %}
-           <img class="post_cover_img" src="{{ post.cover }}" height="200px" width="200px" border="1px" style="border: 0px solid #ddd; padding-right:12px;padding-top:12px">
+           <img class="post_cover_img" src="{{ post.cover }}" height="200px" width="200px" border="1px" style="border: 0px solid #ddd; margin:0 12px 0 0;">
          {% else %}
-           <img class="post_cover_img" src="{{ site.cover }}" height="200px" width="200px" border="1px" style="border: 0px solid #ddd; padding-right:12px;padding-top:12px">
+           <img class="post_cover_img" src="{{ site.cover }}" height="200px" width="200px" border="1px" style="border: 0px solid #ddd; margin:0 12px 0 0;">
          {% endif %}
         
          <div class="catalogue-item post_box"> 
