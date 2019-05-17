@@ -51,7 +51,7 @@ void DISP_IMPL_flushBuffer (const char_t* pFileName)
   pFileOut = fopen(pFileName, "w");
 
   if (pFileOut == NULL) {
-    SIM_logMsg(("[Display] error: %s cannot be opened", pFileName));
+    printf(("[Display] error: %s cannot be opened", pFileName));
     return;
   }
 
@@ -61,7 +61,7 @@ void DISP_IMPL_flushBuffer (const char_t* pFileName)
   bSnapshot = BOOL_FALSE;
 
   fclose(pFileOut);
-  SIM_logMsg(("[Display] data flushed to %s", pFileName));
+  printf(("[Display] data flushed to %s", pFileName));
 }
 ```
 
@@ -80,6 +80,37 @@ void APP_DISP_lvgl_flush (const lv_color_t* pData, const DISPLAY_BOUNDS_T* const
              pFileOut);
     }
   }
+}
+```
+
+- Convert pixel to required format:
+
+```c
+/** Convert lvgl RGB565 pixel to RGB888 pixel
+ *
+ * @note: convert potential gray colors to true gray color.
+ *
+ */
+static uint32_t DISP_IMPL_lvgl_formatPixel (lv_color_t color){
+
+  lv_color32_t data = (lv_color32_t) lv_color_to32(color);
+  uint8_t aux;
+
+  /* Make potential gray color true gray color */
+  if (color.red == color.blue) {
+    uint32_t dif = data.green - data.red;
+    if (dif <= 8) {
+      data.red += dif;
+      data.blue += dif;
+    }
+  }
+
+  /* BGR to RGB */
+  aux = data.blue;
+  data.blue = data.red;
+  data.red = aux;
+
+  return data.full;
 }
 ```
 
