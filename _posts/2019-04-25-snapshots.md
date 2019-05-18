@@ -83,7 +83,7 @@ void APP_DISP_lvgl_flush (const lv_color_t* pData, const DISPLAY_BOUNDS_T* const
 }
 ```
 
-- Convert pixel to required format:
+- Convert pixel to the required format. It is application specific and depends on `LV_COLOR_DEPTH` and the desired output format. In this example just a correction is applied on the gray colors.
 
 ```c
 /** Convert lvgl RGB565 pixel to RGB888 pixel
