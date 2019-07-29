@@ -9,17 +9,32 @@ image:
   width: 300
 ---
 
-**Here you can find some projects where LittlevGL was used as GUI library.**
+**Here you can find some companies and projects where LittlevGL is used as GUI library.**
 
 Please, write a few lines about your LittlevGL based project by hitting the Edit button [here](https://github.com/littlevgl/blog/blob/master/_posts/2018-12-26-references.md).
 
-
 <style type="text/css" scoped>
-    td { width: 50%; } 
+    td:first-child { width: 30%; } 
 </style>
 
-
 _Uploading projects are in progress_
+
+## Espressif - ESP32
+
+| ![ESP WROOM 32](/assets/references/esp-wroom-32.jpg) | Espressif integrate LittelvGL for ESP32 modules. <br> Read more in [this post](https://blog.littlevgl.com/2019-01-31/esp32). |
+
+
+## Zephyr - RTOS for IoT
+
+| ![Zephyr logo](/assets/references/zephyr-logo.png) | [Zephyr](https://www.zephyrproject.org/) (a small, scalable  open source RTOS for IOT embedded devices) have choosen LittlevGL as GUI library.<br> Check out [this example](https://docs.zephyrproject.org/latest/samples/gui/lvgl/README.html). | 
+
+## PROS - RTOS of VEX microcontrollers
+
+| ![PROS logo](/assets/references/pros-logo.png) | [PROS](https://pros.cs.purdue.edu/), used by [Vex robototics](https://www.vexrobotics.com/), included LittlevGL. |
+
+## ALiOS
+
+| ![AliOS logo](/assets/references/alios-logo.png) | [AliOS Things](http://aliosthings.io/) is Alibaba's IoT version of [AliOS Family](https://en.wikipedia.org/wiki/AliOS) which uses LittlevGL as GUI library.|
 
 ## OrigoKey - Crypto wallet
 
