@@ -21,12 +21,12 @@ image:
 # What?
 
 I created a *Pure Micropython* display driver for ILI9341 on ESP32. [Here it is](https://github.com/littlevgl/lv_binding_micropython/blob/master/driver/esp32/ili9341.py).  
-"Pure Micropython", in this sense, means that all logic is implemented in Micropython, and uses the standatd API for LittlevGL and ESP-SDK libraries.
+"Pure Micropython", in this sense, means that all logic is implemented in Micropython, and uses the standard API for LittlevGL and ESP-SDK libraries.
 
 ### Background
 
-LittlevGL by itself is very portable and can be used on many hardware and architectures.  
-However, it requires a display driver, specific to the hardware it runs on.  
+LittlevGL by itself is very portable and can be used on many hardware devices and architectures.
+However, it requires a display driver, specific to the hardware it runs on.
 So if you use ESP32 and you want to display a nice GUI on your ILI9341 display, you need a "LittlevGL-ESP32-ILI9341" display driver.  
 
 LittlevGL project [already provides C implementation of that driver](https://github.com/littlevgl/esp32_ili9341), and there's even a [micropython API for it](https://github.com/littlevgl/lv_binding_micropython/blob/master/driver/esp32/modILI9341.c), but I wanted to create a **Pure Micropython implementation** of the same driver.
