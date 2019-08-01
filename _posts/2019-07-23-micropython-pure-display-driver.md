@@ -12,18 +12,8 @@ image:
 
 ![LittlevGL + Micropython](/assets/micropython/kisspng-clip-art-illustration-drawing-micropython-5c8fbdeeca47b9.2330618015529241428286.png)
 
---- 
-
-<center>Pure Micropython Display Driver</center>
-
----
-
-# What?
-
-I created a *Pure Micropython* display driver for ILI9341 on ESP32. [Here it is](https://github.com/littlevgl/lv_binding_micropython/blob/master/driver/esp32/ili9341.py).  
-"Pure Micropython", in this sense, means that all logic is implemented in Micropython, and uses the standard API for LittlevGL and ESP-SDK libraries.
-
-### Background
+**I created a *Pure Micropython* display driver for ILI9341 on ESP32. [Here it is](https://github.com/littlevgl/lv_binding_micropython/blob/master/driver/esp32/ili9341.py).  
+"Pure Micropython", in this sense, means that all logic is implemented in Micropython, and uses the standard API for LittlevGL and ESP-SDK libraries.**
 
 LittlevGL by itself is very portable and can be used on many hardware devices and architectures.
 However, it requires a display driver, specific to the hardware it runs on.
@@ -38,7 +28,6 @@ This display driver can run in two modes:
 - Pure Micropython mode - **all** the display driver logic is done in Micropython.
 - Hybrid mode - Setup and initialization is done in Micropython, but the critical path (flush and ISR functions) is implemented in C.
 
----
 
 # Why?
 
@@ -52,7 +41,7 @@ For two reasons:
 
 Here are some interesting features that are used in the Pure Micropython Display Driver:
 
-### Micropython API to \*any\* C library!
+## Micropython API to \*any\* C library!
 
 The driver needs to interact with LittlevGL and ESP-IDF.  
 LittlevGL provides C API for registering a driver, and ESP-IDF provides C API for interacting with ESP32 hardware, access GPIO, and SPI devices for example.  
@@ -76,7 +65,7 @@ In this blog post I'm going to show you how **Micropython Bindings was used to c
 By the way, I also used it to provide an API for [lodepng](https://github.com/lvandeve/lodepng), which is a library for encoding and decoding PNG files. But this is out of the scope of this blog post. If you are interested in that, have a look at [this example script](https://github.com/littlevgl/lv_binding_micropython/blob/master/examples/example2.py).
 
 
-### Using Pointers in Micropython
+## Using Pointers in Micropython
 
 C API usually relies heavily on pointers.  
 Some C functions allocate or consume buffers, which are passed as pointers.  
@@ -93,7 +82,7 @@ The Pure Micropython Display Driver uses pointers in several contexts:
 - When sending a DMA transaction
 - On ESP-IDF functions that receive pointers.
 
-### Using Callbacks from C to Micropython
+## Using Callbacks from C to Micropython
 
 When we want to register a C callback we pass a function pointer.  
 But what if we want the callback to call uPy code?  
@@ -105,20 +94,19 @@ The Pure Micropython Display Driver code illustrates several callback use-cases:
 - Registering uPy function as a callback on LittlevGL API, which supports uPy callbacks. (Caller is defined in C while the callee is defined in uPy).
 - Registering uPy function as a callback on ESP-IDF API, which **doesn't** support uPy callbacks, therefore requires special handling.
 
-### Interrupt handling in Micropython
+## Interrupt handling in Micropython
 
 Micropython allows you to [write an ISR in micropython](https://docs.micropython.org/en/latest/reference/isr_rules.html) and handle interrupts without writing dedicated function for it.
 This involves several limitation and considerations.
 
 The Pure Micropython Display Driver implements a DMA completion interrupt, to signal LittlevGL that the display "flush" was completed.
 
----
 
 # How?
 
 Below are snippets from [ili9341.py](https://github.com/littlevgl/lv_binding_micropython/blob/master/driver/esp32/ili9341.py), [espidf.h](https://github.com/littlevgl/lv_binding_micropython/blob/master/driver/esp32/espidf.h), [espidf.c](https://github.com/littlevgl/lv_binding_micropython/blob/master/driver/esp32/espidf.c) to illustrate and explain different features in the Pure Micropython Driver.
 
-### Auto generated C API
+## Auto generated C API
 
 ```python
 import espidf as esp
@@ -431,7 +419,7 @@ A few footnotes
 - Some naming should be changed. Perhaps `gen_mpy.py` should be called `gen_upy.py` etc.
 
 
-### ili9341 python class
+## ILI9341 python class
 
 
 ```python
@@ -467,7 +455,7 @@ So this is achieved by building `lv_micropython` with this parameter:
 LV_CFLAGS="-DLV_COLOR_DEPTH=16 -DLV_COLOR_16_SWAP=1"
 ```
 
-### Using Pointers
+## Using Pointers
 
 If we just pass pointers around, this is very easy. Each pointer is wrapped in a Micopython "Blob" object which is convertible to pointer between API functions, even if they belong to different libraries.  
 For example:
@@ -566,7 +554,7 @@ So we create an instance of `C_Pointer`, pass it over to a function that writes 
 After the function updated it, it's very easy to extract the relevant data from it, by accessing the right union field.
 
 
-### Using Callbacks
+## Using Callbacks
 
 Callbacks on Micropython C API is a subtle subject. While in C all you need is a function pointer (code only), on Micropython a callable object is needed (which contains data, not only code).  
 So when we want to register a Micropython function to be called from C, we need to find a way to record the callable object on C and pass it to the callback.  
@@ -717,7 +705,7 @@ void spi_post_cb_isr(spi_transaction_t *trans)
 The `cb_isr` receives `post_cb` callable Micropython object, and will call it in ISR context.
 
 
-### Calling uPy code in ISR context
+## Calling uPy code in ISR context
 
 When you want to run uPy in ISR context you have two options:
 
@@ -740,8 +728,6 @@ ESP32, apparently, has some [additional complications](https://github.com/microp
 
 In the Pure Micropython Driver we register `flush_isr` uPy function to be called directly in ISR context when DMA completion `post_cb` is called, when running in Pure uPy mode (non-hybrid)
 
----
-
 # Performance?
 
 Test conditions:
@@ -757,12 +743,12 @@ That's because we are measuring the display driver performance, not lvgl renderi
 
 Results:
 
-### Pure Micropython Driver
+## Pure Micropython Driver
 - 35ms per frame (28.5FPS)
 - DMA is 20ms out of the 35ms
 - Micropython code is 15ms out of the 35ms
 
-### Hybrid Micropython Driver
+## Hybrid Micropython Driver
 
 SPI setup, ILI9341 initialization etc. remain in Micropython.  
 Only the critical "flush" function and interrupt handling done in C (see `ili9341_flush` [here](https://github.com/littlevgl/lv_binding_micropython/blob/master/driver/esp32/espidf.c))
@@ -770,8 +756,6 @@ Only the critical "flush" function and interrupt handling done in C (see `ili934
 - 20ms per frame (50FPS)
 - Limiting factor is DMA. Higher FPS up to 100FPS may be possible with higher SPI frequency (80MHz), 
 but requires using dedicated IO pins (IOMUX instead of GPIO matrix), therefore not tested.
-
----
 
 # Conclusion?
 
