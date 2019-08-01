@@ -754,8 +754,10 @@ SPI setup, ILI9341 initialization etc. remain in Micropython.
 Only the critical "flush" function and interrupt handling done in C (see `ili9341_flush` [here](https://github.com/littlevgl/lv_binding_micropython/blob/master/driver/esp32/espidf.c))
 
 - 20ms per frame (50FPS)
-- Limiting factor is DMA. Higher FPS up to 100FPS may be possible with higher SPI frequency (80MHz), 
-but requires using dedicated IO pins (IOMUX instead of GPIO matrix), therefore not tested.
+- Limiting factor is DMA and ILI9341.  
+From DMA perspective, Higher FPS up to 100FPS may be possible with higher SPI frequency (80MHz), 
+but requires using dedicated IO pins (IOMUX instead of GPIO matrix), therefore not tested.  
+From ILI9341 perspective, running it faster than 10MHz is out of spec, but a common practice. Many people ran it [at higher rates up to 40Mhz](https://www.eevblog.com/forum/microcontrollers/ili9341-lcd-driver-max-spi-clock-speed/), and some even [up to 80Mhz](https://www.esp32.com/viewtopic.php?t=6627)!
 
 # Conclusion?
 
