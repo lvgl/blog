@@ -21,22 +21,23 @@ So if you use ESP32 and you want to display a nice GUI on your ILI9341 display, 
 
 LittlevGL project [already provides C implementation of that driver](https://github.com/littlevgl/esp32_ili9341), and there's even a [micropython API for it](https://github.com/littlevgl/lv_binding_micropython/blob/master/driver/esp32/modILI9341.c), but I wanted to create a **Pure Micropython implementation** of the same driver.
 
-This driver uses DMA and double buffering to acheive high performance.  
+This driver uses DMA and double buffering to achieve high performance.  
 At the bottom of this post you can find performance statistics and conclusions about using Micropython for a display driver.
 
 This display driver can run in two modes:
 - Pure Micropython mode - **all** the display driver logic is done in Micropython.
-- Hybrid mode - Setup and initialization is done in Micropython, but the critical path (flush and ISR functions) is implemented in C.
+- Hybrid mode - Setup and initialization are done in Micropython, but the critical path (flush and ISR functions) is implemented in C.
 
 
 # Why?
 
-Why would I re-write in micropython a module that is already written in C?  
+Why would I re-write a module in Micropython that is already written in C?  
 
-For two reasons:
+For three reasons:
 
  - It's a showcase for many interesting/advanced features related to Micropython Binding
  - I wanted to see how it would perform, compared to the C driver
+ - It makes possible to dynamically load drivers
 
 
 Here are some interesting features that are used in the Pure Micropython Display Driver:
@@ -53,8 +54,8 @@ Another thing is the issue of structs and pointers. C uses them a lot, but Micro
 LittlevGL is a large C library, and creating an lvgl Micropython module manually was out of the question.  
 
 Instead, I've created the [Micropython LittlevGL Binding](https://github.com/littlevgl/lv_binding_micropython), 
-which is at it's core a Python script that parses C header files and generates Micropython module automatically from them.  
-The automatically generated Micropython module not only handles function calls. It also provides API to structs, enums, callbacks etc.  
+which is at its core a Python script that parses C header files and generates Micropython module automatically from them.  
+The automatically generated Micropython module not only handles function calls. It also provides API to structs, enums, callbacks, etc.  
 
 I was working on this for a while, then I realized Micropython Binding could be used in a wider scope.  
 
@@ -67,14 +68,14 @@ By the way, I also used it to provide an API for [lodepng](https://github.com/lv
 
 ## Using Pointers in Micropython
 
-C API usually relies heavily on pointers.  
-Some C functions allocate or consume buffers, which are passed as pointers.  
-Many functions receive a pointer and update the value it points at, instead of returning a value.  
+C API usually relies heavily on pointers. 
+Some C functions allocate or consume buffers, which are passed as pointers. 
+Many functions receive a pointer and update the value it points at, instead of returning a value.
 
-Micropython, on the other hand, just like Python, doesn't need and doesn't have a native pointers like we have in C.
-In python (as well as other languages such as JavaScript), an object is accessed by reference. There are no Pointers per-se, no pointer-dereferencing, no pointer-arithmetic etc.  
+Micropython, on the other hand, just like Python, doesn't need and doesn't have native pointers as we have in C.
+In Python (as well as other languages such as JavaScript), an object is accessed by reference. There are no Pointers per-se, no pointer-dereferencing, no pointer-arithmetic, etc.  
 
-**The Micropython Binding bridge that gap** - it makes it possible to use Pointers in Micropython.  
+**The Micropython Binding bridges that gap** - it makes it possible to use Pointers in Micropython.  
 Either pass them to functions, assign them to fields in structs, dereference them, or convert them into [MemoryView](https://docs.python.org/3/library/stdtypes.html#memoryview).  
 
 The Pure Micropython Display Driver uses pointers in several contexts:
@@ -96,7 +97,7 @@ The Pure Micropython Display Driver code illustrates several callback use-cases:
 
 ## Interrupt handling in Micropython
 
-Micropython allows you to [write an ISR in micropython](https://docs.micropython.org/en/latest/reference/isr_rules.html) and handle interrupts without writing dedicated function for it.
+Micropython allows you to [write an ISR in Micropython](https://docs.micropython.org/en/latest/reference/isr_rules.html) and handle interrupts without writing a dedicated function for it in C.
 This involves several limitation and considerations.
 
 The Pure Micropython Display Driver implements a DMA completion interrupt, to signal LittlevGL that the display "flush" was completed.
@@ -130,16 +131,16 @@ Here is the most important part from `espidf.h`:
 #include "esp_clk.h"
 ```
 
-So we are not providing a full ESP-IDF API. That would be huge. At this point, only an API for functions and structs in these include files.  
+So we are not providing a full ESP-IDF API. That would be huge. At this point, only an API for functions and structs in these include files are added.  
 
 So what is the rest of the content of `espidf.h`?  
 
 - A few include guard defines (such as `#define INC_FREERTOS_H`). This is a trick to prevent an inner include to be applied.  
-While we are interested in the included files above, these files in turn include addition headers we are not interested in (we don't want the entire FreeRTOS API!). This trick would exlude them.
+While we are interested in the included files above, these files in turn include addition headers we are not interested in (we don't want the entire FreeRTOS API!). This trick would exclude them.
 - A few helper functions we want to include in ESP-IDF API although they are not really part of it. For example, `get_ccount` to measure CPU cycles.
-- A few additional enums. Enums will become part of the API while defines won't, so I added what I though would be useful.
-- ILI9341 hybrid mode functions (for example `ili9341_flush`). These functions are optional, the Pure Micropython display driver don't require them. 
-But when hybrid mode is enabled, these functions are used for the critical path and the driver performance increase significantly.  
+- A few additional enums. Enums will become part of the API while defines won't, so I added what I thought would be useful.
+- ILI9341 hybrid mode functions (for example `ili9341_flush`). These functions are optional, the Pure Micropython display driver doesn't require them. 
+But when the hybrid mode is enabled, these functions are used for the critical path and the driver performance increase significantly.  
 See more details on the "Performance" section below.   
 
 When building the ESP32 port of [the Micropython project](https://github.com/littlevgl/lv_micropython), [the Makefile](https://github.com/littlevgl/lv_micropython/blob/master/ports/esp32/Makefile) contains rules to genreate these modules. For example:
@@ -159,13 +160,13 @@ $(ESPIDFMOD_MODULE): $(ALL_ESPIDFMOD_SRC) $(LVGL_BINDING_DIR)/gen/gen_mpy.py
     $(Q)$(PYTHON) $(LVGL_BINDING_DIR)/gen/gen_mpy.py -M espidf -E $(ESPIDFMOD_PP) $(ESPIDFMOD_SOURCE) > $@
 ```
 
-This mumbo jumbo does essentialy two important things:  
+This mumbo jumbo does essentially two important things:  
 
 - Preprocess `espidf.h` by the C preprocessor. This applies all nested "includes" and produces a single preprocessed file with the entire API we want to generate.
-- Run `gen_mpy.py` on the preprocessed file. This is where the magic hanppens, and C functions and structs are transformed into a Micropython module. 
+- Run `gen_mpy.py` on the preprocessed file. This is where the magic happens, and C functions and structs are transformed into a Micropython module. 
 The output of this step is `mp_espidf.c`, which is the implementation of the ESP-IDF micropython module.
 
-Eventaully, the ESP-IDF micropython module is compiled, linked and referenced in the project, making it available for import by Micropython scripts.
+Eventually, the ESP-IDF micropython module is compiled, linked and referenced in the project, making it available for import by Micropython scripts.
 
 So how does the generated API look like?  
 
@@ -386,9 +387,9 @@ It can be, of course, larger or smaller depending on what's in the H file that i
 
 It's easy to include too many functions/structs in an API.  
 That's because a public C API might include private headers, which are not usually used by the user. But the script doesn't know that and takes every function/struct/enum from the preprocessed file.  
-To overcode this you can either 
+To overcome this you can either 
 - Disable some of the includes (by defining some include guard, for example)
-- Or write a seperate C API header file that delegates calls to the real API. (the calls would be on the C file which is not considered by the script). 
+- Or write a separate C API header file that delegates the calls to the real API. (the calls would be on the C file which is not considered by the script). 
 This requires more work but has the advantage of letting you control the API and make it more "python-friendly".
 
 Another thing to take into account is that C macros are not handled by the Binding Script, because it analyzes the preprocessed file.  
@@ -415,7 +416,7 @@ For example here we use `esp.CAP.DMA`:
 ```
 
 A few footnotes
-- Ideally the process of adding a new API to Micropython should be automated too, such that converting a C library to Micropython would be even easier and won't require messing with Makefile scripts, which is never plesant.
+- Ideally, the process of adding a new API to Micropython should be automated too, such that converting a C library to Micropython would be even easier and won't require messing with Makefile scripts, which is never pleasant.
 - Some naming should be changed. Perhaps `gen_mpy.py` should be called `gen_upy.py` etc.
 
 
@@ -444,7 +445,7 @@ class ili9341:
 ``` 
 
 
-When declaring the class, first thing we check that color mode is correct.   
+When declaring the class, the first thing we check that color mode is correct.   
 LittlevGL can be configured to use different color modes, starting from 1 bit monochrome up to 32 bit RGB with alpha channel.  
 For the Pure Python display driver to work correctly, LittlevGL color mode must match ILI9341 color mode,  16-bit RGB565. If we didn't do that we would have to translate every pixel to RGB565, and this is a lot of work for a display driver.
   
@@ -482,7 +483,7 @@ Each "Blob" has a `__dereference__` functions which allows you to convert it to 
 ...
 
     def send_data(self, data):
-        esp.gpio_set_level(self.dc, 1)	    # Data mode
+        esp.gpio_set_level(self.dc, 1)	   # Data mode
         if len(data) > self.trans_buffer_len: raise RuntimeError('Data too long, please use DMA!')
         trans_data = self.trans_buffer.__dereference__(len(data))
         trans_data[:] = data[:]
@@ -495,7 +496,7 @@ So we prepare `trans_buffer` which is a pointer to DMA-able memory, and copy `da
 To do that, we dereference `trans_buffer` (`self.trans_buffer.__dereference__(len(data))`), and copy the data into it (`trans_data[:] = data[:]`)
 
 Another case is using a pointer as a function output.  
-What if we have an API function that recieves a pointer, and updates the data it points at?  
+What if we have an API function that receives a pointer, and updates the data it points at?  
 
 [For example](https://docs.espressif.com/projects/esp-idf/en/latest/api-reference/peripherals/spi_master.html#_CPPv418spi_bus_add_device17spi_host_device_tPK29spi_device_interface_config_tP19spi_device_handle_t):   
 
@@ -556,7 +557,7 @@ After the function updated it, it's very easy to extract the relevant data from 
 
 ## Using Callbacks
 
-Callbacks on Micropython C API is a subtle subject. While in C all you need is a function pointer (code only), on Micropython a callable object is needed (which contains data, not only code).  
+Callbacks on Micropython C API is subtle subject. While in C all you need is a function pointer (code only), on Micropython a callable object is needed (which contains data, not only code).  
 So when we want to register a Micropython function to be called from C, we need to find a way to record the callable object on C and pass it to the callback.  
 On LittlevGL this is done using the `user_data` field, that is present on structs where callbacks are used. 
 On other libraries that do not follow this convention, you might need to wrap the callback registration/invocation and find another way to pass the callable object.
@@ -580,17 +581,17 @@ In case of `flush_cb`:
 - If not running in hybrid mode (but in "pure python" mode), the flush is registered as `self.flush` function, which is the pure python implementation of flush.  
 
 Under the hoods, the assignment to `flush_cb` saves the callable object `self.flush` in `user_data` member of `disp_drv`, this is automatic and hidden from the user.  
-Later on I'll show an example of registering callbacks on ESP-IDF, where the callback convetion is not followed as it is in LittlevGL, 
+Later on, I'll show an example of registering callbacks on ESP-IDF, where the callback convention is not followed as it is in LittlevGL, 
 and the copy of the callable object to `user_data` does not happen automatically.  
 
 Consider the case of hybrid mode.  
-In this case we register a the C function `esp.ili9341_flush` to `flush_cb`. When LittlevGL wants to flush the display data to the display it calls it.  
+In this case we register a C function `esp.ili9341_flush` to `flush_cb`. When LittlevGL wants to flush the display data to the display it calls it.  
 `esp.ili9341_flush` in turn should access the SPI device and DMA the data.
 However, the SPI device was initialized in uPy code - how can `esp.ili9341_flush` access it?  
 
 On LittlevGL, every callback receives as the first parameter a struct which contains data related to the callback, in our case - `lv_disp_drv_t`.  
 Every such struct contains a field called `user_data`, the same field that holds the callable object when registering uPy function.  
-We can use it to store our own custom data, in a addition to callable objects!
+We can use it to store our own custom data, in addition to callable objects!
 
 ```python
         self.disp_drv.user_data = {'dc': self.dc, 'spi': self.spi}
@@ -633,11 +634,11 @@ void ili9341_flush(void *_disp_drv, const void *_area, void *_color_p)
 `dc` is read in a straightforward way - get the dict from `user_data` and convert `dc` field (it's name is given as a [qstr](https://docs.micropython.org/en/latest/reference/constrained.html#string-operations)) to `int`.
 `spi` on the other hand, is a pointer. Pointers are saved using [buffer protocol](https://docs.python.org/3/c-api/buffer.html), therefore an `mp_get_buffer_raise` is used to extract it.
 
-So far I've showed you how a callback (either C or Micropython) is registered to LittlevGL, which was designed to automatically save the callable object in `user_data`.  
+So far I've shown you how a callback (either C or Micropython) is registered to LittlevGL, which was designed to automatically save the callable object in `user_data`.  
 But what if the API was not designed that way?  
 
 When DMA completes, ESP-IDF calls `post_cb` function, (in ISR context, but that does not matter for this point).  
-We might want to register a uPy function as `post_cb`, but `post_cb` doesn't recieve a struct with `user_data` member, so the Binding Script
+We might want to register a uPy function as `post_cb`, but `post_cb` doesn't receive a struct with `user_data` member, so the Binding Script
 cannot automatically save the callable object there.  
 
 Fortunately, `post_cb` receives a struct with `user` field that can be used exactly for that!
@@ -737,7 +738,7 @@ Test conditions:
 - DMA, [Double Buffering](https://docs.littlevgl.com/en/html/porting/display.html#display-buffer) with Two non-screen-sized buffers
 - Each display buffer consumes 25% of the display area
 - LittlevGL configured with `LV_COLOR_DEPTH=16` and `LV_COLOR_16_SWAP=1`, which makes the display buffer compatible with ILI9341, 
-and does not require processing every pixel. Otherwise every pixel would have to be converted to RGB in the right format.
+and does not require processing every pixel. Otherwise, every pixel would have to be converted to RGB in the right format.
 - LittlevGL refreshes large area of the screen every frame, but does not do a lot of work to render it.  
 That's because we are measuring the display driver performance, not lvgl rendering performance, so we don't want lvgl to be the bottleneck in this measurement.
 
@@ -769,6 +770,5 @@ It can still be useful to write the setup code in Micropython (setting up SPI an
 But there is still hope!  
 Micropython has a [Native Code Emitter](http://docs.micropython.org/en/v1.9.3/pyboard/reference/speed_python.html#the-native-code-emitter) and [Viper Code Emmiter](http://docs.micropython.org/en/v1.9.3/pyboard/reference/speed_python.html#the-viper-code-emitter) which translate Micropython code directly to native CPU opcodes! That would boost performance significantly.  
 Unfortunately, these code emitters are [not avaiable for ESP32 yet](https://github.com/micropython/micropython/issues/4607). Let's hope someday they will be.
-
 
 
