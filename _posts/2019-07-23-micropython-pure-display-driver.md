@@ -731,7 +731,7 @@ In the Pure Micropython Driver we register `flush_isr` uPy function to be called
 
 # Performance?
 
-Test conditions:
+**Test conditions:**
 
 - SPI is configured to 40MHz
 - Sending ~104KB every frame (That's ~70% of the total display area of ILI9341 being refreshed every frame) 
@@ -742,7 +742,12 @@ and does not require processing every pixel. Otherwise, every pixel would have t
 - LittlevGL refreshes large area of the screen every frame, but does not do a lot of work to render it.  
 That's because we are measuring the display driver performance, not lvgl rendering performance, so we don't want lvgl to be the bottleneck in this measurement.
 
-Results:
+So where, in the time budget, hides LittlevGL rendering time?  
+Since this driver uses double buffering, two things happen simultaneously: DMA to buffer A and rendering to buffer B! (then on the next frame it switches, DMA to buffer B and rendering to buffer A), 
+that's the idea behind double buffering. So as long as LittlevGL rendering time <= DMA time, rendering time does not affect FPS at all.  
+For the purpose of this test, I kept LittlevGL rendering time low enough (shorter than DMA time) such that we can ignore it.
+
+**Results:**
 
 ## Pure Micropython Driver
 - 35ms per frame (28.5FPS)
