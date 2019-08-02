@@ -557,7 +557,7 @@ After the function updated it, it's very easy to extract the relevant data from 
 
 ## Using Callbacks
 
-Callbacks on Micropython C API is subtle subject. While in C all you need is a function pointer (code only), on Micropython a callable object is needed (which contains data, not only code).  
+Callbacks on Micropython C API is a subtle subject. While in C all you need is a function pointer (code only), on Micropython a callable object is needed (which contains data, not only code).  
 So when we want to register a Micropython function to be called from C, we need to find a way to record the callable object on C and pass it to the callback.  
 On LittlevGL this is done using the `user_data` field, that is present on structs where callbacks are used. 
 On other libraries that do not follow this convention, you might need to wrap the callback registration/invocation and find another way to pass the callable object.
