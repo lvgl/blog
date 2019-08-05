@@ -33,6 +33,8 @@ layout: default
   <a href="#" class="top">Top</a>
 </div>
 
+<link rel="stylesheet" type="text/css" href="/assets/fontawesome.min.css">
+
 <script>
 
 window.onload = function () {
@@ -43,11 +45,27 @@ window.onload = function () {
         h = document.getElementsByTagName(tags[i]);
         for(j = 0; j < h.length; j++) {
             if(h[j].id) {
-                var x = "<a href='#" + h[j].id + "' style='color:#353535'>" + h[j].innerHTML + "</a>";
+                var x = "<a href='#" + h[j].id + "' style='color:#353535' onmouseover='mouse_in(this)' onmouseout='mouse_out(this)'>" + h[j].innerHTML + "</a>";
                 h[j].innerHTML = x; 
+                
             }
         }
-    }
+    }  
 }
-    
+
+function mouse_in(that)
+{
+  let h = that.parentNode
+ 
+    h.classList.add("h_link");
+ 
+}
+
+function mouse_out(that)
+{
+  let h = that.parentNode
+  h.setAttribute('after_link','');
+
+  h.classList.remove("h_link");
+}
 </script>

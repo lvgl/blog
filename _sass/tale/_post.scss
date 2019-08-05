@@ -20,6 +20,10 @@
     margin: 1rem 0;
     text-align: center;
   }
+  
+  h1:not(.post-title)   {
+    border-bottom: 1px solid #ccc;
+  }
 
   &-line {
     border-top: 0.4rem solid $default-shade;
@@ -33,8 +37,17 @@
     text-align: justify;
   }
 
-  a:hover {
+  p>a:hover {
     text-decoration: underline;
+  }
+  
+
+  .h_link::after {
+   font-family: FontAwesome;
+   content: "\00a0\00a0 \f0c1 "; 
+   color: #4a9ae1;
+   font-size: 0.8em;
+   display: inline-block;
   }
 
   img {
