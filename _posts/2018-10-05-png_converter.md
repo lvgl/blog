@@ -79,7 +79,7 @@ The image is decompressed into *png_decoded*. We only need to set-up a LittlevGL
 /*Initialize an image descriptor for LittlevGL with the decoded image*/
 lv_img_dsc_t png_dsc;
 png_dsc.header.always_zero = 0;                          /*It must be zero*/
-png_dsc.header.cf = LV_IMG_FORMAT_TRUE_COLOR_ALPHA;      /*Set the color format*/
+png_dsc.header.cf = LV_IMG_CF_TRUE_COLOR_ALPHA;      /*Set the color format*/
 png_dsc.header.w = png_width;
 png_dsc.header.h = png_height;
 png_dsc.data_size = png_width * png_height * 4;
