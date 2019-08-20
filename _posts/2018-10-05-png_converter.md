@@ -90,8 +90,11 @@ lv_obj_t * img_obj = lv_img_create(lv_scr_act(), NULL);     /*Create the an imag
 lv_img_set_src(img_obj, &png_dsc);                          /*Set the image source to the decoded PNG*/
 lv_obj_set_drag(img_obj, true);                             /*Make to image dragable*/
 
-/*Set a non-white background color for the scren to see the alpha is working on the image*/
-lv_style_scr.body.main_color = LV_COLOR_MAKE(0x40, 0x70, 0xAA);
+/*Set a non-white background color for the screen to see the alpha is working on the image*/
+static lv_style_t new_style;
+lv_style_copy(&new_style, lv_style_scr);
+new_style.body.main_color = LV_COLOR_MAKE(0x40, 0x70, 0xAA);
+lv_obj_set_style(lv_scr_act(), &new_style);
 ```
 
 After compile and run I got this:
@@ -139,7 +142,7 @@ LittlveGL requires 4 functions to decode your custom image formats:
 
 So let's see how to implement these function to decode PNG images!
 
-# Decoder info
+## Decoder info
 ```c
 /**
  * Get info about a PNG image
@@ -147,8 +150,9 @@ So let's see how to implement these function to decode PNG images!
  * @param header store the info here
  * @return LV_RES_OK: no error; LV_RES_INV: can't get the info
  */
-lv_res_t decoder_info(const void * src, lv_img_header_t * header)
+static lv_res_t decoder_info(lv_img_decoder_t * decoder, const void * src, lv_img_header_t * header)
 {
+    (void) decoder; /*Unused*/
      lv_img_src_t src_type = lv_img_src_get_type(src);          /*Get the source type*/
 
      /*If it's a PNG file...*/
@@ -170,7 +174,7 @@ lv_res_t decoder_info(const void * src, lv_img_header_t * header)
 
              /*Save the data in the header*/
              header->always_zero = 0;
-             header->cf = LV_IMG_FORMAT_RAW_ALPHA;
+             header->cf = LV_IMG_CF_RAW_ALPHA;
              /*The width and height are stored in Big endian format so convert them to little endian*/
              header->w = (lv_coord_t) ((size[0] & 0xff000000) >> 24) +  ((size[0] & 0x00ff0000) >> 8);
              header->h = (lv_coord_t) ((size[1] & 0xff000000) >> 24) +  ((size[1] & 0x00ff0000) >> 8);
@@ -192,25 +196,25 @@ lv_res_t decoder_info(const void * src, lv_img_header_t * header)
 }
 ```
 
-# Decoder open
+## Decoder open
 ```c
-static unsigned char * png_decoded;    /*Will be pointer to the decoded image*/
-
 /**
  * Open a PNG image and return the decided image
  * @param src can be file name or pointer to a C array
  * @param style style of the image object (unused now but certain formats might use it)
  * @return pointer to the decoded image or  `LV_IMG_DECODER_OPEN_FAIL` if failed
  */
-const uint8_t * decoder_open(const void * src, const lv_style_t * style)
+static lv_res_t decoder_open(lv_img_decoder_t * decoder, lv_img_decoder_dsc_t * dsc)
 {
+
+    (void) decoder; /*Unused*/
     uint32_t error;                 /*For the return values of PNG decoder functions*/
 
-    lv_img_src_t src_type = lv_img_src_get_type(src);          /*Get the source type*/
+    uint8_t * img_data = NULL;
 
     /*If it's a PNG file...*/
-    if(src_type == LV_IMG_SRC_FILE) {
-        const char * fn = src;
+    if(dsc->src_type == LV_IMG_SRC_FILE) {
+        const char * fn = dsc->src;
 
         if(!strcmp(&fn[strlen(fn) - 3], "png")) {              /*Check the extension*/
 
@@ -221,7 +225,7 @@ const uint8_t * decoder_open(const void * src, const lv_style_t * style)
             error = lodepng_load_file(&png_data, &png_data_size, fn);   /*Load the file*/
             if(error) {
                 printf("error %u: %s\n", error, lodepng_error_text(error));
-                return LV_IMG_DECODER_OPEN_FAIL;
+                return LV_RES_INV;
             }
 
             /*Decode the PNG image*/
@@ -229,50 +233,61 @@ const uint8_t * decoder_open(const void * src, const lv_style_t * style)
             uint32_t png_height;            /*Will be the width of the decoded image*/
 
             /*Decode the loaded image in ARGB8888 */
-            error = lodepng_decode32(&png_decoded, &png_width, &png_height, png_data, png_data_size);
-
+            error = lodepng_decode32(&img_data, &png_width, &png_height, png_data, png_data_size);
             if(error) {
                 printf("error %u: %s\n", error, lodepng_error_text(error));
-                return LV_IMG_DECODER_OPEN_FAIL;
+                return LV_RES_INV;
             }
 
-            return png_decoded;     /*The image is fully decoded. Return with its pointer*/
+            /*Convert the image to the system's color depth*/
+            convert_color_depth(img_data,  png_width * png_height);
+            dsc->img_data = img_data;
+            return LV_RES_OK;     /*The image is fully decoded. Return with its pointer*/
         }
     }
     /*If it's a PNG file in a  C array...*/
-    else if(src_type == LV_IMG_SRC_VARIABLE) {
-        const lv_img_dsc_t * img_dsc = src;
+    else if(dsc->src_type == LV_IMG_SRC_VARIABLE) {
+        const lv_img_dsc_t * img_dsc = dsc->src;
         uint32_t png_width;             /*No used, just required by he decoder*/
         uint32_t png_height;            /*No used, just required by he decoder*/
 
         /*Decode the image in ARGB8888 */
-        error = lodepng_decode32(&png_decoded, &png_width, &png_height, img_dsc->data, img_dsc->data_size);
+        error = lodepng_decode32(&img_data, &png_width, &png_height, img_dsc->data, img_dsc->data_size);
 
         if(error) {
-            return LV_IMG_DECODER_OPEN_FAIL;
+            return LV_RES_INV;
         }
 
-        return png_decoded;     /*Return with its pointer*/
+        /*Convert the image to the system's color depth*/
+        convert_color_depth(img_data,  png_width * png_height);
+
+        dsc->img_data = img_data;
+        return LV_RES_OK;     /*Return with its pointer*/
     }
 
-    return LV_IMG_DECODER_OPEN_FAIL;    /*If not returned earlier then it failed*/
-}
-</code></pre>
-
-# Decoder close
-/**
- * Free the allocated resources
- */
-void decoder_close(void)
-{
-    free(png_decoded);
+    return LV_RES_INV;    /*If not returned earlier then it failed*/
 }
 ```
 
-# Register the decoder functions in LittlevGL
+## Decoder close
+```c
+/**
+ * Free the allocated resources
+ */
+static void decoder_close(lv_img_decoder_t * decoder, lv_img_decoder_dsc_t * dsc)
+{
+    (void) decoder; /*Unused*/
+    if(dsc->img_data) free((uint8_t *)dsc->img_data);
+}
+```
+
+## Register the decoder functions in LittlevGL
 And finally the created functions should be regitered in LittlevGL:
 ```c
-lv_img_decoder_set_custom(decoder_info, decoder_open, NULL, decoder_close);
+lv_img_decoder_t * dec = lv_img_decoder_create();
+lv_img_decoder_set_info_cb(dec, decoder_info);
+lv_img_decoder_set_open_cb(dec, decoder_open);
+lv_img_decoder_set_close_cb(dec, decoder_close);
 ```
 
 After this, if you can set PNG images from file or C array as the source of [image object's](https://docs.littlevgl.com/#Image) of LittlevGL 
