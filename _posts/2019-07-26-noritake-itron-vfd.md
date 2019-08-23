@@ -14,3 +14,5 @@ Configuring LittlevGL
 Mbed’s build system provides a nifty way to configure settings and features (essentially macros) using JSON files. To take advantage of this, my port has mbed_lib.json that allows you to reconfigure all the settings normally available through lv_conf.h. Check out Mbed’s documentation on compile-time configuration here.
 Optimizations
 DMA (not much of a concern in this case), restructuring my wrapper a bit, abstracting GPU operations away from DisplayDriver
+
+Make sure to configure theme_mono to be enabled!
