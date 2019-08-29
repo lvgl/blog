@@ -61,6 +61,13 @@ Boards employed include:
 The pinout diagram is illustrated below.
 ![ESP32 LCD Pinout](/assets/iPodNano6/pinout_eps32_LCD.jpg)
 
+## Note
+1. On SSD2805 breakout board, VDDIO_CTRL pin driven low to conduct mosfet for VDDIO_CORE.
+2. EXT_5V should be supplied with 5V (from usb is OK). This is for backlight controller IC.
+3. PWM pin for backlight controller IC should be driven high (3.3V) to enable it.
+4. DIP switch setting on SSD2805 EVK is, from left to right: 01000011 (0=ON on dip switch).
+5. PCLK/RD# on SD2805 EVK board should be driven high, not floating. This pin is a pull-down pin by default. If there is no reading required, pull it up to drive RD# pin high forever.
+
 # Software
 To work with LittlevGL, the prerequisite is a fully working LCD and touch screen drivers outside it. I started with a program of 5 source files to drive the LCD listed below:
 ```
