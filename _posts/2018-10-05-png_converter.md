@@ -12,20 +12,64 @@ image:
 If you already used images in LittlevGL probably you used the [Online image converter](https://littlevgl.com/image-to-c-array) to convert an image to a C array and you compiled the C array into your code. However, since v5.2 LittlevGL has an image decoder interface which allows adding your own decoder functions to open and read any type of images. In this post, I will show you how to add and use the [lodepng](https://github.com/lvandeve/lodepng) library to display PNG images in real time. 
 
 # Before get started
-You need to know that opening PNG images in resource-limited embedded systems has advantages and disadvantages too. The main advantage is that PNG images have much smaller size than an uncompressed image. The disadvantage is that you need a big buffer to describe the whole image and in addition, the decoding needs some time. However, some considerations can be done. For example, keep the last image in the buffer, probably it will be required again or, if you have more RAM, keep the last 3 images buffered. This way you can save ROM because you store the images as PNG and you decode only those which are required. These all depend on your system and resources.
+You need to know that opening PNG images in resource-limited embedded systems has advantages and disadvantages. 
+The main advantage is that PNG images have much smaller size than an uncompressed image therefore they consume less flash. 
+The disadvantage is that when the image is opened and decoded the whole uncompressed image needs to be stored in RAM. Besides decoding needs some time. 
+To reduce open/decode time LittlevGL has an [image cache](https://docs.littlevgl.com/en/html/overview/image.html#image-caching) feature. It keeps the lastly used images openes and buffered. 
+Keep in mind, that the cached images consume `width x height x 4 byte`RAM. (Not counting the temporal bufferes used during the decompression)
 
 # Start LittlevGL in a PC simulator
-It's much faster and easier to work on PC compared to an embedded hardware. Therefore to help your development LittlevGL is ported to Windows, Linux and OSX too. If you didn't set-up you PC simulator environment yet here is a great time to do it! Read this tutorial: https://littlevgl.com/pc-simulator
+It's much faster and easier to work on PC compared to an embedded hardware. 
+Therefore to help your development LittlevGL is ported to Windows, Linux and OSX too. 
+If you didn't set-up your PC simulator environment yet here is a great time to do it! 
+Read this tutorial: [https://docs.littlevgl.com/en/html/get-started/pc-simulator.html](https://docs.littlevgl.com/en/html/get-started/pc-simulator.html)
 
-# Add and test the PNG decoder library with a file
-If you are not interested in the implementation details you can **download** a ready use [PNG decoder for LittelvGL](https://github.com/littlevgl/blog/raw/master/assets/png_converter/png_decoder.zip).
+# Get the ready to use PNG converter
+If you are not interested in the implementation details you can **download** a ready-to-use [PNG decoder for LittelvGL](https://github.com/littlevgl/blog/raw/master/assets/png_converter/png_decoder.zip).
+Just unzip the downloaded file, copy it to your project, and call `png_decoder_init()`.
 
-There are some PNG decoder libraries even for embedded systems. Basically, you can choose any of them because they all work similarly, however, there can be differences in speed and performance. For this tutorial, I've chosen the [lodepng](https://github.com/lvandeve/lodepng) library. This library consists of only 2 files: 
+## Store images in the flash
+You can convert the PNG images to C arrays with the [Online converter](https://littlevgl.com/image-to-c-array) by choosing `Raw with alpha` color format and use them like this:
+```c
+/*Call once after lv_init()*/
+png_decoder_init();
+
+...
+
+/*Create an image obejct and use the converter png file*/
+LV_IMG_DECLARE(my_image);
+lv_obj_t * img_obj = lv_img_create(lv_scr_act(), NULL);
+lv_img_set_src(img_obj, &my_image);
+```
+
+## Store images as file
+If you use files you just need to pass the filename to `lv_img_set_src`. 
+Note that, POSIX file functions such as `fopen`, `fclose`, `fread`. If your system not supports them, you need to tweak `lodepng.c/h`.
+```c
+/*Call once after lv_init()*/
+png_decoder_init();
+
+...
+
+/*Create an image obejct and use the converter png file*/
+lv_obj_t * img_obj = lv_img_create(lv_scr_act(), NULL);
+lv_img_set_src(img_obj, "my_image.png");
+```
+
+# Learn the lodepng library
+
+## Get lodepng
+There are some PNG decoder libraries even for embedded systems. 
+Basically, you can choose any of them because they all work similarly, however, there can be differences in speed and performance. 
+For this tutorial, I've chosen the [lodepng](https://github.com/lvandeve/lodepng) library. This library consists of only 2 files: 
 - lodepng.cpp
 - lodepng.h
 
 Download this two files and copy into your project next to your *main.c* file.  As you can see it's a **cpp** file but don't worry, you can rename it to **lodepng.c** if you want.
 
+## Use PNG files
+
+### Convert a PNG file to plain pixel array
 So to see how *lodepng* works we will decode a PNG image file into an array and use this array as an image source in LittlevGL.   
 
 I used the image below and copied into the project's root folder. 
@@ -72,6 +116,7 @@ if(error) {
     while(1);
 }
 ```
+### Use the decoded pixel array in LittelvGL
 
 The image is decompressed into *png_decoded*. We only need to set-up a LittlevGL image descriptor and create an image object.
 
@@ -101,9 +146,14 @@ After compile and run I got this:
 
 ![PNG image decoded in LittlevGL with lodepng](/assets/png_converter/png_decode_one.png)
 
-# Test the PNG decoder library with a PNG file stored in ROM
+## Use PNG images stored in flash
 
-If you **don't have a file system** on your device and you'd like to store the PNG image in ROM and decode it when you need it you can use the [Online image converter](https://littlevgl.com/image-to-c-array) to get a C array from an uncompressed PNG file. Just upload the PNG image, select the**Raw with alpha** color format and **C array** output format. Here is [the result file](/blog/png/png_decoder_test.c). Copy this file in your project and modify the decoder code like below. You just need to remove the "load from file" section and use the data from the converted file.
+If you **don't have a file system** on your device and you'd like to store the PNG image in flash to decode it when needed.
+
+Use the [Online image converter](https://littlevgl.com/image-to-c-array) to get a C array with an uncompressed PNG file. 
+Just upload the PNG image, select the**Raw with alpha** color format and **C array** output format. 
+Here is [the result file](/blog/png/png_decoder_test.c). Copy this file to your project and modify the decoder code like below. 
+(You just need to remove the "load from file" section and use the data from the converted file.)
 
 ```c
 LV_IMG_DECLARE(png_decoder_test);   /*Declare the C array*/
@@ -128,8 +178,12 @@ if(error) {
 
 It resulted in the same image.
 
-# Test the PNG decoder's speed on a microcontroller
-I tested the PNG decoder's speed with an [STM32F429ZI](https://www.st.com/en/microcontrollers/stm32f429zi.html) microcontroller which runs at 180MHz and has 2 MB flash and 256 kB RAM. The test image had **100 x 65** resolution. The decompression lasted for **7 ms**.  Note that the result is in ARGB8888 format which might be converted to the systems color format (e.g. RGB565). This conversion required 1 ms. 
+## Test the PNG decoder's speed on a microcontroller
+I tested the PNG decoder's speed with an [STM32F429ZI](https://www.st.com/en/microcontrollers/stm32f429zi.html) microcontroller which runs at 180MHz and has 2 MB flash and 256 kB RAM. 
+The test image had **100 x 65** resolution. 
+The decompression took  **7 ms**.  
+
+Note that the result is in ARGB8888 format which might be converted to the systems color format (e.g. RGB565). This conversion required 1 ms. 
 
 # Connect the PNG decoder to LittlevGL
 LittlveGL requires 4 functions to decode your custom image formats:
@@ -293,5 +347,7 @@ lv_img_decoder_set_close_cb(dec, decoder_close);
 After this, if you can set PNG images from file or C array as the source of [image object's](https://docs.littlevgl.com/#Image) of LittlevGL 
 
 # Conclusion
-You just learned how to use the image decoder interface of LittlevGL to add a custom image format. It's a powerful feature which enables you to use any type of images according to your needs. You can even convert your images to a unique format which exactly meet your needs. 
+You just learned how to use the image decoder interface of LittlevGL to add a custom image format. 
+It's a powerful feature which enables you to use any type of images according to your needs. 
+You can even convert your images to a unique format which exactly meet your needs. 
  
