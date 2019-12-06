@@ -27,13 +27,13 @@ My personal interest is displaying Hebrew on embedded devices, so this is what I
 
 # Displaying Hebrew on Embedded devices
 
-The steps for displaying hebrew on LittlevGL are simple and straightforward:
+The steps for displaying Hebrew on LittlevGL are simple and straightforward:
 
 ## 1. Generate a Font
 
 LittlevGL uses its own font format. You can use [LittlevGL font converter](https://github.com/littlevgl/lv_font_conv) to convert a standard `ttf` font to LittlevGL font.
 There is also an [online font converter](https://littlevgl.com/ttf-font-to-c-array), but I chose to use the command line tool.  
-The font converted installation and usage instructions are [well documented](https://github.com/littlevgl/lv_font_conv#install-the-script), and this is the command line I used:
+The font converter installation and usage instructions are [well documented](https://github.com/littlevgl/lv_font_conv#install-the-script), and this is the command line I used:
 ```
 node lv_font_conv.js --font FrankRuehlCLM-Medium.ttf -r 0x20-0x7F -r 0x5d0-0x5ea --size 16 --format lvgl --bpp 4 --no-compress -o lv_font_heb_16.c
 ```
@@ -41,17 +41,17 @@ node lv_font_conv.js --font FrankRuehlCLM-Medium.ttf -r 0x20-0x7F -r 0x5d0-0x5ea
 As input I provided a font from the [Culmus](http://culmus.sourceforge.net/) project, but you could use any other `ttf` font.
 Unicode ranges `0x20-0x7F` and `0x5d0-0x5ea` cover only the most basic Latin and Hebrew characters.
 
-This command generates a new C file, `lv_font_heb_16.c` which represnts the character glyphs and can be used with LittlevGL.
+This command generates a new C file `lv_font_heb_16.c`, which represnts the character glyphs and can be used with LittlevGL.
 
 ## 2. Build the font
 
 The font C file needs to be built with LittlevGL. Unfortunately, it's not possible yet to load a font file on runtime, but this is [being considered](https://github.com/littlevgl/lvgl/issues/1237).  
-So either put it under `lvgl/src/lv_font/` or specify its location on your Makefile, depending how you build lvgl.
+So either put it under `lvgl/src/lv_font/` or specify its location on your Makefile, depending on how you build lvgl.
 
 Then edit `lv_conf.h`, to make it the default font for lvgl:
 ```c
 #define LV_FONT_CUSTOM_DECLARE  LV_FONT_DECLARE(lv_font_heb_16)
-#define LV_FONT_DEFAULT        &lv_font_heb_16
+#define LV_FONT_DEFAULT         &lv_font_heb_16
 ```
 
 ## 3. Enable Bidi
@@ -68,15 +68,15 @@ LittlevGL supports `UTF8` so you can just set utf8 text for any label or text bo
 # Setting the Base Dir
 
 When displaying RTL text, there is signficance to the base directionality of the object that contains the text.  
-The base dir affects the alignment of the text inside a label, the way intermixd RTL and LTR texts are displayed together and even the way the object itself is displayed and aligned.  
+The base dir affects the alignment of the text inside a label, the way intermixed RTL and LTR texts are displayed together and even the way the object itself is displayed and aligned.  
 For example, a table with LTR base dir would have its first column as the leftmost colunm, while an RTL table first column would be the **rightmost** column.  
 If an entire page or screen is supposed to be RTL, it's enough to either set `LV_BIDI_BASE_DIR_DEF` on `lv_conf.h`, or alternatively set the screen (or page) base dir on runtime.
 
 # How does it look like?
 
-Here are a few examples. The code here is [Micropython](https://docs.littlevgl.com/en/html/get-started/micropython.html), but of course, the same thing can be achieved with C.
+Here are a few examples. The code here is [Micropython](https://docs.littlevgl.com/en/html/get-started/micropython.html), but the same thing can be achieved with C.
 
-Instead of changing the base dir in `lv_conf.h`, I'm setting it for my screen. The base dir for all other objects created on that screen will also be set as RTL.
+Instead of changing the base dir in `lv_conf.h`, I'm setting it for my screen. The base dir for all other objects created on that screen will also be set to RTL.
 ```python
 scr = lv.obj()
 scr.set_base_dir(lv.BIDI_DIR.RTL)
