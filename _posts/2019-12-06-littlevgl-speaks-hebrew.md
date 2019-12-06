@@ -13,7 +13,7 @@ image:
 
 ![LittlevGL speaks Hebrew](/assets/bidi/cover.jpg)
 
-[Release 6.1](https://blog.littlevgl.com/2019-12-06/release_v6_1) of LittlevGL contains exceiting new features, one of them is **Bidirections support**.
+[Release 6.1](https://blog.littlevgl.com/2019-12-06/release_v6_1) of LittlevGL contains exceiting new features, one of them is **Bidirectional support**.
 
 More information about this is available [on the docs](https://docs.littlevgl.com/en/html/overview/font.html#bidirectional-support).
 > Most of the languages use Left-to-Right (LTR for short) writing direction, however some languages (such as Hebrew) uses Right-to-Left (RTL for short) direction.
