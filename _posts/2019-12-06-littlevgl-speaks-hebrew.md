@@ -19,7 +19,7 @@ More information about this is available [on the docs](https://docs.littlevgl.co
 > Most of the languages use Left-to-Right (LTR for short) writing direction, however some languages (such as Hebrew) uses Right-to-Left (RTL for short) direction.
 > LittlevGL not only supports RTL texts but supports mixed (a.k.a. bidirectional, BiDi) text rendering too.
 
-Supporting mixed bidirectional scripts required following the convluted [Unicode Bidirectional Algorithm](https://unicode.org/reports/tr9/) specifications and creating a custom implementation for resource constrained devices.  
+Supporting mixed bidirectional scripts required following the convoluted [Unicode Bidirectional Algorithm](https://unicode.org/reports/tr9/) specifications and creating a custom implementation for resource constrained devices.  
 While I participated in this effort, most of the work was actually done by @kisvegabor, which is very impressive since he cannot read any RTL script!  
 
 RTL scripts are used by more than 400 million people around the world. The most used script is Arabic script.  
@@ -45,7 +45,7 @@ This command generates a new C file `lv_font_heb_16.c`, which represnts the char
 
 ## 2. Build the font
 
-The font C file needs to be built with LittlevGL. Unfortunately, it's not possible yet to load a font file on runtime, but this is [being considered](https://github.com/littlevgl/lvgl/issues/1237).  
+The font C file needs to be linked statically with the rest of your project, because unfortunately, it's not possible to load a font file at runtime yet. This is [being considered](https://github.com/littlevgl/lvgl/issues/1237), however.  
 So either put it under `lvgl/src/lv_font/` or specify its location on your Makefile, depending on how you build lvgl.
 
 Then edit `lv_conf.h`, to make it the default font for lvgl:
@@ -67,7 +67,7 @@ LittlevGL supports `UTF8` so you can just set utf8 text for any label or text bo
 
 # Setting the Base Dir
 
-When displaying RTL text, there is signficance to the base directionality of the object that contains the text.  
+When displaying RTL text, there is significance to the base directionality of the object that contains the text.  
 The base dir affects the alignment of the text inside a label, the way intermixed RTL and LTR texts are displayed together and even the way the object itself is displayed and aligned.  
 For example, a table with LTR base dir would have its first column as the leftmost colunm, while an RTL table first column would be the **rightmost** column.  
 If an entire page or screen is supposed to be RTL, it's enough to either set `LV_BIDI_BASE_DIR_DEF` on `lv_conf.h`, or alternatively set the screen (or page) base dir on runtime.
