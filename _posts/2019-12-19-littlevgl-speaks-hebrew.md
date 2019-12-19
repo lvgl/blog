@@ -19,7 +19,7 @@ More information about this is available [on the docs](https://docs.littlevgl.co
 > Most of the languages use Left-to-Right (LTR for short) writing direction, however some languages (such as Hebrew) uses Right-to-Left (RTL for short) direction.
 > LittlevGL not only supports RTL texts but supports mixed (a.k.a. bidirectional, BiDi) text rendering too.
 
-Supporting mixed bidirectional scripts required following the convoluted [Unicode Bidirectional Algorithm](https://unicode.org/reports/tr9/) specifications and creating a custom implementation for resource constrained devices.  
+Supporting mixed bidirectional scripts on LittlevGL required following the convoluted [Unicode Bidirectional Algorithm](https://unicode.org/reports/tr9/) specifications and creating a custom implementation for resource constrained devices.  
 While I participated in this effort, most of the work was actually done by @kisvegabor, which is very impressive since he cannot read any RTL script!  
 
 RTL scripts are used by more than 400 million people around the world. The most used script is Arabic script.  
@@ -48,11 +48,13 @@ This command generates a new C file `lv_font_heb_16.c`, which represnts the char
 The font C file needs to be linked statically with the rest of your project, because unfortunately, it's not possible to load a font file at runtime yet. This is [being considered](https://github.com/littlevgl/lvgl/issues/1237), however.  
 So either put it under `lvgl/src/lv_font/` or specify its location on your Makefile, depending on how you build lvgl.
 
-Then edit `lv_conf.h`, to make it the default font for lvgl:
+Then edit `lv_conf.h`, to associate it with lvgl:
 ```c
 #define LV_FONT_CUSTOM_DECLARE  LV_FONT_DECLARE(lv_font_heb_16)
 #define LV_FONT_DEFAULT         &lv_font_heb_16
 ```
+
+Actually, you don't have to set `LV_FONT_DEFAULT`. But if you don't, you'd have to explicitly set the hebrew font on every style of every object you want to display (at least on lvgl v6).
 
 ## 3. Enable Bidi
 Bidirectional support is not enabled by default.
@@ -91,7 +93,7 @@ A super simple eaxmple in C:
 
 ![Hebrew text in LittlevGL](/assets/bidi/simple.png)
 
-Here are a few examples in [Micropython](https://docs.littlevgl.com/en/html/get-started/micropython.html), but the same thing can be achieved with C.
+Following are a few more examples in [Micropython](https://docs.littlevgl.com/en/html/get-started/micropython.html), but the same thing can also be achieved with C.
 
 Instead of changing the base dir in `lv_conf.h`, I'm setting it for my screen. The base dir for all other objects created on that screen will also be set to RTL.
 ```python
@@ -152,7 +154,19 @@ And this is how it looks like:
 You can see how both the tabs and table columns are ordered from right to left, since they inherited RTL directionality from `scr`.  
 Here is another example, of intermixed RTL and LTR text:
 
-
 ![Text Box](/assets/bidi/textbox.png)
 
+
+### You can see this example, run it and even change it using [LittlevGL online simulator](https://docs.littlevgl.com/en/html/get-started/micropython.html#online-simulator) on [this link](https://sim.littlevgl.com/v6/micropython/ports/javascript/lvgl_editor.html?script_startup=https://gist.githubusercontent.com/amirgon/7bf15a66ba6d959bbf90d10f3da571be/raw/8684b5fa55318c184b1310663b187aaab5c65be6/init_lv_mp_js.py&script=https://gist.githubusercontent.com/amirgon/8526af6d09b4f07f784410c959647a33/raw/f29857159d0395efe2d11d2ecfccd18e015738f6/lvgl_heb_test1.py).
+
+# What about Arabic?
+
+Arabic script is an RTL script as well, but we found out it was more complex to render than Hebrew.
+For LittlevGL to support arabic, it would need a few extra features that are still missing today:
+
+- Ligatures
+- Diacritics
+- Context-sensitive text shaping (each character can have multiple shapes)
+
+If you are willing to help out implementing these missing features in LittlevGL, please contact us on [the forum](https://forum.littlevgl.com/)!
 
