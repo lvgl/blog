@@ -74,7 +74,24 @@ If an entire page or screen is supposed to be RTL, it's enough to either set `LV
 
 # How does it look like?
 
-Here are a few examples. The code here is [Micropython](https://docs.littlevgl.com/en/html/get-started/micropython.html), but the same thing can be achieved with C.
+A super simple eaxmple in C:
+```c
+    /*Create a style which uses a font with Hebrew characters too*/
+    LV_FONT_DECLARE(lv_font_heb_16);
+    static lv_style_t style;
+    lv_style_copy(&style, &lv_style_plain);
+    style.text.font = &lv_font_heb_16;
+
+    /*Create a label and set its text*/
+    lv_obj_t * label = lv_label_create(lv_scr_act(), NULL);
+    lv_label_set_style(label, LV_LABEL_STYLE_MAIN, &style);
+    lv_label_set_text(label, "שלום LittlevGL");
+    lv_obj_align(label, NULL, LV_ALIGN_CENTER, 0, 0);
+```
+
+![Hebrew text in LittlevGL](/assets/bidi/simple.png)
+
+Here are a few examples in [Micropython](https://docs.littlevgl.com/en/html/get-started/micropython.html), but the same thing can be achieved with C.
 
 Instead of changing the base dir in `lv_conf.h`, I'm setting it for my screen. The base dir for all other objects created on that screen will also be set to RTL.
 ```python
