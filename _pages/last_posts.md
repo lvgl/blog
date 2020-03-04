@@ -9,7 +9,7 @@ layout: empty
          {% if post.cover %}
            <img class="img-responsive" src="https://blog.littlevgl.com{{ post.cover}}">
          {% else %}
-           <img class="post_cover_img" src="https://blog.littlevgl.com{{ site.cover}}">
+           <img class="img-responsive" src="https://blog.littlevgl.com{{ site.cover}}">
          {% endif %}
     </div>
     
