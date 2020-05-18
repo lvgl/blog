@@ -14,7 +14,7 @@ layout: empty
       <div class="product-info text-center pb-4 px-3">
       <h4 class="mb-1">{{ post.title }}</h4>
       <div class="threedotsthree">{{ post.content | strip_html | truncatewords: 30 }}</div>
-        <a href="https://blog.lvgl.io{{ post.url}}" class="btn secondary-btn" style="margin-top:20px">Read more</a>
+        <a target="_blank" href="https://blog.lvgl.io{{ post.url}}" class="btn secondary-btn" style="margin-top:20px">Read more</a>
       </div>
     </div>
   </div>
