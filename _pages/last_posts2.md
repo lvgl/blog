@@ -1,5 +1,5 @@
 ---
-permalink: last_posts
+permalink: last_posts2
 layout: empty
 ---
 
