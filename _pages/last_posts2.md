@@ -3,7 +3,7 @@ permalink: last_posts2
 layout: empty
 ---
 
-{% for post in site.posts limit:4 %}
+{% for post in site.posts limit:8 %}
   <div class="item">
     <div class="single-product rounded white-bg productborder">
       {% if post.cover %}
