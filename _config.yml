@@ -1,9 +1,9 @@
 # Site settings
-title:          LittlevGL's Blog
-description:    "News and Tutorials for Embedded GUI Enthusiasts: Release notes of LittlevGL, Tutorials, Poring guides, Development board and microcontroller test, ideas, tips and tricks and more."
+title:          LVGL's Blog
+description:    "News and Tutorials for Embedded GUI Enthusiasts: Release notes of LVGL, Tutorials, Poring guides, Development board and microcontroller test, ideas, tips and tricks and more."
 
 # Site settings
-cover: /assets/def_post_cover.png
+cover: /assets/def_post_cover2.png
 
 # Author
 author:
