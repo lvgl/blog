@@ -32,7 +32,7 @@ All the related sites are also redirected to the lvgl.io main domain:
 
 <h2 id="heading-lvgl-llc"> Establishing LVGL LLC</h2>
 
-It was so good to see that how the user base of LVGL grows. Now LVGL has almost 100 contributors, more than 3,500 stars, and it's downloaded every 5 minutes from GitHub. As time passed LVGL was integrated into ESP-IDF, MCUXpresso, Zephyr OS, and AliOS. This is amazing!
+It was so good to see that how the user base of LVGL grows. Now LVGL has almost 100 contributors, more than 3,500 stars, and it's downloaded every 5 minutes from GitHub. As time passed LVGL was integrated into ESP-IDF, MCUXpresso, NuttX RTOS, Zephyr OS, and AliOS. This is amazing!
 
 To provide solid background for this growing interest in LVGL we have decided to establish a company. Basically, everything will remain the same, e.g. LVGL will be available under MIT license as before. The company allows us to run LVGL in a more reliable way and makes it easier to get partners and provide professional services. 
 And the company is called - you'd never guess it - LVGL LLC. :) 
