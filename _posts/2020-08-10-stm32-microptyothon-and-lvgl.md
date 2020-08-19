@@ -40,7 +40,7 @@ make -j8  BOARD=STM32F7DISC MICROPY_PY_LVGL=1 deploy-stlink
 When flashed, reset the board and connect to the boards serial port. Here `picocom` is used but other applications work as well. 
 ```sh
 picocom /dev/ttyACM0 -b 115200
-``
+```
 
 ## Initialize the display and touch screen
 When the terminal is active test if Micropython is really running. For example type `3 + 4` and it should print the result. 
