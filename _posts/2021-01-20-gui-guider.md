@@ -5,7 +5,7 @@ author: "kisvegabor"
 cover: /assets/gui_guider/cover.png
 ---
 
-**NXP just announced ther new UI editor called GUI Guider whicg uses LVGL under the hood**
+**NXP just announced their new UI editor called GUI Guider which uses LVGL under the hood. Learn more [here](https://www.nxp.com/design/software/development-software/gui-guider:GUI-GUIDER).**
 
 <iframe width="560" height="315" src="https://www.youtube.com/embed/D9RLVtzd3eE" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
