@@ -73,7 +73,7 @@ Similarly to the other modules, its chip has 2 x 240 MHz cores, but it comes wit
 
 ### Frame rate (FPS)
 
-The Nscreen32 board reached ???? FPS on the LVGL's certification benchmark. In the video, you can see that smaller changes were drawn quickly, and scrolling the list was smooth. 
+The Nscreen32 board reached 20 FPS on the LVGL's certification benchmark. In the video, you can see that smaller changes were drawn quickly, and scrolling the list was smooth. 
 However, the most complex part of the benchmark - the album cover with the zoom animation and the moving bars - caused some drop in FPS.
 
 It's very difficult to get high FPS with the ESP32 chips because they have neither LCD controller nor parallel port peripheries. Therefore, you can usually see maximum 320x240 screens driven by ESP32 with low FPS. 
