@@ -75,7 +75,7 @@ Multiple frame buffers can be added to the board's external RAM and you can even
 The LCD controller supports maximum 1366x768 resolution which is about 8 times larger than the board's 480x272 display.
 The relation is not fully linear but if the UI has - for example - 50 FPS with 25% CPU usage on 480x272, it will have approximately 25 FPS with 100 % CPU usage on 1366x768.
 
-The board reached ???? FPS on the LVGL's certification benchmark. In the video you can see, that even the most complex transformations or scrolling the whole screen with all the animations were perfectly smooth.
+The board reached 33 FPS (the set limit) on the LVGL's certification benchmark. In the video you can see, that even the most complex transformations or scrolling the whole screen with all the animations were perfectly smooth.
 The benchmark used the display driver from the MCUXpresso's SDK as it is. The driver uses 2 frame buffers located in the external RAM. It's not the fastest solution because accessing the external RAM takes more time, than accessing the internal RAM. Using a smaller draw buffer in internal RAM (where LVGL renders) and copying it to an external RAM framebuffer once is much faster. In the video below a driver like this is used:<iframe width="560" height="315" src="https://www.youtube.com/embed/FYhmi6MamRs" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
 ### Memory
