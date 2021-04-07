@@ -91,7 +91,7 @@ For code execution, this slowness is very well compensated with caches inside th
 PSRAM might have similar issues because it shares the same SPI bus with the flash.
 
 To reach a good performance the assets (images and fonts) should be kept in internal RAM which is lightning fast. 
-For comparison, the internal RAM has (240 MHz x 32 bit = 960 MB/s throughput while the PSRAM and flash have 80 MHz x 4 bit = 40 MHz theoretical throughput which is even smaller in real life due to some overhead in the communication and because both the memories use the same bus. 
+For comparison, the internal RAM has (240 MHz x 32 bit = 960 MB/s throughput while the PSRAM and flash have 80 MHz x 4 bit = 40 MB/s theoretical throughput which is even smaller in real life due to some overhead in the communication and because both the memories use the same bus. 
 
 Anyway, the 520 kB internal RAM is enough even to hold a 480x320x16bit = 300kB screen-sized wallpaper, or a smaller image that can be tiled. 
 It is also possible to store a lot of image assets in the external flash and load them on demand to the internal RAM.
