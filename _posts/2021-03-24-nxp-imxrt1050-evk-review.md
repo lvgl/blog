@@ -98,7 +98,7 @@ The draw buffers of LVGL still should be stored in internal RAM because:
 
 #### Storing assets
 
-Images and fonts can be stored in 3 kinds of non-volatile memories:
+Images and fonts can be stored in 4 kinds of memories:
 
 1. Hyper flash: fast, non volatile, and large
 2. QSP flash: slower, non volatile, and middle sized
@@ -134,7 +134,7 @@ is publicly available and it can be a good starting point to develop your custom
 
 You can start to work with i.MX RT1050 EVK in many IDEs including MCUXpresso, Keil or IAR.
 
-[MBedOS](https://os.mbed.com/platforms/LPCXpresso54628/) and [Zephyr](https://docs.zephyrproject.org/latest/boards/arm/mimxrt1050_evk/doc/index.html) also supports this board.
+[MBedOS](https://os.mbed.com/platforms/MIMXRT1050-EVK/) and [Zephyr](https://docs.zephyrproject.org/latest/boards/arm/mimxrt1050_evk/doc/index.html) also supports this board.
 To get started with MBedOS and Zephyr you can use their default IDE or tools or you can use [PlatformIO](https://docs.platformio.org/en/latest/boards/nxpimxrt/mimxrt1050_evk.html) as well.
 
 Of course, NXP's MCUXpress supports this board with plenty of ready-to-use examples and applications (including UI application with LVGL).
