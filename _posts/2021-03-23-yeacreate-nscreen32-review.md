@@ -120,7 +120,7 @@ Probably a secondary board will be also required for sensors or other peripherie
  
 ## Development
 
-UI applications for NScreen32 can be developed with both ESP-IDF and Ardunio. As an IDE you can use [PlatformIO](https://platformio.org/) too.
+UI applications for NScreen32 can be developed with Ardunio. As an IDE you can use [PlatformIO](https://platformio.org/) too.
 
 It's also possible to develop the UI first in a [simulator on PC](https://docs.lvgl.io/latest/en/html/get-started/pc-simulator.html) and copy the source files to the embedded project later. 
 
