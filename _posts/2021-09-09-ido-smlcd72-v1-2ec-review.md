@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Wireless tag IDO-SMLCD72-V1-2EC - board certification review
+title: Wireless-Tag IDO-SMLCD72-V1-2EC - board certification review
 author: "kisvegabor"
 cover: /assets/cover_cert_gold.png
 ---
@@ -95,7 +95,7 @@ The drawback is that the touchpad can not be used in gloves or with a pen.
 IDO-SMLCD72-V1-2EC is designed to be placed into an end product. It's massive and has many holes to mount the board.  
 
 ## Development
-On the products of Wireless-tag you can develop 2 different ways:
+On the products of Wireless-Tag you can develop 2 different ways:
 1. Write code and built it. See [here](#build)
 2. Use their custom UI Editor tool called [8ms](#editor). 
 
@@ -167,7 +167,7 @@ If you place the `demo` to `usr/sbin` the demo will start automatically on start
 
 ## Editor
 
-Wireless-tag's online editor is available at [8ms.xyz](https:/ss8my.xyz). 
+Wireless-Tag's online editor is available at [8ms.xyz](https:/ss8my.xyz). 
 It's drag and drop editor allowing you to create UIs without writinga single line of code. Besides easily putting together a UI you can use Blockly to implement the business logic. 
 
 After signing up and logging in click the red "Workbench" button on to right corner.
