@@ -10,9 +10,9 @@ It integrated TFT LCD controller and 2D graphics accelerator, up to 16.7 million
 It embedded up to 64 MB DDRII SDRAM, along with ample hardware storage and computing space for excellent design flexibility.
 For more information on Nuvoton HMI platforms, you can visit [https://www.nuvoton.com/products/gui-solution/gui-platform/"](https://www.nuvoton.com/products/gui-solution/gui-platform/)**
 
-<iframe width="560" height="315" src="https://www.youtube.com/embed/5uuR3PAKLHI" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/EqTG-3NHHAs" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
-Nuvoton HMI-N9H30 earned Standard LVGL board certification which means the users can be sure that it's easy to use that board with LVGL and they can expect decent performance and quality.
+NuMaker-HMI-N9H30 earned Standard LVGL board certification which means the users can be sure that it's easy to use that board with LVGL and they can expect decent performance and quality.
 
 <img src="https://lvgl.io/assets/images/cert_standard.png" alt="Standard LVGL certificate for i.MX RT1050-EVK">
 
@@ -28,14 +28,14 @@ You can buy NuMaker-HMI-N9H30 [directly from Nuvoton](https://direct.nuvoton.com
 
 - **MCU** [N9H30F61IEC (or N9H30F63IEC)](https://www.nuvoton.com/products/microprocessors/arm9-mpus/-n9h-series/n9h30f61iec/?tab=1) ARM926EJ-S core, 300 MHz
 - **RAM** Built in Built-in 64 MB DDR II Memory, 56 KB internal SRAM
-- **Flash** 16 KB internal Boot ROM (IBR), external 128 MB NAND Flash and 16 MB SPI Flash.
+- **Flash** 16 KB internal Boot ROM (IBR), external 128 MB NAND Flash and 16 MB SPI Flash
 - **GPU** GE2D
 
 ### Display
 
 - **Resolution** 800x480
 - **Display size** 7"
-- **Color depth** 32 bit, RGB888
+- **Color depth** 24 bit, RGB888
 - **Technology** TN
 - **DPI** 133 px/inch
 - **Touch pad** Resistive
