@@ -8,7 +8,7 @@ cover: /assets/cover_cert_standard.png
 **Nuvoton N9H30 series with ARM926EJ-S core can operate at up to 300 MHz and can drive up to 1024x768 pixels in RGB parallel port. 
 It integrated TFT LCD controller and 2D graphics accelerator, up to 16.7 million colors (24-bit) LCD screen output, and provides high resolution and high chroma to deliver gorgeous display effects. 
 It embedded up to 64 MB DDRII SDRAM, along with ample hardware storage and computing space for excellent design flexibility.
-For more information on Nuvoton HMI platforms, you can visit [https://www.nuvoton.com/products/gui-solution/gui-platform/"](https://www.nuvoton.com/products/gui-solution/gui-platform/)**
+For more information on Nuvoton HMI platforms, you can visit [https://www.nuvoton.com/products/gui-solution/gui-platform/](https://www.nuvoton.com/products/gui-solution/gui-platform/)**
 
 <iframe width="560" height="315" src="https://www.youtube.com/embed/EqTG-3NHHAs" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
@@ -106,7 +106,7 @@ Although there are holes to mount the board is quite robust.
 
 For real life applications a secondary board might be required for sensors or other peripheries.
 
-The [schematic of the board]("https://www.nuvoton.com/products/gui-solution/index.html)
+The [schematic of the board](https://www.nuvoton.com/products/gui-solution/index.html)
 is publicly available and it can be a good starting point to develop your custom board based on N9H30F61IEC.
 
 <hr/>
