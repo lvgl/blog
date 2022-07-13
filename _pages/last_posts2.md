@@ -7,9 +7,9 @@ layout: empty
   <div class="item">
     <div class="single-product rounded white-bg productborder">
       {% if post.cover %}
-         <img src="https://blog.lvgl.io{{ post.cover}}" class="img-fluid p-4" alt="product" />
+         <img src="https://blog.lvgl.io{{ post.cover}}" loading="lazy" class="img-fluid p-4" alt="product" />
       {% else %} 
-        <img src="https://blog.lvgl.io{{ site.cover}}" class="img-fluid p-4" alt="product" />
+        <img src="https://blog.lvgl.io{{ site.cover}}" loading="lazy" class="img-fluid p-4" alt="product" />
       {% endif %}
       <div class="product-info text-center pb-4 px-3">
       <h4 class="mb-1">{{ post.title }}</h4>
