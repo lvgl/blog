@@ -2,7 +2,7 @@
 layout: post
 title: NXP i.MX RT1050 EVK - board certification review
 author: "kisvegabor"
-cover: /assets/cover_cert_standard.png
+cover: /assets/cover_cert_standard.webp
 ---
 
 **The i.MX RT1050 EVK is a 4-layer through-hole USB-powered PCB.

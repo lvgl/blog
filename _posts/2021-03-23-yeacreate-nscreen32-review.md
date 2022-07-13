@@ -2,7 +2,7 @@
 layout: post
 title: YeaCreate Nscreen32 - board certification review
 author: "kisvegabor"
-cover: /assets/cover_cert_standard.png
+cover: /assets/cover_cert_standard.webp
 ---
 
 **[YeaCreate Nscreen32](https://yeacreate.com/en/product/nscreen32.html) is a [ESP32](https://www.espressif.com/en/products/socs/esp32) based display development board kit.

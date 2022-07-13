@@ -2,7 +2,7 @@
 layout: post
 title: Wireless-Tag IDO-SMLCD72-V1-2EC - board certification review
 author: "kisvegabor"
-cover: /assets/cover_cert_gold.png
+cover: /assets/cover_cert_gold.webp
 ---
 
 **IDO-SMLCD72-V1-2EC is powerful board with OpenWRT operating system, 1024x600 7" screen and 1.2 GHz CPU.**

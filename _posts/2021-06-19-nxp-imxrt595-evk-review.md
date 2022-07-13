@@ -2,7 +2,7 @@
 layout: post
 title: NXP i.MX RT595 EVK - board certification review
 author: "kisvegabor"
-cover: /assets/cover_cert_standard.png
+cover: /assets/cover_cert_standard.webp
 ---
 
 **The i.MX RT595 EVK features NXP’s advanced implementation of the Arm® Cortex®-M33 core, combined with an advanced GPU called VGLITE.**

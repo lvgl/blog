@@ -2,7 +2,7 @@
 layout: post
 title: NXP i.MX RT1064 EVK - board certification review
 author: "kisvegabor"
-cover: /assets/cover_cert_standard.png
+cover: /assets/cover_cert_standard.webp
 ---
 
 **The i.MX RT1064 EVK uses the i.MX RT1064 crossover MCU, running at 600 MHz featuring NXP’s advanced implementation of the Arm® Cortex®-M7 core.

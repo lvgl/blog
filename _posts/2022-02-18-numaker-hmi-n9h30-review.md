@@ -2,7 +2,7 @@
 layout: post
 title: NuMaker-HMI-N9H30 - board certification review
 author: "kisvegabor"
-cover: /assets/cover_cert_standard.png
+cover: /assets/cover_cert_standard.webp
 ---
 
 **Nuvoton N9H30 series with ARM926EJ-S core can operate at up to 300 MHz and can drive up to 1024x768 pixels in RGB parallel port. 
