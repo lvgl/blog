@@ -2,7 +2,7 @@
 layout: post
 title: v8.3 is released, new website and demos, 10k GtiHub stars, sponsorship, SLS beta v1.1
 author: "kisvegabor"
-cover: /assets/monthly_newletters/2022_august.png
+cover: /assets/monthly_newsletters/2022_august.png
 ---
 
 > This is the copy of the monthly newsletter sent out to our subscribers. 
