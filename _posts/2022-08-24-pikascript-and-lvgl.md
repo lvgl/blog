@@ -10,7 +10,7 @@ cover: /assets/pikascript/cover.jpg
 
 PikaScript is a Python interpreter designed specifically for microcontrollers, and it supports a subset of the common Python3 syntax, github: https://github.com/pikasTech/pikascript
 
-It's lighter, requiring only 32k of code space and 4k of RAM, which means it can run on stm32f103c8 (blue-pile) or even stm32f030c8, on the other hand, you can leave valuable space for more material or build larger buffer areas.
+It's lighter, requiring only 32k of code space and 4k of RAM, which means it can run on stm32f103c8 (blue-pill) or even stm32g030c8, on the other hand, you can leave valuable space for more material or build larger buffer areas.
 
 It is simpler, out of the box, runs with no porting and configuration at all, does not depend on OS and file system, has good support for popular IDEs for Windows platforms like Keil, IAR, RT-Thread-Studio, and of course, supports linux-gcc development platforms.
 
