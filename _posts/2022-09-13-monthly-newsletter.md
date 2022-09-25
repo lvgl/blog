@@ -29,7 +29,7 @@ If you are also want joint the development of LVGL and also get some payment pic
 
 **SquareLine Studio** 
 There is some great news around SquareLine Studio, LVGL's official UI editor tool as well. Its new version (v1.1) was just released with a Component Editor and new boards. In cooperation with Espressif we have added support for ESP-BOX and ESP-WROVER-KIT in SquareLine Studio. You can learn more about it in this great blog post from Esspressif:
-[![Making the Fancy User Interface on ESP Has Never Been Easier with SquareLine Studio!](esp_sls_post.png)](https://blog.espressif.com/making-the-fancy-user-interface-on-esp-has-never-been-easier-e44e79c0ae3)
+[![Making the Fancy User Interface on ESP Has Never Been Easier with SquareLine Studio!](assets/esp_sls_post.png)](https://blog.espressif.com/making-the-fancy-user-interface-on-esp-has-never-been-easier-e44e79c0ae3)
 
 **New Videos**
 I've collected a few interesting videos for you. Some of them are created by us and the others are created by the community. If you also have a great video with LVGL or SquareLine Studio, just let me know and if I can I'll include it in the next newsletter.
