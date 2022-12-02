@@ -2,7 +2,7 @@
 layout: post
 title: JS bindings, New FPGA repo, Updated website, Videos and more
 author: "kisvegabor"
-cover: /assets/monthly_newsletters/november.png
+cover: /assets/monthly_newsletters/2022_november.png
 ---
 
 > This is the copy of the monthly newsletter sent out to our subscribers. 
