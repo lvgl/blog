@@ -2,7 +2,7 @@
 layout: post
 title: New driver API, SLS v1.2 release, and others
 author: "kisvegabor"
-cover: /assets/monthly_newsletters/march.png
+cover: /assets/monthly_newsletters/2023_march.png
 ---
 
 > This is the copy of the monthly newsletter sent out to our subscribers. 
