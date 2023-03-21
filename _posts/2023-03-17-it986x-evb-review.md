@@ -29,7 +29,7 @@ The IT986x EVB board can be purchased from the manufacturer by contacting them a
 
 ### Micorcontroller
 
-- **MCU** SoC CPU: 800MHz 32-bit ARM9 (CPU1) + 400MHz 32-bit ARM9 (CPU2)
+- **SoC** 800MHz 32-bit ARM9 (CPU1) + 400MHz 32-bit ARM9 (CPU2)
 - **RAM** Built-in 64MB DDR2
 - **Flash** External NOR flash 32MB
 - **GPU** 2D Engine
