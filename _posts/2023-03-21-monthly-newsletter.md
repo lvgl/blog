@@ -20,7 +20,6 @@ We recently attended the Embedded World Conference where we had the pleasure of 
 ## Xiaomi Collaboration
 We are delighted to announce that Xiaomi has chosen LVGL for their latest S1 Pro Smart Watch. We received a sample from them and it looks phenomenal. We couldn't be more thrilled to work with such an innovative company.
 
-![Xiaomi S1 Pro in the box (powered by LVGL)](/assets/monthly_newsletters/s1_pro_1.jpg)
 ![Xiaomi S1 Pro (powered by LVGL)](/assets/monthly_newsletters/s1_pro_2.jpg)
 
 ## New Maintainer
