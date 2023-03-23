@@ -1,6 +1,6 @@
 ---
 layout: post
-title: New driver API, SLS v1.2 release, and others
+title: Embedded world 2023, Xiaomi collaboration, New maintainer, and others
 author: "kisvegabor"
 cover: /assets/monthly_newsletters/2023_march.png
 ---
