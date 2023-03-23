@@ -12,7 +12,7 @@ I am thrilled to be back again to update you on the latest happenings with LVGL.
  
 
 ## Embedded World Conference
-We recently attended the Embedded World Conference where we had the pleasure of meeting some of the biggest vendors in the industry, including NXP, STM, Espressif, Nuvoton, Infineon, and Zephyr. We were delighted to see that our demos were showcased at some of their booths. To give you a glimpse of our experience, we have put together a short video.
+We recently attended the Embedded World Conference where we had the pleasure of meeting some of the biggest vendors in the industry, including NXP, STM, Espressif, Nuvoton, Infineon, Zephyr, and NuttX. We were delighted to see that our demos were showcased at some of their booths. To give you a glimpse of our experience, we have put together a short video.
 
  
 <iframe width="560" height="315" src="https://www.youtube.com/embed/Ey2zkG55fZI" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
