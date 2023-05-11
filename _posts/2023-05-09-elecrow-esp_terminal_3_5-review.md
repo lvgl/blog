@@ -5,12 +5,12 @@ author: "kisvegabor"
 cover: /assets/cover_cert_standard.webp
 ---
 
-**This Elecrow terminal is a microcontroller based on the ESP32 master. It adopts Xtensa 32-bit LX7 dual-core processor with a main frequency of up to 240Mhz, supports 2.4GHz Wi-Fi and Bluetooth 5 (LE), and can easily handle common edge terminal device application scenarios, such as industrial control, agricultural production environment detection and processing, intelligent logistics monitoring, smart home scenarios and more.This terminal also has a 3.5-inch parallel RGB interface capacitive touch screen with a resolution of 320*480 to ensure perfect image output at a frame rate (FPS) of 60. On the back of this terminal, we have introduced 4 Crowtail interfaces, which can be used with our Crowtail series sensors, plug and play, and create more interesting projects quickly and conveniently. In addition, it is also equipped with an SD card slot for extended storage (SPI leads) and a buzzer function. It support ESP-IDF and Arduino IDE development, and is compatible **
+**This Elecrow terminal is a microcontroller based on the ESP32 master. It adopts Xtensa 32-bit LX7 dual-core processor with a main frequency of up to 240Mhz, supports 2.4GHz Wi-Fi and Bluetooth 5 (LE), and can easily handle common edge terminal device application scenarios, such as industrial control, agricultural production environment detection and processing, intelligent logistics monitoring, smart home scenarios and more.This terminal also has a 3.5-inch parallel RGB interface capacitive touch screen with a resolution of 320*480 to ensure perfect image output at a frame rate (FPS) of 60. On the back of this terminal, we have introduced 4 Crowtail interfaces, which can be used with our Crowtail series sensors, plug and play, and create more interesting projects quickly and conveniently. In addition, it is also equipped with an SD card slot for extended storage (SPI leads) and a buzzer function. It support ESP-IDF and Arduino IDE development, and is compatible.**
 
 <iframe width="560" height="315" src="https://www.youtube.com/embed/OWOMkr3Ojz4" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
 ESP Terminal 3.5" earned Standard LVGL board certification which means the users can be sure that it’s easy to use that board with LVGL and they can expect decent performance and quality.
 
-<img src="https://lvgl.io/assets/images/cert_standard.png" alt="Standard LVGL certificate for ESP Terminal 3.5\"">
+<img src="https://lvgl.io/assets/images/cert_standard.png" alt="Standard LVGL certificate for ESP Terminal 3.5">
 
 ### Buy now
 
