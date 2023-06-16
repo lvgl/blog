@@ -69,7 +69,7 @@ The 2MB internal flash should be enough for the application, LVGL, and some imag
 ### Display
 This board comes with an IPS display so it has an amazing viewing angle. We have found the brightness a little bit low but it should be suitable for most of the applications. 
 
-![Viewing angles of the RA6M3 HMI board's display](/assets/cert_RA6M3_HMI/display.jpg)
+![Viewing angles of the RA6M3 HMI board's display](/assets/cert_ra6m3_hmi/display.jpg)
 
 ### Touchpad
 
