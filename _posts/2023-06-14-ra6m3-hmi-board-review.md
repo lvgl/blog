@@ -7,7 +7,8 @@ cover: /assets/cover_cert_standard.webp
 
 **This is a high-cost-performance graphic evaluation kit brought to you by RT-Thread in collaboration with Renesas and LVGL. Say goodbye to traditional HMI + main control board hardware and hello to the full capabilities of HMI + IoT + control with just one set of hardware. With Renesas’ high-performance RA6M3 chip and RT-Thread’s software ecosystem at its core, the HMI Board packs a punch with its strong hardware performance and rich software ecosystem. This makes it easier than ever for developers to create cutting-edge GUI smart hardware products.**
 
-<iframe width="560" height="315" src="https://www.youtube.com/watch?v=_lB6Mu711Kg" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/_lB6Mu711Kg" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+
 The RA6M3 HMI board earned Standard LVGL board certification which means the users can be sure that it’s easy to use that board with LVGL and they can expect decent performance and quality.
 
 <img src="https://lvgl.io/assets/images/cert_standard.png" alt="Standard LVGL certificate for ESP Terminal 3.5">
