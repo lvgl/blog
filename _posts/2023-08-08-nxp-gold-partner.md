@@ -5,7 +5,7 @@ author: "kisvegabor"
 cover: /assets/nxp_partner/gold_cover.png
 ---
 
-**It's been quite a journey. Now seems like a good time to think about where LVGL started and to feel proud of what we've done.**
+**It's been quite a journey! Now it seems like a good time to think about where LVGL started and to feel proud of what we've achieved. It will be a personal story from getting my first MCU to becoming an NXP Gold partner.**
 
 ## In the high school, my first MCU 
 All this started in high school where I was learning computer science. My younger brother studied electronics and it quickly turned out that I liked it as well. I remember back then how hard we were trying to understand how the transistors were working and couldn't imagine how it is possible that someone can design a working PCB. It just seemed impossible. Many transistors, capacitors, resistors, in seemingly random places... All this happened around 2006 when I was 16 years old.
