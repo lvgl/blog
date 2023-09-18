@@ -15,7 +15,7 @@ The RA6M3 HMI board earned Standard LVGL board certification which means the use
 
 ### Buy now
 
-You can order your RA6M3 HMI board by filling [this form](https://docs.google.com/forms/d/e/1FAIpQLSfGcS7HENxMaOib-a1NWe0SQI6m1aoNT1z6T2dEXSiGNXxqFw/viewform?pli=1). 
+You can order your RA6M3 HMI board in [RT-Thread's AliExpress store](https://www.aliexpress.com/item/1005006018922975.html?gps-id=pcStoreJustForYou&scm=1007.23125.137358.0&scm_id=1007.23125.137358.0&scm-url=1007.23125.137358.0&pvid=1084e197-288f-4cdd-9630-42fb3e31c586&_t=gps-id:pcStoreJustForYou,scm-url:1007.23125.137358.0,pvid:1084e197-288f-4cdd-9630-42fb3e31c586,tpp_buckets:668%232846%238112%231997&pdp_npi=4%40dis%21HUF%2112749.70%2112749.7%21%21%21251.46%21%21%402101f01816950332827763602eb4f7%2112000035348846779%21rec%21HU%21%21ABS&spm=a2g0o.store_pc_home.smartJustForYou_2006673320706.0). 
 
 <hr/>
 
