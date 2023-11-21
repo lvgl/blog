@@ -9,7 +9,7 @@ cover: /assets/monthly_newsletters/2023_november.png
 
 I would like to share some great things with you! 
 
-## v9 schedule
+## v9 Schedule
 
 I'm happy to share that everything is going according to plan with v9. 😊
 Here is our schedule for the last few weeks:
@@ -46,7 +46,7 @@ So, in summary, this device offers:
 
 All these features are packaged in a new, innovative design. If you'd like to try it out, you can grab one from [Espressif's AliExpress store](https://www.aliexpress.com/item/1005006169541505.html).
 
-![ESP32-S3-BOX-3](ESP32-S3-BOX-3.png)
+![ESP32-S3-BOX-3](/assets/monthly_newsletters/ESP32-S3-BOX-3.png)
 
 ## Balanced Robot from 100ask
 
