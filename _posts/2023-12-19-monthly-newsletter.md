@@ -17,7 +17,7 @@ The best ways to do it are using:
 
 - The [Eclipse PC project](https://github.com/lvgl/lv_port_pc_eclipse)
 - [GitHub Codespace](https://blog.lvgl.io/2023-04-13/monthly-newsletter) (Online VSCode IDE)
-- And, of course, if you can: try it out on embedded hardware. (See the updated [Porting guide](https://docs.lvgl.io/master/porting/disp.html))
+- And, of course, if you can: try it out on embedded hardware. (See the updated [Porting guide](https://docs.lvgl.io/master/porting/display.html))
 
 To iron out all the final issues before the release on January 15, **your feedback is very important**! So, if you find anything unusual, something is not working, LVGL crashes, there is a regression in performance, or something is not obvious, please write to us. No matter what, how, or when, just share your experience with us. We read every email and GitHub issue. You can even reply to this email! 
  
