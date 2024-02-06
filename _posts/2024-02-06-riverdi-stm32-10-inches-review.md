@@ -12,7 +12,7 @@ cover: /assets/cover_cert_standard.webp
 The STM32 Embedded 10.1" display board earned Standard LVGL board certification which ensures that the device has a decent performance and quality..
 
 
-<img src="https://lvgl.io/assets/images/cert_standard.png" alt="Standard LVGL certificate for Riverdi STM32 Embedded 10.1" display">
+<img src="https://lvgl.io/assets/images/cert_standard.png" alt="Standard LVGL certificate for Riverdi STM32 Embedded 10.1 display">
 
 ### Buy now
 
@@ -37,7 +37,7 @@ You can purchase the STM32 Embedded 10.1" display from various sources:
 
 - **Resolution** 1280x800
 - **Display size** 10.1"
-- **Interfase** LVDS
+- **Interface** LVDS
 - **Color depth** 24bit
 - **Technology** IPS
 - **DPI** 150 px/inch
@@ -85,7 +85,7 @@ The 8MB external RAM is also capable of supporting two 32-bit frame buffers. The
 ### Display
 This board comes with an IPS display so it has amazing viewing angles and brightness too. 
 
-![Viewing angles of the STM32 Embedded 10.1" display](/assets/cert_STM32_embedded_10/display.jpg)
+![Viewing angles of the STM32 Embedded 10.1" display](/assets/cert_riverdi_STM32_embedded_10/display.webp)
 
 ### Touchpad
 

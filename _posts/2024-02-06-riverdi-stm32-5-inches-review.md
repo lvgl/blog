@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Riverdi RVT50HQSNWC00-B 5-inch STM32 Embedded Display with Capacitive Touch Panel - board certification review
+title: Riverdi STM32 Embedded 5.0" display - board certification review
 author: "kisvegabor"
 cover: /assets/cover_cert_gold.webp
 ---
@@ -12,7 +12,7 @@ cover: /assets/cover_cert_gold.webp
 The Riverdi STM32 Embedded 5.0" display board earned Professional LVGL board certification which means users can use it to create amazing user interfaces without worrying about performance and quality.
 
 
-<img src="https://lvgl.io/assets/images/cert_professional.png" alt="Professional LVGL certificate for Riverdi 5" STM32 Embedded Display">
+<img src="https://lvgl.io/assets/images/cert_pro.png" alt="Professional LVGL certificate for Riverdi 5 STM32 Embedded Display">
 
 ### Buy now
 
@@ -21,7 +21,7 @@ You can purchase the Riverdi STM32 Embedded 5.0" display from various sources:
 - [Riverdi's website](https://riverdi.com/product/5-inch-lcd-display-capacitive-touch-panel-optical-bonding-uxtouch-stm32u5-rvt50hqsnwc00-b)
 - [Mouser](https://www2.mouser.com/ProductDetail/Riverdi/RVT50HQSNWC00-B?qs=17ckDYBRdekaIIA5WqJAmw%3D%3D)
 - [TME](https://www.tme.com/us/en-us/details/sm-rvt50hqsnwc00-b/intelligent-displays-modules/riverdi/) 
-
+- [DigiKey](https://www.digikey.pl/pl/products/detail/riverdi/SM-RVT50HQSNWC00-B/22077604?s=N4IgTCBcDaIEoDUAqBWADACQIoGUByA6gMJpoC0AQiALoC%2BQA)
 <hr/>
 
 ## Specification
@@ -82,7 +82,7 @@ The board is very compact and it feels robust. It also looks professional. The d
 
 This board comes with an IPS display so it has very good viewing angles. The display is also exceptionally bright.
 
-![Viewing angles of the STM32 Embedded 5.0" display](/assets/cert_riverdi_STM32_embedded_5/display.jpg)
+![Viewing angles of the STM32 Embedded 5.0" display](/assets/cert_riverdi_STM32_embedded_5/display.webp)
 
 ### Touchpad
 
