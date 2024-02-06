@@ -31,13 +31,13 @@ You can purchase the STM32 Embedded 7.0" display from various sources:
 - **MCU** STM32H757XIH6 (Cortex-M7 + M4 core, 480MHz)
 - **RAM** 1MB internal, 8MB external (32 bit access)
 - **Flash** 2MB internal, 64MB external flash
-- **GPU** Chrom-Art (DMA2D)
+- **GPU** Chrom-ART (DMA2D)
 
 ### Display
 
 - **Resolution** 1024x600
 - **Display size** 7"
-- **Interfase** MIPI
+- **Interface** MIPI
 - **Color depth** 24bit
 - **Technology** IPS
 - **DPI** 170 px/inch
@@ -68,7 +68,7 @@ As you can see from the video it's clear that you won't have any issues with per
 
 We have measured a stable 33 FPS with ~50% CPU load. Even in the case of the jumping strides the CPU usage peaked at about 60%.
 
-In the video a very simple yet effective buffering strategy was used. There is a single frame buffer, 60 lines of draw buffer for LVGL, and DMA2D (Chorma Art) is used to copy the rendered image from the draw buffer to the frame buffer.
+In the video a very simple yet effective buffering strategy was used. There is a single frame buffer, 60 lines of draw buffer for LVGL, and DMA2D (Chrom-ART) is used to copy the rendered image from the draw buffer to the frame buffer.
 
 ### Memory
 
