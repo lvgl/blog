@@ -11,7 +11,7 @@ cover: /assets/cover_cert_gold.webp
 
 The Renesas EK-RA8D1 board has earned the Professional LVGL Board Certification. This means users can create impressive user interfaces without worrying about performance and quality.
 
-<img src="https://lvgl.io/assets/images/cert_professional.png" alt="Professional LVGL certificate for Renesas EK-RA8D1" style="display:block;">
+<img src="https://lvgl.io/assets/images/cert_pro.png" alt="Professional LVGL certificate for Renesas EK-RA8D1" style="display:block;">
 
 ### Buy Now
 
@@ -79,7 +79,7 @@ The board's substantial amount of external RAM and flash makes it an excellent c
 ### Display
 The board features an IPS display, offering exceptional viewing angles and brightness. 
 
-![Viewing angles of the Renesas EK-RA8D1](/assets/cert_renesas_rA8d1/display.webp)
+![Viewing angles of the Renesas EK-RA8D1](/assets/cert_renesas_ra8d1/display.webp)
 
 ### Touchpad
 
@@ -107,10 +107,3 @@ What truly sets the EK-RA8D1 apart is its seamless integration with LVGL, which 
 Moreover, the continuous support and updates provided through our partnership with Renesas make this board a reliable choice for developers. Whether it's for advanced networking, AI-related projects, or any innovative embedded system application, the Renesas EK-RA8D1 board is undoubtedly a top-tier choice. Its performance in our benchmarks, especially with LVGL v9, showcases its capability to handle complex tasks with ease while maintaining efficiency.
 
 In conclusion, the Renesas EK-RA8D1 board is a testament to the innovation and quality that Renesas brings to the table. Its compatibility with LVGL, robust features, and exceptional performance makes it an ideal choice for developers looking to push the boundaries of what's possible in embedded systems.
-
-
-
-
-
-
-
