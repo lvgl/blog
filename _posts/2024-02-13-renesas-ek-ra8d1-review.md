@@ -15,8 +15,7 @@ The Renesas EK-RA8D1 board has earned the Professional LVGL Board Certification.
 
 ### Buy Now
 
-You can purchase the Renesas EK-RA8D1 board from various sources:
-- [List of sources]
+You can purchase the Renesas EK-RA8D1 board from many distributors. See the sources at [https://renesas.com/ek-ra8d1](https://renesas.com/ek-ra8d1).
 
 <hr/>
 
