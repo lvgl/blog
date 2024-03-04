@@ -25,7 +25,7 @@ cover: /assets/hiring-maintainer/cover.png
 - Experience with Git and other version control systems.
 - Experience with documentation tools and writing technical content
 
-## Offering
+## Benefits
 
 - Full remote work
 - Flexible working hours
