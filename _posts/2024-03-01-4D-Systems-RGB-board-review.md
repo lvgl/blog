@@ -61,21 +61,20 @@ https://4dsystems.com.au/product-category/intelligent-display-modules/gen4-esp32
 
 ## Performance
 
-The ESP32-S3 is a high performance microcontroller with two Xtensa RISC cores running at up to 240MHz. It has a decent graphics performance even without a dedicated GPU. The display is connected via the RGB interface of the ESP32-S3, which is in theory faster than the SPI interface, however, it needs a frame buffer in the memory of the microcontroller. Since the internal SRAM of the ESP32-S3 is not enough for a full framebuffer at this resolution, the frame buffer must be allocated in the external PSRAM. PSRAM is, however, it's rather slow, compared to the internal memory, which leads to a reduced performance.
+The ESP32-S3 is a high performance microcontroller with two Xtensa RISC cores running at up to 240MHz. It has a decent graphics performance even without a dedicated GPU. The display is connected via the RGB interface of the ESP32-S3, which is in theory faster than the SPI interface, however, it needs a frame buffer in the memory of the microcontroller. Since the internal SRAM of the ESP32-S3 is not enough for a full framebuffer at this resolution, the frame buffer must be allocated in the external PSRAM. PSRAM is, however, it is rather slow, compared to the internal memory, which leads to a reduced performance.
 
 Another disadvantage of the RGB interface is that it requires more GPIO pins – thus there are fewer GPIOs available for interfacing to external hardware. To solve this problem 4D Systems added an IO extender to this board.
 
-The display does not use TE (VSync) synchronization, which causes visible artifacts (tearing) during refresh (e.g., in the colored screen, colored rectangles tests). This is especially prominent in portrait mode, because it is different from the physical orientation (scan direction) of the screen.
-
-The FSP dropped only when full screen refresh was performed with a lot of widgets. 
+The display does not use VSync synchronization, which may cause visible artifacts (tearing) during refresh (for example, in the colored screen, colored rectangles tests). This is especially prominent in portrait mode, because it is different from the physical orientation (scan direction) of the screen. 
+On the other hand, the display looks very sharp and detailed.
 
 ### Frame rate (FPS)
 
 Since the release of LVGL v9 in February 2024 we use the "Benchmark Demo" test for board certification instead of the "Music Demo". This is a suite of various basic widget test. This benchmark gives a more in-depth view of the performance of individual widgets than the Music Demo. Please note that this benchmark depends heavily on the resolution of the screen, so comparing different displays only by looking at the FPS may be misleading.
 
-Using the 9.0.1 release of LVGL we have measured an average of 12 FPS with this board. The Widget Demo test ran at 8 FPS. The most difficult test are the "Rotated ARGB images", which ran at only 3 FPS, and the "Screen sized text", which ran at 6 FPS. Other then these, for more common use cases you can expect a decent percormance.
+Using the 9.0.1 release of LVGL we have measured an average of 21 FPS with this board, which is quite good for this size of screen. The Widget Demo test ran at 13 FPS. The most difficult test are the "Rotated ARGB images", which ran at only 3 FPS, and the "Screen sized text", which ran at 7 FPS.
 
-The display driver was configured in "partial" mode. It means, if only a small area changes on the screen, only that small area will be updated. So for example if a button is pressed, or a slider is adjusted the rendering time is very low.
+The display driver was configured in "partial" mode with two 1/8 screen sized buffers. In partial mode when only a small area changes on the screen, only that small area will be updated. This makes the rendering very fast, and saves precious memory at the same time.
 
 ### Memory
 
@@ -87,13 +86,13 @@ The board has 8MB Octal SPI PSRAM, which can be used for even a full screen size
 
 ### Display
 
-This particular board uses an IPS display with a reasonable brightness, therefore the viewing angles are also good. There is some visible darkening from the side, but the colors are not affected.
+This particular board uses an IPS display, therefore the viewing angles are good. The brightness is good as well, and the colors are vivid. There is some visible darkening from the side, but the colors are not affected.
 
 ![Viewing angles of the 4D Systems gen4-ESP32-50CT 5.0" display](/assets/cert_xxx/display.jpg)
 
 ### Touchpad
 
-The 4D Systems gen4-ESP32-50CT board comes with a rather responsive capacitive touch screen. During our evaluation the touch screen was very accurate and we haven't found any issues with it.
+The 4D Systems gen4-ESP32-50CT board comes with a quite responsive capacitive touch screen. During our evaluation the touch screen was very accurate and we haven't found any issues with it.
 
 ### Robustness
 
@@ -104,17 +103,16 @@ This board looks impressive with the tiny SMD components. It has a solid frame m
 Although 4D Systems provides their own IDE for their HMI products, called Workshop4 IDE, apparently this does not yet fully support their ESP32-based boards. Instead, they provided me with an Arduino project for testing. They have also implemented a driver library for the gen4-ESP32 boards, called GFX4dESP32. This can be installed from withing the Arduino IDE, and it includes a []display/touch driver](https://github.com/4dsystems/GFX4dESP32) as well.
 
 
-Configuring the board was fairly easy, although the Arduino environment has a number of quirks. I would have preferred an ESP-IDF-based solution too.
+Configuring the board was fairly easy, although the Arduino environment has a number of quirks.
 
-Note: At the time of writing the board did not work correctly with the latest esp32 Arduino core, so I had to downgrade to the 2.0.13 version.
+It is also possible to use Espressif's ESP-IDF 5.2 framework, which is a better choice for serious development, although it has a steeper initial learning curve.
 
 4D Systems provides a lot of useful information [here](https://resources.4dsystems.com.au/manuals/workshop4/esp32/).
 
-
-The board can be programmed via its USB-C interface from within the Arduino IDE. 4D Systems also sent me a 4D-UPA universal programmer board, which can be used to program the ESP32-S3 via UART, but I did not use this. Unfortunately I did not find a JTAG connector on the board, although it would be useful for debugging, especially if the USB port was used for custom purposes.
+The board can be programmed via its USB-C interface from within the Arduino IDE or from the Eclipse-based Espressif-IDE. 4D Systems also sent me a 4D-UPA universal programmer board, which can be used to program the ESP32-S3 via UART, but I did not use this. Unfortunately I did not find a JTAG connector on the board, although it would be useful for debugging, especially if the USB port was used for custom purposes.
 
 ## Conclusion
 
-The 4D Systems gen4-ESP32-50CT board offers a good quality screen, a bit hampered by the rather slow memory used as the frame buffer. Software support is still in its infancy, but the board can be used with the Arduino environment.
+The 4D Systems gen4-ESP32-50CT board offers a good quality screen, a bit hampered by the rather slow memory used as the frame buffer. Software support is good. 4D Systems supports several development environments.
 
-The board has lot of GPIO pins for interfacing to external hardware. It is a solid, simple to install, nice board. The ESP32-S3 is a very capable microcontroller, which can do much more than just running the GUI. Unfortunately its graphical performance is a little bit limited by the slow external PSRAM.
+The board has lot of GPIO pins for interfacing to external hardware. It is a solid, simple to install, nice board. The ESP32-S3 is a very capable microcontroller, which can do much more than just running the GUI. Unfortunately its graphical performance is a little limited by the slow external PSRAM, but for a UI with little of no animation it works well.
