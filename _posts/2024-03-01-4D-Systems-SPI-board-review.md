@@ -8,7 +8,7 @@ cover: /assets/cover_cert_standard.webp
 **The [gen4 – ESP32 series](https://4dsystems.com.au/product-category/intelligent-display-modules/gen4-esp32-display-modules/) of modules Designed and Manufactured by 4D Systems range from 2.4" to 3.5" display sizes with resolutions from 240x320 to 320x480 offering an SPI Interface between the screen and the ESP32-S3R8 Processor. Available in Non-Touch, Capacitive Touch, and Capacitive Touch with Cover Lens Bezel (CLB). The ESP32-S3R8 Processor makes available multiple GPIO which include UART, SPI, I2C, PWM, and Analog functionality, while also serving interfaces for the LCD Touch screen, Quad SPI Flash, microSD Card, and Native USB-C. The user interface to the gen4-ESP32 series is a 30-pin FPC/ZIF socket, designed for a 30-way 0.5mm pitch FFC cable, for easy and simple connection to an application or motherboard, or for connecting to accessory boards for a range of functionality advancements.**
 
 
-<iframe width="560" height="315" src="https://www.youtube.com/embed/KBP-5gL0S0g" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/XXXXXXXX" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
 
 The 4D Systems gen4-ESP32-50CT board earned Standard LVGL board certification which means users can use it to create a graphical user interface with LVGL, albeit with some limitations.
 
