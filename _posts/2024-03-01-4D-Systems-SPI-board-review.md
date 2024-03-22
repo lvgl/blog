@@ -10,9 +10,9 @@ cover: /assets/cover_cert_standard.webp
 
 <iframe width="560" height="315" src="https://www.youtube.com/embed/KBP-5gL0S0g" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
 
-The 4D Systems gen4-ESP32-32CT board earned Professional LVGL board certification which means users can use it to create amazing user interfaces without worrying about performance and quality.
+The 4D Systems gen4-ESP32-50CT board earned Standard LVGL board certification which means users can use it to create a graphical user interface with LVGL, albeit with some limitations.
 
-<img src="https://lvgl.io/assets/images/cert_professional.png" alt="Professional LVGL certificate for 4D Systems gen4-ESP32-32CT board">
+<img src="https://lvgl.io/assets/images/cert_standard.png" alt="Standard LVGL certificate for 4D Systems gen4-ESP32-32CT">
 
 ### Buy now
 
