@@ -10,7 +10,7 @@ cover: /assets/cover_cert_standard.webp
 
 <iframe width="560" height="315" src="https://www.youtube.com/embed/XXXXXXXX" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
 
-The 4D Systems gen4-ESP32-50CT board earned Standard LVGL board certification which means users can use it to create a graphical user interface with LVGL, albeit with some limitations.
+The 4D Systems gen4-ESP32-32CT board earned Standard LVGL board certification which means users can use it to create a graphical user interface with LVGL, albeit with some limitations.
 
 <img src="https://lvgl.io/assets/images/cert_standard.png" alt="Standard LVGL certificate for 4D Systems gen4-ESP32-32CT">
 
@@ -59,7 +59,7 @@ https://4dsystems.com.au/product-category/intelligent-display-modules/gen4-esp32
 
 ## Performance
 
-The ESP32-S3 is a high performance microcontroller with two Xtensa RISC cores running at up to 240MHz. It has a decent graphics performance even without a dedicated GPU. The display is connected via SPI, which is adequate for lower resolutions and mostly static screens, however, it may struggle with full screen refresh or full screen scrolling. Since the internal SRAM is not enough for a full framebuffer, a partial buffer was used in the measurement.
+The ESP32-S3 is a high performance microcontroller with two Xtensa RISC cores running at up to 240MHz. It has decent graphics performance even without a dedicated GPU. The display is connected via SPI, which is adequate for lower resolutions and mostly static screens, however, it may struggle with full screen refresh or full screen scrolling. Since the internal SRAM is not enough for a full framebuffer, a partial buffer was used in the measurement.
 
 The display does not use TE (VSync) synchronization, which may cause visible artifacts (tearing) during refresh (e.g., in the colored screen, colored rectangles tests). This is especially prominent in landscape mode, because it is different from the physical orientation (scan direction) of the screen.
 
@@ -93,9 +93,9 @@ This board looks impressive with the tiny SMD components. It has a solid frame m
 
 ## Development
 
-Although 4D Systems provides their own IDE for their HMI products, called Workshop4 IDE, apparentlAlthough 4D Systems provides their own IDE for their HMI products, called Workshop4 IDE, apparently this does not yet fully support their ESP32-based boards. Instead, they provided me with an Arduino project for testing. They have also implemented a driver library for the gen4-ESP32 boards, called GFX4dESP32. This can be installed from withing the Arduino IDE, and it includes a []display/touch driver](https://github.com/4dsystems/GFX4dESP32) as well.
+4D Systems provides their own IDE for their HMI products called Workshop 4. The IDE fully supports the ESP32-based boards with its own drag & drop style of programming environment. 4D Systems also provides an []display/touch driver](https://github.com/4dsystems/GFX4dESP32) for Arduino.
 
-Configuring the board was fairly easy, although the Arduino environment has a number of quirks.
+Configuring the board in Arduino IDE was fairly easy, although the Arduino environment has a number of quirks.
 
 It is also possible to use Espressif's ESP-IDF 5.2 framework, which is a better choice for serious development, although it has a steeper initial learning curve.
 
@@ -105,6 +105,6 @@ The board can be programmed via its USB-C interface from within the Arduino IDE 
 
 ## Conclusion
 
-The 4D Systems gen4-ESP32-32CT board offers a relatively low-cost entry into developing a graphical user interface for a product. Software support is good. 4D Systems supports several development environments.
+The 4D Systems gen4-ESP32-32CT board offers a relatively low-cost entry into developing a graphical user interface for a product.  4D Systems supports several development environments including Arduino and ESP-IDF.
 
 The TN screen is OK for low-cost products, although I'd prefer an IPS screen (note that 4D Systems does offer various boards with IPS screen as well). The board has lot of GPIO pins for interfacing to external hardware. It is a solid, simple to install, nice board. The ESP32-S3 is a very capable microcontroller, which can do much more than just running the GUI.

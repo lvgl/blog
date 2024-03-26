@@ -61,15 +61,15 @@ https://4dsystems.com.au/product-category/intelligent-display-modules/gen4-esp32
 
 ## Performance
 
-The ESP32-S3 is a high performance microcontroller with two Xtensa RISC cores running at up to 240MHz. It has a decent graphics performance even without a dedicated GPU. The display is connected via the RGB interface of the ESP32-S3, which is in theory faster than the SPI interface, however, it needs a frame buffer in the memory of the microcontroller. Since the internal SRAM of the ESP32-S3 is not enough for a full framebuffer at this resolution, the frame buffer must be allocated in the external PSRAM. The PSRAM is connected to the processor via an octal SPI serial port which is much slower than the internal memory. This affects the performance, especially where the whole screen must be updated in every frame.
+The ESP32-S3 is a high performance microcontroller with two Xtensa RISC cores running at up to 240MHz. It has decent graphics performance even without a dedicated GPU. The display is connected via the RGB interface of the ESP32-S3, which is faster than the SPI interface, however, it needs a frame buffer in the memory of the microcontroller. Since the internal SRAM of the ESP32-S3 is not enough for a full framebuffer at this resolution, the frame buffer must be allocated in the external PSRAM. The PSRAM is connected to the processor via an octal SPI serial port which is much slower than the internal memory. This affects the performance, especially where the whole screen must be updated in every frame.
 
-Another disadvantage of the RGB interface is that it requires quite a lot of GPIO pins – thus there are fewer GPIOs available for interfacing to external hardware. To solve this problem 4D Systems added an I2C IO extender to this board.
+The RGB interface requires quite a lot of GPIO pins, thus there are fewer GPIOs available for interfacing to external hardware. To solve this problem 4D Systems added an I2C IO extender to this board.
 
 ### Frame rate (FPS)
 
 Since the release of LVGL v9 in February 2024 we use the "Benchmark Demo" test for board certification instead of the "Music Demo". This is a suite of various basic widget test. This benchmark gives a more in-depth view of the performance of individual widgets than the Music Demo. Please note that this benchmark depends heavily on the resolution of the screen, so comparing different displays only by looking at the FPS may be misleading.
 
-Using the 9.0.1 release of LVGL we have measured an average of 22 FPS with this board, which is quite good for this size of screen. The Widget Demo test ran at 14 FPS. The most difficult test are the "Rotated ARGB images", which ran at only 4 FPS, and the "Screen sized text", which ran at 11 FPS.
+Using the 9.1.0 release of LVGL we have measured an average of 22 FPS with this board, which is quite good for this size of screen. The Widget Demo test ran at 14 FPS. The most difficult test are the "Rotated ARGB images", which ran at only 4 FPS, and the "Screen sized text", which ran at 11 FPS.
 
 The display driver was configured in "direct" mode with two full screen sized buffers allocated in PSRAM. The benchmark used VSync synchronization to avoid tearing.
 
@@ -83,7 +83,7 @@ The board has 8MB Octal SPI PSRAM, which is large enough to allocate two full sc
 
 ### Display
 
-This particular board uses an IPS display, therefore the viewing angles are good and the colors are vivid. The brightness is good as well. There is some visible darkening from the side, but the colors are not affected.  Overall, the display looks very sharp and detailed.
+This particular board uses an IPS display, therefore the viewing angles are good and the colors are vivid. The 475 nits specified brightness is above the average. There is some visible darkening from the side, but the colors are not affected.  Overall, the display looks very sharp and detailed.
 
 ![Viewing angles of the 4D Systems gen4-ESP32-50CT 5.0" display](/assets/cert_xxx/display.jpg)
 
@@ -97,9 +97,9 @@ This board looks impressive with the tiny SMD components. It has a solid frame m
 
 ## Development
 
-Although 4D Systems provides their own IDE for their HMI products, called Workshop4 IDE, at the time of writing this did not yet fully support their ESP32-based boards. Instead, 4D Systems provided me with an Arduino project for testing. They have also implemented a driver library for the gen4-ESP32 boards, called GFX4dESP32. This can be installed from withing the Arduino IDE, and it includes a []display/touch driver](https://github.com/4dsystems/GFX4dESP32) as well.
+4D Systems provides their own IDE for their HMI products called Workshop 4. The IDE fully supports the ESP32-based boards with its own drag & drop style of programming environment. 4D Systems also provides an []display/touch driver](https://github.com/4dsystems/GFX4dESP32) for Arduino.
 
-Configuring the board was fairly easy, although the Arduino environment has a number of quirks.
+Configuring the board in Arduino IDE was fairly easy, although the Arduino environment has a number of quirks.
 
 It is also possible to use Espressif's ESP-IDF 5.2 framework, which is a better choice for serious development, although it has a steeper initial learning curve.
 
@@ -109,6 +109,6 @@ The board can be programmed via its USB-C interface from within the Arduino IDE 
 
 ## Conclusion
 
-The 4D Systems gen4-ESP32-50CT board offers a good quality, high resolution screen, a bit hampered by the slow PSRAM memory. Software support is good. 4D Systems supports several development environments.
+The 4D Systems gen4-ESP32-50CT board offers a good quality, high resolution IPS screen with an integrated ESP32-S3 dual-core processor. The ESP32-S3 can do much more than just running the GUI, although its graphical performance is a little limited by the slow external PSRAM. The board has lot of GPIO pins for interfacing to external hardware.
 
-The board has lot of GPIO pins for interfacing to external hardware. It is a solid, simple to install, nice board. The ESP32-S3 is a very capable microcontroller, which can do much more than just running the GUI. The boards has Wi-Fi/BLE connection as well, making it ideal for an IoT project.
+Software support is good. 4D Systems provides examples for both Arduino and ESP-IDF.
