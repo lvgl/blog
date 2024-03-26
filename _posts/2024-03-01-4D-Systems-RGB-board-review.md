@@ -97,7 +97,7 @@ This board looks impressive with the tiny SMD components. It has a solid frame m
 
 ## Development
 
-4D Systems provides their own IDE for their HMI products called Workshop 4. The IDE fully supports the ESP32-based boards with its own drag & drop style of programming environment. 4D Systems also provides an []display/touch driver](https://github.com/4dsystems/GFX4dESP32) for Arduino.
+4D Systems provides their own IDE for their HMI products called Workshop 4. The IDE fully supports the ESP32-based boards with its own drag & drop style of programming environment. 4D Systems also provides an [display/touch driver](https://github.com/4dsystems/GFX4dESP32) for Arduino.
 
 Configuring the board in Arduino IDE was fairly easy, although the Arduino environment has a number of quirks.
 
