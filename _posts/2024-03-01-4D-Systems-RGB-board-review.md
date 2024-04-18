@@ -8,12 +8,11 @@ cover: /assets/cover_cert_standard.webp
 **The [gen4 – ESP32](https://4dsystems.com.au/product-category/intelligent-display-modules/gen4-esp32-display-modules/) series of modules Designed and Manufactured by 4D Systems range from 4.3" to 9" display sizes with a resolution of 800x480 offering an RGB Interface between the screen and the ESP32-S3R8 Processor. Available in Non-Touch, Resistive Touch, Capacitive Touch, and Capacitive Touch with Cover Lens Bezel (CLB). The ESP32-S3R8 Processor makes available multiple GPIO which include UART, SPI, I2C, PWM, and Analog functionality, while also serving interfaces for the LCD Touch screen, Quad SPI Flash, microSD Card, and Native USB-C. The user interface to the gen4-ESP32 series is a 30-pin FPC/ZIF socket, designed for a 30-way 0.5mm pitch FFC cable, for easy and simple connection to an application or motherboard, or for connecting to accessory boards for a range of functionality advancements.**
 
 
+<iframe width="560" height="315" src="https://www.youtube.com/embed/af4orz9v7Bc?si=Z_3P-WW07Soz1dGR" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
 
-<iframe width="560" height="315" src="https://www.youtube.com/embed/KBP-5gL0S0g" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+The 4D Systems gen4-ESP32-50CT board has earned the Professional LVGL Board Certification. This means users can create impressive user interfaces without worrying about performance and quality.
 
-The 4D Systems gen4-ESP32-50CT board earned Standard LVGL board certification which means users can use it to create a graphical user interface with LVGL, albeit with some limitations.
-
-<img src="https://lvgl.io/assets/images/cert_standard.png" alt="Standard LVGL certificate for 4D Systems gen4-ESP32-50CT board">
+<img src="https://lvgl.io/assets/images/cert_pro.png" alt="Professional LVGL certificate for gen4-ESP32-50CT" style="display:block;">
 
 ### Buy now
 
