@@ -84,7 +84,7 @@ The board has 8MB Octal SPI PSRAM, which is large enough to allocate two full sc
 
 This particular board uses an IPS display, therefore the viewing angles are good and the colors are vivid. The 475 nits specified brightness is above the average. There is some visible darkening from the side, but the colors are not affected.  Overall, the display looks very sharp and detailed.
 
-![Viewing angles of the 4D Systems gen4-ESP32-50CT 5.0" display](/assets/cert_xxx/display.jpg)
+![Viewing angles of the 4D Systems gen4-ESP32-50CT 5.0" display](/assets/cert-4D-Systems-RGB-board/display.webp)
 
 ### Touchpad
 
