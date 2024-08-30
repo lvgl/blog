@@ -1,10 +1,8 @@
 ---
-
 layout: post  
 title: Benchmarking Compilers on a Cortex-M85 MCU with the SIMD Helium Instruction Set  
 author: "kisvegabor"  
 cover: /assets/cm85-benchmark/cover.png
-
 ---
 
 **Have you heard about the Helium instruction set in Cortex-M52, M55, and M85 MCUs? Helium is a SIMD (Single Instruction Multiple Data) instruction set that allows executing the same instruction on multiple data points in a single clock cycle. This is particularly advantageous for UI-related tasks where thousands of pixels need to be filled or blended efficiently. Let’s explore how different compilers can utilize this powerful instruction set!**
@@ -68,5 +66,5 @@ So, what do the results tell us?
 
 Rendering times were around 10 ms across all configurations on a 480x854 screen. This indicates that even without a GPU, software rendering on this MCU is sufficiently fast for most use cases.
 
-This suggests that MCUs, even those designed for non-UI applications (e.g., motor control), can effectively drive screens with higher resolutions and rich graphics. To maximize the performance of your MCU, you can switch to LLVM and add Arm2D, which is available for free. For those needing even more performance, Arm's commercial Ac6 compiler is an excellent option. ([Evaluation version](https://docs.lvgl.io/master/integration/chip/arm.html#getting-started-with-ac6) available.)
+This suggests that MCUs, even those designed for non-UI applications (e.g., motor control), can effectively drive screens with higher resolutions and rich graphics. To maximize the performance of your MCU, you can switch to LLVM and add Arm2D, which are available for free. For those needing even more performance, Arm's commercial Ac6 compiler is an excellent option. ([Evaluation version](https://docs.lvgl.io/master/integration/chip/arm.html#getting-started-with-ac6) available.)
 
