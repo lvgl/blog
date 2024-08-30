@@ -2,7 +2,7 @@
 layout: post  
 title: Benchmarking Compilers on a Cortex-M85 MCU with the SIMD Helium Instruction Set  
 author: "kisvegabor"  
-cover: /assets/cm85/cover.png
+cover: /assets/cm85-benchmark/cover.png
 
 ---
 
@@ -52,7 +52,7 @@ LVGL was slightly modified to measure rendering times with 0.1 ms precision inst
 
 The following chart shows the differences in average rendering times using the LVGL benchmark demo:
 
-![Benchmark results in various configurations](/assets/chart.png)
+![Benchmark results in various configurations](/assets/cm85-benchmark/chart.png)
 
 So, what do the results tell us?
 
