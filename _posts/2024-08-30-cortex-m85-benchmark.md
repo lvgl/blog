@@ -1,7 +1,7 @@
 ---
-layout: post  
-title: Benchmarking Compilers on a Cortex-M85 MCU with the SIMD Helium Instruction Set  
-author: "kisvegabor"  
+layout: post
+title: Benchmarking Compilers on a Cortex-M85 MCU with the SIMD Helium Instruction Set
+author: "kisvegabor"
 cover: /assets/cm85-benchmark/cover.png
 ---
 
