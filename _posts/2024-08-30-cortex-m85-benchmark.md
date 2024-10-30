@@ -35,7 +35,7 @@ We tested the Helium instruction set on a [Renesas EK-RA8D1](https://www.renesas
 During the benchmark, we tested GCC, LLVM, and Ac6 compilers in various configurations. Ready-to-use LVGL projects for the Renesas EK-RA8D1 with each compiler can be found at the following links:
 - [GCC Project](https://github.com/lvgl/lv_port_renesas_ek-ra8d1_gcc)
 - [LLVM Project](https://github.com/lvgl/lv_port_renesas_ek-ra8d1_llvm)
-- [Ac6 Project](https://github.com/lvgl/lv_port_renesas_ek-ra8d1_ac6)
+- [Ac6 Project](https://github.com/lvgl/lv_port_renesas_ek-ra8d1_ac6_arm2d)
 
 ### LVGL
 
